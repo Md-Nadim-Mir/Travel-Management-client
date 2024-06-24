@@ -14,9 +14,10 @@ const Navbar = () => {
 
 
     return (
-        <div>
-            
-            <div className="navbar bg-base-100">
+
+<div className="border-b-2 mb-2">
+{/* fixed shadow-xl max-w-7xl rounded-lg */}
+<div className="navbar bg-base-100 ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -41,17 +42,17 @@ const Navbar = () => {
        }
       </ul>
     </div>
-    <NavLink to='/' className="md:text-base font-bold">Travel</NavLink>
+    <NavLink to='/' className="md:text-base font-bold ">Travel</NavLink>
   </div>
   <div className="navbar-center hidden lg:flex text-xl">
-    <ul className="menu menu-horizontal px-1 text-base font-bold">
+    <ul className="menu menu-horizontal px-1 text-base font-bold ">
        {
          links
        }
     </ul>
   </div>
-  <div className="navbar-end">
-    <NavLink  to='/register' className="btn md:text-base text-md">Register</NavLink>
+  <div className="navbar-end ">
+    <NavLink  to='/register' className="btn bg-[#4ea7b3]  font-bold md:text-base text-md ">Register</NavLink>
   </div>
 </div>
         </div>

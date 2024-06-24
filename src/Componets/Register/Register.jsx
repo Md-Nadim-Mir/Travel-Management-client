@@ -1,45 +1,87 @@
-import Navbar from "../Navbar/Navbar";
-
+import { Link } from "react-router-dom";
 
 const Register = () => {
-    return (
-        <div>
-            <Navbar></Navbar>
-            <div className="hero bg-base-200 min-h-screen">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
+
+  // form control
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="my-5 md:max-w-sm mx-auto">
+      <div className="border rounded-md p-5">
+        <form onSubmit={handleSubmit}>
+          {/* title */}
+          <h1 className=" md:text-[20px] font-bold my-6 px-10">
+            Create an account
+          </h1>
+
+          <div className="px-10 py-2 md:py-4">
+
+            {/* first name */}
+            <input
+              type="text"
+              name="firstName"
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              placeholder="First Name"
+              id=""
+            />
+
+            {/* last name */}
+            <input
+              type="text"
+              name="lastName"
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              placeholder="Last Name"
+              id=""
+            />
+
+            {/* email*/}
+            <input
+              type="email"
+              name="email"
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              placeholder="Email"
+              id=""
+            />
+
+            {/* password */}
+            <input
+              type="password"
+              name="password"
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              placeholder="Password"
+              id=""
+            />
+            {/* Confirm Password */}
+            <input
+              type="password"
+              name="confirmPassword"
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              placeholder="Confirm Password"
+              id=""
+            />
+
+            {/* button */}
+            <button className="btn bg-[#4ea7b3] w-full font-bold my-2">Create an account</button>
+
+            {/* Already have an account? Login */}
+            <h1 className="my-2 text-sm flex justify-center font-medium">Already have an account ?  <Link to='/login' className="font-bold ml-2 text-[#4ea7b3]">Login</Link></h1>
+          </div>
+        </form>
+      </div>
+
+         {/* or */}
+         <h1 className="my-5 font-bold text-base text-center">Or</h1>
+
+         <div>
+              <div>
+                  <h1>Continue with Facebook</h1>
+              </div>
+         </div>
+      
     </div>
-    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-      <form className="card-body">
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
-          <label className="label">
-            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary">Login</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-        </div>
-    );
+  );
 };
 
 export default Register;
