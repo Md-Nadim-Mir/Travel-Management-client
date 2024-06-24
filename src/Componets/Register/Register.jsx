@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import './Register.css'
 
 const Register = () => {
   // form control
@@ -9,8 +10,9 @@ const Register = () => {
   };
 
   return (
-    <div className="my-5 md:max-w-sm md:mx-auto mx-2">
-      <div className="border rounded-md p-5">
+    <div className="bgImage py-2 rounded-lg m-2 xl:m-0">
+      <div className="border my-5 md:max-w-sm md:mx-auto mx-2 py-2 shadow-2xl rounded-lg">
+      <div className=" rounded-md p-5">
         <form onSubmit={handleSubmit}>
           {/* title */}
           <h1 className=" md:text-[20px] font-bold my-6 px-10">
@@ -22,7 +24,7 @@ const Register = () => {
             <input
               type="text"
               name="firstName"
-              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
               placeholder="First Name"
               id=""
             />
@@ -31,7 +33,7 @@ const Register = () => {
             <input
               type="text"
               name="lastName"
-              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
               placeholder="Last Name"
               id=""
             />
@@ -40,7 +42,7 @@ const Register = () => {
             <input
               type="email"
               name="email"
-              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
               placeholder="Email"
               id=""
             />
@@ -49,7 +51,7 @@ const Register = () => {
             <input
               type="password"
               name="password"
-              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
               placeholder="Password"
               id=""
             />
@@ -57,7 +59,7 @@ const Register = () => {
             <input
               type="password"
               name="confirmPassword"
-              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full "
+              className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
               placeholder="Confirm Password"
               id=""
             />
@@ -69,13 +71,15 @@ const Register = () => {
 
             {/* Already have an account? Login */}
             <h1 className="my-2 text-xs md:text-sm flex justify-center font-bold md:font-medium">
-              Already have an account ?<Link to="/login" className="font-bold ml-1 text-[#4ea7b3]">
+              Already have an account ?<Link to="/login" className="font-bold ml-1 text-[#1f6d79]">
                 Login
               </Link>
             </h1>
           </div>
         </form>
       </div>
+
+    <hr className="text-[#e13232] px-2" />
 
       <div className="flex flex-col justify-center px-5">
         {/* or */}
@@ -94,6 +98,7 @@ const Register = () => {
           </div>  
     
       </div>
+    </div>
     </div>
   );
 };
