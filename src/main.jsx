@@ -3,20 +3,27 @@ import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
   RouterProvider,
+  Routes,
 } from "react-router-dom";
 import './index.css'
-import Home from './Componets/Home/Home';
+
 import Places from './Componets/Places/Places';
 import Packages from './Componets/Packages/Packages';
 import Blogs from './Componets/Blogs/Blogs';
 import Dashboard from './Componets/Dashboard/Dashboard';
+import Loop from './Componets/Loop/Loop';
+import Home from './Componets/Home/Home';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home></Home>,
+    element: <Loop></Loop>,
     children:[
+      {
+        path:'/',
+        element:<Home></Home>
+      },
       {
         path:'/places',
         element:<Places></Places>
