@@ -13,6 +13,7 @@ import Blogs from './Componets/Blogs/Blogs';
 import Dashboard from './Componets/Dashboard/Dashboard';
 import Loop from './Componets/Loop/Loop';
 import Home from './Componets/Home/Home';
+import Register from './Componets/Register/Register';
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
         
     ]
   },
+  {
+    path:'/register',
+    element:<Register></Register>
+  }
 ]);
 
 
