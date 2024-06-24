@@ -9,7 +9,7 @@ const Register = () => {
   };
 
   return (
-    <div className="my-5 md:max-w-sm mx-auto">
+    <div className="my-5 md:max-w-sm md:mx-auto mx-2">
       <div className="border rounded-md p-5">
         <form onSubmit={handleSubmit}>
           {/* title */}
@@ -68,9 +68,8 @@ const Register = () => {
             </button>
 
             {/* Already have an account? Login */}
-            <h1 className="my-2 text-sm flex justify-center font-medium">
-              Already have an account ?{" "}
-              <Link to="/login" className="font-bold ml-2 text-[#4ea7b3]">
+            <h1 className="my-2 text-xs md:text-sm flex justify-center font-bold md:font-medium">
+              Already have an account ?<Link to="/login" className="font-bold ml-1 text-[#4ea7b3]">
                 Login
               </Link>
             </h1>
