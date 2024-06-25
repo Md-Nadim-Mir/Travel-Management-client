@@ -9,7 +9,7 @@ import swal from "sweetalert";
 
 const Login = () => {
 
-  const {logIn , signInGoogle}=useContext(AuthContext);
+  const {logIn , signInGoogle , resetEmail}=useContext(AuthContext);
   const navigate = useNavigate();
   const emailRef=useRef(null);
 
@@ -60,6 +60,16 @@ const Login = () => {
            swal('Provide a valid email address');
            return;
        }
+
+       resetEmail(email)
+       .then(()=>{
+         
+           swal('','Please check your email address','success');
+       })
+       .catch(error=>{
+           console.log(error.message);
+           swal('Provide valid email');
+       })
 
 
   }
