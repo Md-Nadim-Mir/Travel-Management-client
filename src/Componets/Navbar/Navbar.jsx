@@ -1,5 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../../public/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 
 const Navbar = () => {
@@ -12,6 +15,21 @@ const Navbar = () => {
                <NavLink to='/dashboard'><li><a>Dashboard</a></li></NavLink>
 
 </>
+
+  const {user , logout}=useContext(AuthContext);
+
+
+  const handleLogout = ()=>{
+      console.log('log out successful');
+      
+      logout()
+      .then(()=>{
+        swal('','Logout Successful','success')
+      })
+      .catch((error)=>{
+         console.log(error.message)
+      })
+  }
 
 
     return (
@@ -56,7 +74,12 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end ">
-    <NavLink  to='/register' className="btn bg-[#4ea7b3]  font-bold md:text-base text-md ">Register</NavLink>
+    {
+      user ? 
+      <NavLink  onClick={handleLogout} className="btn bg-[#4ea7b3]  font-bold md:text-base text-md ">Logout</NavLink> 
+      :
+      <NavLink  to='/register' className="btn bg-[#4ea7b3]  font-bold md:text-base text-md ">Register</NavLink>
+    }
   </div>
 </div>
         </div>
