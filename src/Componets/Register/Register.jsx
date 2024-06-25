@@ -70,8 +70,8 @@ const Register = () => {
             </button>
 
             {/* Already have an account? Login */}
-            <h1 className="my-2 text-xs md:text-sm flex justify-center font-bold md:font-medium">
-              Already have an account ?<Link to="/login" className="font-bold ml-1 text-[#1f6d79]">
+            <h1 className="my-2 text-[10px] md:text-sm flex justify-center font-bold md:font-medium">
+              Already have an account ?<Link to="/login" className="font-bold ml-1 text-[black]">
                 Login
               </Link>
             </h1>
