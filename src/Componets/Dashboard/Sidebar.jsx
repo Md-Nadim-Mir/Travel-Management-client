@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
-import { FaHillRockslide, FaHotel, FaUsersGear } from "react-icons/fa6";
+import { FaHillRockslide, FaHotel, FaPersonRunning, FaUsersGear } from "react-icons/fa6";
 import { FcDocument, FcStatistics } from "react-icons/fc";
 import { IoDocument } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
@@ -29,7 +29,7 @@ const Sidebar = () => {
       </div>
 
       {/* sidebar link */}
-      <div className="flex flex-col gap-y-5 text-base font-bold px-5 py-12">
+      <div className="flex flex-col gap-y-6 text-base font-bold px-5 py-12">
 
         {/* statistics */}
         <div className=" flex pl-2 items-center gap-x-4">
@@ -66,6 +66,12 @@ const Sidebar = () => {
         <div className=" flex pl-2 items-center gap-x-4">
         <IoDocument  className="text-[#FFA500]" />
           <NavLink to="/dashboard/blogs">Blogs</NavLink>
+        </div>
+
+        {/* Upcoming Tour */}
+        <div className=" flex pl-2 items-center gap-x-4">
+        <FaPersonRunning  className="text-[#FFA500]" />
+          <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
         </div>
         
       </div>
