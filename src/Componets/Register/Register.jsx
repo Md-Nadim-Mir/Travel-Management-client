@@ -7,13 +7,13 @@ import swal from "sweetalert";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ImSpinner9 } from "react-icons/im";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, loading } = useContext(AuthContext);
+  const { createUser, loading, signInGoogle } = useContext(AuthContext);
 
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   // form control
   const handleSubmit = (e) => {
@@ -42,22 +42,41 @@ const Register = () => {
     console.log(name);
 
     createUser(email, password)
-    .then((result) => {
-      console.log(result.user);
+      .then((result) => {
+        console.log(result.user);
 
-      // email verify 
-      sendEmailVerification(result.user)
-      .then(()=>{
-        swal("Registration successful ! Please verify your email .");
-        navigate('/');
-        form.reset();
+        // email verify
+        sendEmailVerification(result.user).then(() => {
+          // swal("Registration successful ! Please verify your email .");
+          swal("Welcome !", "Registration successful ! Please verify your email .", "success");
+          navigate("/");
+          form.reset();
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  // googleSignUp
+
+  const googleSignUp = () => {
+    
+
+    signInGoogle()
+      .then((result) => {
+        console.log(result.user);
+
+        swal("Welcome !", "Registration successful !", "success");
+       
+
+        // go to home page
+        navigate("/");
       })
 
-    })
-    .catch((error) => {
-       console.log(error.message);
-    });
-
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -150,9 +169,14 @@ const Register = () => {
             </div>
 
             {/* connect google */}
-            <div className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
+            <div
+              onClick={googleSignUp}
+              className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1"
+            >
               <FcGoogle className="bg-[white] text-[#3076FF] text-[24px]"></FcGoogle>
-              <h1 className="font-medium text-[16px]">Continue with Google</h1>
+              <h1 className="font-medium text-[16px]">
+                Continue with Google
+              </h1>
             </div>
           </div>
         </div>
