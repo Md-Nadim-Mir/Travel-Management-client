@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   // form control
@@ -13,6 +14,9 @@ const Login = () => {
     <div className="bgImage py-2 rounded-lg m-2 xl:m-0">
       <div className="border my-5 md:max-w-sm md:mx-auto mx-2 py-2 shadow-2xl rounded-lg">
         <div className=" rounded-md p-5">
+        <Helmet>
+                <title>Travel | Login</title>
+            </Helmet>
           <form onSubmit={handleSubmit}>
             {/* title */}
             <h1 className=" md:text-[20px] font-bold my-6 px-10">Login</h1>
