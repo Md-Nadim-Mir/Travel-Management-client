@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
@@ -11,6 +11,8 @@ const Login = () => {
 
   const {logIn , signInGoogle , resetEmail}=useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+    const stay= location?.state?.from?.pathname || '/'
   const emailRef=useRef(null);
 
   // form control
@@ -33,7 +35,7 @@ const Login = () => {
      .then(result=>{
         console.log(result.user);
         swal("Welcome", "User login successfully!", "success");
-        navigate('/places')
+        navigate(stay , {replace:true});
         form.reset();
      })
      .catch(error=>{
@@ -86,7 +88,7 @@ const Login = () => {
        
 
         // go to home page
-        navigate("/packages");
+        navigate(stay , {replace:true});
       })
 
       .catch((error) => {

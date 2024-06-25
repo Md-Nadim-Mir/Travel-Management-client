@@ -15,6 +15,7 @@ import Register from "./Componets/Register/Register";
 import Login from "./Componets/Login/Login";
 import AuthProvider from "./Componets/AuthProvider/AuthProvider";
 import ErrorPage from "./Componets/ErrorPage/ErrorPage";
+import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -28,19 +29,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/places",
-        element: <Places></Places>,
+        element: <PrivateRoutes><Places></Places></PrivateRoutes>,
       },
       {
         path: "/packages",
-        element: <Packages></Packages>,
+        element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,
       },
       {
         path: "/Blogs",
-        element: <Blogs></Blogs>,
+        element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
       },
       {
         path: "/dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
       },
       {
         path: "/register",
