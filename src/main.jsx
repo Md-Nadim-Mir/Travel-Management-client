@@ -22,6 +22,7 @@ import BlogsUpadate from "./Componets/Dashboard/Components/BlogsUpadate";
 import PackagesUpdate from "./Componets/Dashboard/Components/PackagesUpdate";
 import Statistics from "./Componets/Dashboard/Components/Statistics";
 import HotelsUpdates from "./Componets/Dashboard/Components/HotelsUpdates";
+import UpcomingTour from "./Componets/Dashboard/Components/UpcomingTour";
 
 const router = createBrowserRouter([
   {
@@ -83,7 +84,11 @@ const router = createBrowserRouter([
         {
           path:'/dashboard/blogs',
           element:<BlogsUpadate></BlogsUpadate>
-        }
+        },
+        {
+          path:'/dashboard/upcoming-tour',
+          element:<UpcomingTour></UpcomingTour>
+        },
       ]
   }
 ]);

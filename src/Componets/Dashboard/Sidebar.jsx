@@ -1,16 +1,22 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
-import { FaHillRockslide, FaHotel, FaPersonRunning, FaUsersGear } from "react-icons/fa6";
+import {
+  FaHillRockslide,
+  FaHotel,
+  FaPersonRunning,
+  FaUsersGear,
+} from "react-icons/fa6";
 import { FcDocument, FcStatistics } from "react-icons/fc";
-import { IoDocument } from "react-icons/io5";
+import { IoDocument, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
+import { CgLogOut } from "react-icons/cg";
 
 const Sidebar = () => {
   return (
-    <div className="border-b-2 border-r-4 w-[350px] ">
+    <div className="  w-[350px] ">
       {/* logo and title */}
 
-      <div className=" bg-slate-300 border-b-2 mb-2  py-14 flex flex-col  items-center">
+      <div className=" bg-slate-300   py-14 flex flex-col  items-center">
         <div className="flex justify-center">
           <img src={logo} className="w-[70px] h-[70px] animate-bounce" alt="" />
         </div>
@@ -29,14 +35,12 @@ const Sidebar = () => {
       </div>
 
       {/* sidebar link */}
-      <div className="flex flex-col gap-y-6 text-base font-bold px-5 py-12">
-
+      <div className="bg-red-200 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
         {/* statistics */}
         <div className=" flex pl-2 items-center gap-x-4">
           <FcStatistics className="text-[#FFA500]" />
           <NavLink to="/dashboard/statistics">Statistics</NavLink>
         </div>
-
 
         {/* all users */}
         <div className=" flex pl-2 items-center gap-x-4">
@@ -58,23 +62,39 @@ const Sidebar = () => {
 
         {/* Travel Packages */}
         <div className=" flex pl-2 items-center gap-x-4">
-          <TbPackages  className="text-[#FFA500]" />
+          <TbPackages className="text-[#FFA500]" />
           <NavLink to="/dashboard/packages">Packages</NavLink>
         </div>
 
         {/* Blogs */}
         <div className=" flex pl-2 items-center gap-x-4">
-        <IoDocument  className="text-[#FFA500]" />
+          <IoDocument className="text-[#FFA500]" />
           <NavLink to="/dashboard/blogs">Blogs</NavLink>
         </div>
 
         {/* Upcoming Tour */}
         <div className=" flex pl-2 items-center gap-x-4">
-        <FaPersonRunning  className="text-[#FFA500]" />
+          <FaPersonRunning className="text-[#FFA500]" />
           <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
         </div>
-        
+
+        {/* profile */}
+        <div className=" flex pl-2 items-center gap-x-4">
+          <IoPersonCircle className="text-[#FFA500]" />
+          <NavLink to="">Profile</NavLink>
+        </div>
+
+
+        {/* Logout */}
+        <div className=" flex pl-2 items-center gap-x-4">
+          <CgLogOut className="text-[#FFA500]" />
+          <NavLink to="">Logout</NavLink>
+        </div>
+
+
       </div>
+
+     
     </div>
   );
 };
