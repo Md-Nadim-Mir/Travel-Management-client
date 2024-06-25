@@ -14,10 +14,12 @@ import Home from "./Componets/Home/Home";
 import Register from "./Componets/Register/Register";
 import Login from "./Componets/Login/Login";
 import AuthProvider from "./Componets/AuthProvider/AuthProvider";
+import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement:<ErrorPage></ErrorPage>,
     element: <Loop></Loop>,
     children: [
       {
