@@ -16,6 +16,12 @@ import Login from "./Componets/Login/Login";
 import AuthProvider from "./Componets/AuthProvider/AuthProvider";
 import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
+import Users from "./Componets/Dashboard/Components/Users";
+import PlacesUpdates from "./Componets/Dashboard/Components/PlacesUpadate";
+import BlogsUpadate from "./Componets/Dashboard/Components/BlogsUpadate";
+import PackagesUpdate from "./Componets/Dashboard/Components/PackagesUpdate";
+import Statistics from "./Componets/Dashboard/Components/Statistics";
+import HotelsUpdates from "./Componets/Dashboard/Components/HotelsUpdates";
 
 const router = createBrowserRouter([
   {
@@ -40,10 +46,6 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
       },
       {
-        path: "/dashboard",
-        element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
-      },
-      {
         path: "/register",
         element: <Register></Register>,
       },
@@ -53,6 +55,37 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    
+      path: "/dashboard",
+      element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+      children:[
+        {
+          path:'/dashboard/statistics',
+          element:<Statistics></Statistics>
+        },
+        {
+          path:'/dashboard/users',
+          element:<Users></Users>
+        },
+        {
+          path:'/dashboard/places',
+          element:<PlacesUpdates></PlacesUpdates>
+        },
+        {
+          path:'/dashboard/hotels',
+          element:<HotelsUpdates></HotelsUpdates>
+        },
+        {
+          path:'/dashboard/packages',
+          element:<PackagesUpdate></PackagesUpdate>
+        },
+        {
+          path:'/dashboard/blogs',
+          element:<BlogsUpadate></BlogsUpadate>
+        }
+      ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

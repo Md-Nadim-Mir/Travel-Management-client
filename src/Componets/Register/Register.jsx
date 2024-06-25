@@ -169,7 +169,7 @@ const Register = () => {
 
           <div className="flex flex-col justify-center px-5">
             {/* or */}
-            <h1 className="my-5 font-bold text-base text-center">Or</h1>
+            <h1 className="divider my-5 font-bold text-base text-center">Or</h1>
 
             {/* connect facebook */}
             <div className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
