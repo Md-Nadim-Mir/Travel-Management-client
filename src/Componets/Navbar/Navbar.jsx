@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import logo from '../../../public/logo.png'
 
 
 const Navbar = () => {
@@ -42,7 +43,10 @@ const Navbar = () => {
        }
       </ul>
     </div>
-    <NavLink to='/' className="md:text-base font-bold ">Travel</NavLink>
+    
+    <img className="w-1/4 block" src={logo} alt="" />
+    <NavLink to='/' className="md:text-base font-bold "><span className="md:text-2xl text-[orange] font-extrabold">Travel.</span><span className="md:text-2xl text-[#326fc5] font-extrabold">com</span></NavLink>
+
   </div>
   <div className="navbar-center hidden lg:flex text-xl">
     <ul className="menu menu-horizontal px-1 text-base font-bold ">
