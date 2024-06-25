@@ -1,25 +1,28 @@
 import banner1 from "../../../public/banner1.png";
-import bg from "../../../public/bg.jpg";
+import banner2 from "../../../public/banner2.jpg";
+import banner3 from "../../../public/banner3.jpg";
+import banner4 from "../../../public/banner4.jpg";
+
 
 const Banner = () => {
   return (
     <div className="m-2 xl:m-0">
       <div className="carousel w-full rounded-xl">
         <div id="item1" className="carousel-item w-full h-[70vh]">
-          <img src={banner1} className="w-full" />
+          <img src={banner3} className="w-full" />
         </div>
         <div id="item2" className="carousel-item w-full h-[70vh]">
-          <img src={bg} className="w-full" />
+          <img src={banner2} className="w-full" />
         </div>
         <div id="item3" className="carousel-item w-full h-[70vh]">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+            src={banner4} 
             className="w-full"
           />
         </div>
         <div id="item4" className="carousel-item w-full h-[70vh]">
           <img
-            src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+            src={banner1}
             className="w-full"
           />
         </div>
