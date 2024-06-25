@@ -1,13 +1,87 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
 import { Helmet } from "react-helmet-async";
+import { useContext, useRef } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const Login = () => {
+
+  const {logIn , signInGoogle}=useContext(AuthContext);
+  const navigate = useNavigate();
+  const emailRef=useRef(null);
+
   // form control
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const form = e.target;
+
+    const email = form.email.value;
+    const password = form.password.value;
+    
+    console.log(email,password);
+
+    if(password.length <6 ){
+      swal("Password must be 6 characters long");
+      return;
+    }
+
+    logIn(email,password)
+     .then(result=>{
+        console.log(result.user);
+        swal("Welcome", "User login successfully!", "success");
+        navigate('/places')
+        form.reset();
+     })
+     .catch(error=>{
+      swal('Email or Password does not match')
+       console.log(error.message);
+       return;
+     })
+
+    
+  };
+
+  // forgotPassword 
+  const forgotPassword=()=>{
+      console.log(emailRef.current.value);
+    
+       const email = emailRef.current.value;
+
+       if(!email){
+          swal('Provide a email address');
+          return;
+       }
+
+       else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)){
+           swal('Provide a valid email address');
+           return;
+       }
+
+
+  }
+
+  // google sign in 
+  const googleSignUp = () => {
+    
+
+    signInGoogle()
+      .then((result) => {
+        console.log(result.user);
+
+        swal("Welcome ", "Registration successful !", "success");
+       
+
+        // go to home page
+        navigate("/packages");
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -27,6 +101,7 @@ const Login = () => {
                 <input
                   type="email"
                   name="email"
+                  ref={emailRef}
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Email"
                   id=""
@@ -43,7 +118,7 @@ const Login = () => {
 
                 {/* forger password */}
                 <div className="flex justify-end my-5">
-                  <Link onClick={""} className="underline font-semibold ">
+                  <Link onClick={forgotPassword} className="underline font-semibold ">
                     Forgot password
                   </Link>
                 </div>
@@ -77,7 +152,7 @@ const Login = () => {
             </div>
 
             {/* connect google */}
-            <div className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
+            <div onClick={googleSignUp} className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
               <FcGoogle className="bg-[white] text-[#3076FF] text-[24px]"></FcGoogle>
               <h1 className="font-medium text-[16px]">Continue with Google</h1>
             </div>

@@ -48,7 +48,11 @@ const Register = () => {
         // email verify
         sendEmailVerification(result.user).then(() => {
           // swal("Registration successful ! Please verify your email .");
-          swal("Welcome !", "Registration successful ! Please verify your email .", "success");
+          swal(
+            "Welcome",
+            "Registration successful ! Please verify your email .",
+            "success"
+          );
           navigate("/");
           form.reset();
         });
@@ -61,14 +65,11 @@ const Register = () => {
   // googleSignUp
 
   const googleSignUp = () => {
-    
-
     signInGoogle()
       .then((result) => {
         console.log(result.user);
 
-        swal("Welcome !", "Registration successful !", "success");
-       
+        swal("Welcome", "Registration successful !", "success");
 
         // go to home page
         navigate("/");
@@ -87,6 +88,7 @@ const Register = () => {
             <Helmet>
               <title>Travel | Register</title>
             </Helmet>
+
             <form onSubmit={handleSubmit}>
               {/* title */}
               <h1 className=" md:text-[20px] font-bold my-6 px-10">
@@ -135,15 +137,24 @@ const Register = () => {
 
                 {/* button */}
 
-                {loading ? (
-                  <button className="btn  w-full bg-white">
-                    <ImSpinner9 className="animate-spin mx-atuo text-xl text-[#ba3d3d]"></ImSpinner9>
-                  </button>
-                ) : (
-                  <button className="btn bg-[#4ea7b3] w-full font-bold my-2">
-                    Create an account
-                  </button>
-                )}
+                {/* <div className="flex justify-center mt-12">
+                  {loading ? (
+                    <button className="btn">
+                      <ImSpinner9 className="animate-spin mx-atuo text-xl text-[#ba3d3d]"></ImSpinner9>
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      className="btn text-[white] font-bold bg-[green] hover:bg-[red]  text-[18px]"
+                    >
+                      Register
+                    </button>
+                  )} */}
+                {/* </div> */}
+
+                <button className="btn bg-[#4ea7b3] w-full font-bold my-2">
+                  Create an account
+                </button>
 
                 {/* Already have an account? Login */}
                 <h1 className="my-2 text-[10px] md:text-sm flex justify-center font-bold md:font-medium">
@@ -174,9 +185,7 @@ const Register = () => {
               className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1"
             >
               <FcGoogle className="bg-[white] text-[#3076FF] text-[24px]"></FcGoogle>
-              <h1 className="font-medium text-[16px]">
-                Continue with Google
-              </h1>
+              <h1 className="font-medium text-[16px]">Continue with Google</h1>
             </div>
           </div>
         </div>
