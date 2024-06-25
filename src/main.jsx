@@ -13,6 +13,7 @@ import Loop from "./Componets/Loop/Loop";
 import Home from "./Componets/Home/Home";
 import Register from "./Componets/Register/Register";
 import Login from "./Componets/Login/Login";
+import AuthProvider from "./Componets/AuthProvider/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
-      <RouterProvider router={router}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
     </HelmetProvider>
   </React.StrictMode>
 );

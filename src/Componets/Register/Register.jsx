@@ -41,7 +41,7 @@ const Register = () => {
                   name="firstName"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="First Name"
-                  id=""
+                 
                 />
 
                 {/* last name */}
@@ -50,7 +50,7 @@ const Register = () => {
                   name="lastName"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Last Name"
-                  id=""
+                 
                 />
 
                 {/* email*/}
@@ -59,7 +59,7 @@ const Register = () => {
                   name="email"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Email"
-                  id=""
+                 
                 />
 
                 {/* password */}
@@ -68,7 +68,7 @@ const Register = () => {
                   name="password"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Password"
-                  id=""
+                 
                 />
                 {/* Confirm Password */}
                 <input
@@ -76,7 +76,7 @@ const Register = () => {
                   name="confirmPassword"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Confirm Password"
-                  id=""
+                 
                 />
 
                 {/* button */}
