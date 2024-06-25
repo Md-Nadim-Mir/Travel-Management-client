@@ -1,10 +1,20 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import "./Register.css";
 import { Helmet } from "react-helmet-async";
+import swal from "sweetalert";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ImSpinner9 } from "react-icons/im";
+import Swal from "sweetalert2";
+import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
+  const { createUser, loading } = useContext(AuthContext);
+
+  const navigate =useNavigate();
+
   // form control
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,12 +26,42 @@ const Register = () => {
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
 
-    console.log(firstName, lastName, email, password, confirmPassword);
-    form.reset();
+    if (password.length < 6 || confirmPassword.length < 6) {
+      swal("Password length must be 6 character");
+      // Swal.fire("Password length must be 6 character");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      swal("Password doesn't match!");
+      // Swal.fire("Password doesn't match!");
+      return;
+    }
+
+    const name = firstName + lastName;
+    console.log(name);
+
+    createUser(email, password)
+    .then((result) => {
+      console.log(result.user);
+
+      // email verify 
+      sendEmailVerification(result.user)
+      .then(()=>{
+        swal("Registration successful ! Please verify your email .");
+        navigate('/');
+        form.reset();
+      })
+
+    })
+    .catch((error) => {
+       console.log(error.message);
+    });
+
   };
 
   return (
-    < div className="my-5 md:my-12">
+    <div className="my-5 md:my-12">
       <div className="bgImage  rounded-lg  py-10 m-2 xl:m-0">
         <div className=" m-5 md:max-w-sm md:mx-auto mx-2 pb-5 shadow-2xl rounded-lg">
           <div className=" rounded-md p-5 bg-white">
@@ -41,7 +81,6 @@ const Register = () => {
                   name="firstName"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="First Name"
-                 
                 />
 
                 {/* last name */}
@@ -50,7 +89,6 @@ const Register = () => {
                   name="lastName"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Last Name"
-                 
                 />
 
                 {/* email*/}
@@ -59,7 +97,6 @@ const Register = () => {
                   name="email"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Email"
-                 
                 />
 
                 {/* password */}
@@ -68,7 +105,6 @@ const Register = () => {
                   name="password"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Password"
-                 
                 />
                 {/* Confirm Password */}
                 <input
@@ -76,13 +112,19 @@ const Register = () => {
                   name="confirmPassword"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Confirm Password"
-                 
                 />
 
                 {/* button */}
-                <button className="btn bg-[#4ea7b3] w-full font-bold my-2">
-                  Create an account
-                </button>
+
+                {loading ? (
+                  <button className="btn  w-full bg-white">
+                    <ImSpinner9 className="animate-spin mx-atuo text-xl text-[#ba3d3d]"></ImSpinner9>
+                  </button>
+                ) : (
+                  <button className="btn bg-[#4ea7b3] w-full font-bold my-2">
+                    Create an account
+                  </button>
+                )}
 
                 {/* Already have an account? Login */}
                 <h1 className="my-2 text-[10px] md:text-sm flex justify-center font-bold md:font-medium">
