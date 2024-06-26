@@ -39,7 +39,7 @@ const Register = () => {
       return;
     }
 
-    const name = firstName + lastName;
+    const name = firstName+ ' ' + lastName;
 
     // backend data set
     const users = { displayName: name, email: email, role: "user" };
