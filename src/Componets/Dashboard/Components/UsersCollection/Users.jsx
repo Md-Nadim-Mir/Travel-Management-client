@@ -9,16 +9,19 @@ const Users = () => {
 
   return (
     <div className="py-5">
-      <h1 className="text-2xl font-bold animate-pulse text-[green]">
-        All Users : <span className="text-[red]">{users.length}</span>
-      </h1>
+     
+      {
+        users ? 
+        <h1 className="text-2xl font-bold animate-pulse text-[green] ">
+        Number Of Users : <span className="text-[red]">{users.length}</span></h1> :''
+      }
 
        {/*  user data show in table format */}
 
-       <div className="overflow-x-auto mt-16">
+       <div className="overflow-x-auto mt-16 border mx-2 bg-[#0c767a] rounded-xl ">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className=" font-extrabold text-[16px] text-[#68b30e] bg-[black]">
                         <tr>
                             <th>No</th>
                             <th>Name</th>

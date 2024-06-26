@@ -13,7 +13,7 @@ import { CgLogOut } from "react-icons/cg";
 
 const Sidebar = () => {
   return (
-    <div>
+    <div className="xl:bg-[#FECACA]">
       <div className="dropdown xl:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost ">
           <svg
