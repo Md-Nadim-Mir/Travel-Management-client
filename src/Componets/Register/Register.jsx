@@ -39,7 +39,13 @@ const Register = () => {
     }
 
     const name = firstName + lastName;
-    console.log(name);
+
+    // backend data set
+    const users = { displayName: name, email: email, role: "admin" };
+
+    console.log(users.displayName, users.email, users.role);
+
+    // backend end
 
     createUser(email, password)
       .then((result) => {
@@ -68,6 +74,14 @@ const Register = () => {
     signInGoogle()
       .then((result) => {
         console.log(result.user);
+
+        // backend start
+        
+        const users = { displayName:result.user.displayName, email: result.user.email, role: "admin" };
+
+        console.log(users.displayName, users.email, users.role);
+
+        // backend end
 
         swal("Welcome", "Registration successful !", "success");
 
@@ -100,8 +114,9 @@ const Register = () => {
                 <input
                   type="text"
                   name="firstName"
-                  className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
+                  className=" border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="First Name"
+                  required
                 />
 
                 {/* last name */}
@@ -110,6 +125,7 @@ const Register = () => {
                   name="lastName"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Last Name"
+                  required
                 />
 
                 {/* email*/}
@@ -118,6 +134,7 @@ const Register = () => {
                   name="email"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Email"
+                  required
                 />
 
                 {/* password */}
@@ -126,6 +143,7 @@ const Register = () => {
                   name="password"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Password"
+                  required
                 />
                 {/* Confirm Password */}
                 <input
@@ -133,6 +151,7 @@ const Register = () => {
                   name="confirmPassword"
                   className="border-b my-5 outline-none font-medium block placeholder:text-black placeholder:text-sm placeholder:font-medium md:w-full pl-1 rounded-md"
                   placeholder="Confirm Password"
+                  required
                 />
 
                 {/* button */}
