@@ -2,13 +2,13 @@ import { FaCheckCircle } from "react-icons/fa";
 import { MdAutoDelete } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const SingleUser = ({ user, index }) => {
-  const { displayName, email, role } = user;
+const SingleUser = ({ user, index , deleteFunction}) => {
+  const { displayName, email, role , _id} = user;
 
-    const handleDelete = (email) => {
-    //   deleteUserData(email);
-    //   toast.success("User delete successfully");
-    console.log(email)
+    const handleDelete = (_id) => {
+    console.log(_id);
+    deleteFunction(_id);
+    
     };
 
   return (
@@ -48,7 +48,7 @@ const SingleUser = ({ user, index }) => {
 
         <th>
           <button
-            onClick={() => handleDelete(email)}
+            onClick={() => handleDelete(_id)}
             className="btn btn-secondary text-base "
           >
             <MdAutoDelete></MdAutoDelete>
