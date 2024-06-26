@@ -6,12 +6,13 @@ import { Helmet } from "react-helmet-async";
 import swal from "sweetalert";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { ImSpinner9 } from "react-icons/im";
+// import { ImSpinner9 } from "react-icons/im";
 // import Swal from "sweetalert2";
 import { sendEmailVerification } from "firebase/auth";
 
 const Register = () => {
-  const { createUser, loading, signInGoogle } = useContext(AuthContext);
+  // loading,
+  const { createUser,  signInGoogle } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -51,7 +52,18 @@ const Register = () => {
       .then((result) => {
         console.log(result.user);
 
-        // email verify
+        // user data post backend
+        fetch('http://localhost:3000/users',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(users)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
+
+            // email verify
         sendEmailVerification(result.user).then(() => {
           // swal("Registration successful ! Please verify your email .");
           swal(
@@ -62,7 +74,8 @@ const Register = () => {
           navigate("/");
           form.reset();
         });
-      })
+             
+        })
       .catch((error) => {
         console.log(error.message);
       });
