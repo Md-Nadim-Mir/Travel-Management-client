@@ -16,7 +16,7 @@ import Login from "./Componets/Login/Login";
 import AuthProvider from "./Componets/AuthProvider/AuthProvider";
 import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
-import Users from "./Componets/Dashboard/Components/Users";
+import Users from "./Componets/Dashboard/Components/UsersCollection/Users";
 import PlacesUpdates from "./Componets/Dashboard/Components/PlacesUpadate";
 import BlogsUpadate from "./Componets/Dashboard/Components/BlogsUpadate";
 import PackagesUpdate from "./Componets/Dashboard/Components/PackagesUpdate";
