@@ -42,7 +42,7 @@ const Register = () => {
     const name = firstName + lastName;
 
     // backend data set
-    const users = { displayName: name, email: email, role: "admin" };
+    const users = { displayName: name, email: email, role: "user" };
 
     console.log(users.displayName, users.email, users.role);
 
@@ -90,11 +90,22 @@ const Register = () => {
 
         // backend start
         
-        const users = { displayName:result.user.displayName, email: result.user.email, role: "admin" };
+        const users = { displayName:result.user.displayName, email: result.user.email, role: "user" };
 
         console.log(users.displayName, users.email, users.role);
 
         // backend end
+
+        // user data post backend
+        fetch('http://localhost:3000/users',{
+          method:'POST',
+          headers:{
+            'content-type':'application/json'
+          },
+          body:JSON.stringify(users)
+        })
+        .then(res=>res.json())
+        .then(data=>console.log(data))
 
         swal("Welcome", "Registration successful !", "success");
 
