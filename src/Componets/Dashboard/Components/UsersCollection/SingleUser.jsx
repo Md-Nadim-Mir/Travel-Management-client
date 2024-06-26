@@ -1,15 +1,40 @@
+import {  useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdAutoDelete } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
-const SingleUser = ({ user, index , deleteFunction}) => {
-  const { displayName, email, role , _id} = user;
+const SingleUser = ({ user, index, deleteFunction , updateFunction }) => {
+  const { displayName, email, role, _id } = user;
 
-    const handleDelete = (_id) => {
+
+  //  user role change start 
+
+  const [selectedRole, setSelectedRole] = useState(role);
+
+  const handleChange = (event) => {
+    setSelectedRole(event.target.value);
+  };
+
+  //  user role chane end 
+
+  // <------------- update opearations ------------------>
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const role = (e.target.options.value)
+    // const newRole = (e.target.userRole.value)
+   
+    const updateInfo = {role};
+
+    updateFunction(_id,updateInfo)
+
+
+  };
+
+  //  <--------- delete opearation -------------->
+  const handleDelete = (_id) => {
     console.log(_id);
     deleteFunction(_id);
-    
-    };
+  };
 
   return (
     <tbody className="text-[#0a0a0a]">
@@ -28,22 +53,25 @@ const SingleUser = ({ user, index , deleteFunction}) => {
             <div className="font-extrabold">{email}</div>
           </div>
         </td>
-        <th >
-          <div className="flex gap-x-4 items-center">
-            <select
-              className="font-extrabold rounded"
-              id="options"
-              defaultValue={role}
-              name="options"
-            >
-              <option value="option1">User</option>
-              <option value="option2">Admin</option>
-            </select>
+        <th>
+          <div className="flex">
+            <form onSubmit={handleUpdate}>
+              <select
+                className="font-extrabold rounded"
+                id="options"
+                value={selectedRole}
+                name="userRole"
+                onChange={handleChange}
+              >
+                 <option value="user">User</option>
+                 <option value="admin">Admin</option>
+              </select>
 
-           <NavLink onClick={''}> <FaCheckCircle className="text-[#eaea42] text-2xl bg-none m-1" /></NavLink>
+              <button className=" ml-5" type="submit">
+                <FaCheckCircle className="text-[#eaea42] text-2xl bg-none m-1" />
+              </button>
+            </form>
           </div>
-
-      
         </th>
 
         <th>

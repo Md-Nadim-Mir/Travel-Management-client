@@ -8,6 +8,9 @@ const Users = () => {
   const loadUsers = usersCollection.filter((user) => user.role == "user");
   const [users, setUsers] = useState(loadUsers);
 
+
+
+  // <------------ delete function ------------->
   const deleteFunction = (_id) => {
     console.log(_id);
     fetch(`http://localhost:3000/users/${_id}`, {
@@ -24,6 +27,33 @@ const Users = () => {
         }
       });
   };
+
+  //  <--------------  update function ------------------->
+
+  const updateFunction = (_id,updateInfo)=>{
+      console.log(_id,updateInfo);
+
+      fetch(`http://localhost:3000/users/${_id}`,{
+          method:'PUT',
+          headers:{
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(updateInfo)
+      })
+      .then(res=>res.json())
+      .then((data)=>{
+           console.log(data);
+
+           if(data.modifiedCount > 0){
+            
+              const remainingUser = users.filter(user=>user._id !== _id);
+              setUsers(remainingUser);
+
+              swal('','User role updated successfully','success')
+
+           }
+      })
+  }
 
   return (
     <div className="py-5">
@@ -59,6 +89,7 @@ const Users = () => {
                 key={user._id}
                 user={user}
                 deleteFunction={deleteFunction}
+                updateFunction={updateFunction}
               ></SingleUser>
             ))}
           </table>
