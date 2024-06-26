@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import person from "../../../public/person.png";
@@ -45,6 +45,28 @@ const Navbar = () => {
       });
   };
 
+  // use hook for check admin or users
+  // const [loadedUsers, setLoadedUsers] = useState([]);
+
+  //  all user data loaded
+  // useEffect(() => {
+  //   fetch(`http://localhost:3000/users`)
+  //     .then((res) => res.json())
+  //     .then((data) => setLoadedUsers(data));
+  // },[]);
+
+//   let targetUsers={
+//     email:'mdnadimmir50@gmail.com',
+//     role : 'admin'
+//   }
+
+//  if(user?.email){ 
+//   targetUsers = loadedUsers.find((singleUser) => singleUser.email === user?.email);
+//  }
+
+  
+//    console.log(targetUsers);
+
   return (
     <div className="border-b-2 mb-2">
       {/* fixed shadow-xl max-w-7xl rounded-lg */}
@@ -75,8 +97,15 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <img className="w-1/4  hidden md:block animate-bounce hover:animate-none" src={logo} alt="" />
-          <NavLink to="/" className="md:text-base font-bold animate-bounce hover:animate-none">
+          <img
+            className="w-1/4  hidden md:block animate-bounce hover:animate-none"
+            src={logo}
+            alt=""
+          />
+          <NavLink
+            to="/"
+            className="md:text-base font-bold animate-bounce hover:animate-none"
+          >
             <span className="md:text-2xl text-[orange] font-extrabold">
               Travel.
             </span>
@@ -118,11 +147,13 @@ const Navbar = () => {
                   </li>
                 </NavLink>
               )}
-              <NavLink to="/dashboard/statistics">
-                <li>
-                  <a>Dashboard</a>
-                </li>
-              </NavLink>
+              
+                <NavLink to="/dashboard/statistics">
+                  <li>
+                    <a>Dashboard </a>
+                  </li>
+                </NavLink>
+            
               <NavLink to="" className="font-medium text-[#159bc8]">
                 <li>
                   <a>{user?.email}</a>
