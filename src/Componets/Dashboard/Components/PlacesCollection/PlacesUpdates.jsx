@@ -4,6 +4,15 @@ const PlacesUpdates = () => {
     e.preventDefault();
 
     const form = e.target;
+
+    const placeName = form.placeName.value;
+    const placeImage = form.placeImage.value;
+    const placeLocation=form.placeImage.value;
+    const placeDescription=form.placeDescription.value;
+
+    const newPlace = {placeName,placeImage,placeLocation,placeDescription};
+    console.log(newPlace);
+
   };
 
   return (
