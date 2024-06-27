@@ -1,3 +1,4 @@
+import swal from "sweetalert";
 import { UploadImage } from "../Hook/UploadImage";
 
 const PlacesUpdates = () => {
@@ -25,7 +26,20 @@ const PlacesUpdates = () => {
 
 
     // <-------------------  Post Method : New places added to database ------->
-
+    fetch('http://localhost:3000/places',{
+       method:'POST',
+       headers:{
+          'content-type':'application/json'
+       },
+       body:JSON.stringify(newPlace)
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        console.log(data);
+          swal('','New travel places added successfully !','success');
+          form.reset();
+        
+    }) 
 
   };
 
