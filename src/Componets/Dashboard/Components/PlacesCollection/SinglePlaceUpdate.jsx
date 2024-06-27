@@ -2,9 +2,10 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const SinglePlaceUpdate = () => {
+
   const singlePlacesDataLoad = useLoaderData();
 
-  const { name, location, image, description, _id } = singlePlacesDataLoad;
+  const { name, location, image, description,date, _id } = singlePlacesDataLoad;
 
   // navigate 
   const navigate = useNavigate();
@@ -136,6 +137,7 @@ const SinglePlaceUpdate = () => {
               type="date"
               name="postedDate"
               id=""
+              defaultValue={date}
               placeholder=""
               className="font-bold w-full my-2 p-2 rounded"
               required
