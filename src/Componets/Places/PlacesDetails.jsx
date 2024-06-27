@@ -16,7 +16,7 @@ const PlacesDetails = () => {
       </h1>
       <h1 className="mx-2 mb-4  font-semibold">{location}</h1>
 
-      <img src={image} className="w-full h-[60vh] rounded" alt="" />
+      <img src={image} className="w-full h-[60vh] rounded-xl px-2" alt="" />
 
       <h1 className="mx-2 mt-12 mb-4 text-lg md:text-2xl  font-bold">Reason to visit {name}</h1>
 

@@ -80,7 +80,8 @@ const router = createBrowserRouter([
         },
         {
           path:'/dashboard/places',
-          element:<PlacesUpdates></PlacesUpdates>
+          element:<PlacesUpdates></PlacesUpdates>,
+          loader:()=>fetch('http://localhost:3000/places')
         },
         {
           path:'/dashboard/hotels',
