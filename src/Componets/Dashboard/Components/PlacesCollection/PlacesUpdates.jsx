@@ -52,7 +52,18 @@ const PlacesUpdates = () => {
   // Delete opearation
   const deleteFunction=(_id)=>{
 
-      fetch(``)
+      fetch(`http://localhost:3000/places/${_id}`)
+      .then(res=>res.json())
+      .then(data=>{
+           
+           const remainingPlaces = places.fillter(place=>place._id===_id);
+           setPlaces(remainingPlaces);
+
+           if(data.deletedCount>0){
+              swal('','Travel places deleted successfully','success')
+           }
+
+      })
      
   }
 
