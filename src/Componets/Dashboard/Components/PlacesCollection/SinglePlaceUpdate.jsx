@@ -2,26 +2,20 @@ import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 
 const SinglePlaceUpdate = () => {
+  const singlePlacesDataLoad = useLoaderData();
 
-    const singlePlacesDataLoad =useLoaderData();
+  const { name, location, image, description, _id } = singlePlacesDataLoad;
 
-    const {name,location,image , description , _id}= singlePlacesDataLoad;
-
-
-      // <--------------- Places Data Collected  ---------------->
+  // <--------------- Places Data Collected  ---------------->
   const handlePlaces = async (e) => {
     e.preventDefault();
 
     const form = e.target;
 
     const placeName = form.placeName.value;
-    const placeImage = form.placeImage.files[0];
+    const placeImage = form.placeImage.value;
     const placeLocation = form.placeLocation.value;
     const placeDescription = form.placeDescription.value;
-
-   
-
-  
 
     const newPlace = {
       name: placeName,
@@ -31,8 +25,8 @@ const SinglePlaceUpdate = () => {
     };
 
     // <-------------------  Post Method : New places added to database ------->
-    fetch("http://localhost:3000/places", {
-      method: "POST",
+    fetch(`http://localhost:3000/places/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -40,15 +34,16 @@ const SinglePlaceUpdate = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        swal("", "New travel places added successfully !", "success");
-        form.reset();
+        if (data.modifiedCount > 0) {
+          swal(" ", " Update travel place information   successfully !", "success");
+          form.reset();
+        }
       });
   };
 
-    return (
-        <div>
-             <h1 className="text-2xl text-center text-[green] font-bold py-5">
+  return (
+    <div>
+      <h1 className="text-2xl text-center text-[green] font-bold py-5">
         Update {name} information
       </h1>
 
@@ -130,9 +125,8 @@ const SinglePlaceUpdate = () => {
           </button>
         </div>
       </form>
-
-        </div>
-    );
+    </div>
+  );
 };
 
 export default SinglePlaceUpdate;
