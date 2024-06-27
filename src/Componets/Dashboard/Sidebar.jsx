@@ -120,7 +120,7 @@ const Sidebar = () => {
         </ul>
       </div>
 
-      <div className="  w-[300px] hidden xl:block">
+      <div className="w-[300px] hidden xl:block">
         {/* logo and title */}
 
         <div className=" bg-slate-300   py-14 flex flex-col  items-center">
