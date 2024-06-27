@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import {
   FaHotel,
+  FaMagnifyingGlassPlus,
   FaPersonRunning,
   FaUsersGear,
 } from "react-icons/fa6";
@@ -9,17 +10,15 @@ import { FcStatistics } from "react-icons/fc";
 import { IoDocument, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
 import { CgLogOut } from "react-icons/cg";
-import { MdAddLocationAlt, MdTipsAndUpdates } from "react-icons/md";
+import { MdAddLocationAlt,  } from "react-icons/md";
+import { GrUpdate } from "react-icons/gr";
+import { FaExchangeAlt } from "react-icons/fa";
 
 const Sidebar = () => {
   return (
     <div className="xl:bg-[#FECACA] ">
       <div className="dropdown xl:hidden">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-ghost  mb-5"
-        >
+        <div tabIndex={0} role="button" className="btn btn-ghost  mb-5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -75,7 +74,7 @@ const Sidebar = () => {
               {/* all users */}
               <div className=" flex pl-2 items-center gap-x-4">
                 <FaUsersGear className="text-[#FFA500]" />
-                <NavLink to="/dashboard/users">Users</NavLink>
+                <NavLink to="/dashboard/users">Users Manage</NavLink>
               </div>
 
               {/* Travel Places added */}
@@ -86,14 +85,20 @@ const Sidebar = () => {
 
               {/* Travel Places Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <MdTipsAndUpdates className="text-[#FFA500]" />
+                <FaExchangeAlt  className="text-[#FFA500]" />
                 <NavLink to="/dashboard/places-updates">Places Update</NavLink>
               </div>
 
-              {/* Hotels */}
+              {/* Hotel added */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaHotel className="text-[#FFA500]" />
-                <NavLink to="/dashboard/hotels">Hotels</NavLink>
+                <FaMagnifyingGlassPlus className="text-[#FFA500]" />
+                <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
+              </div>
+
+              {/* Travel Hotel Updates*/}
+              <div className=" flex pl-2 items-center gap-x-4">
+                <GrUpdate className="text-[#FFA500]" />
+                <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
               </div>
 
               {/* Travel Packages */}
@@ -166,7 +171,7 @@ const Sidebar = () => {
           {/* all users */}
           <div className=" flex pl-2 items-center gap-x-4">
             <FaUsersGear className="text-[#FFA500]" />
-            <NavLink to="/dashboard/users">Users</NavLink>
+            <NavLink to="/dashboard/users">Users Manage</NavLink>
           </div>
 
           {/* Travel Places added */}
@@ -177,26 +182,20 @@ const Sidebar = () => {
 
           {/* Travel Places Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdTipsAndUpdates className="text-[#FFA500]" />
+            <FaExchangeAlt  className="text-[#FFA500]" />
             <NavLink to="/dashboard/places-updates">Places Update</NavLink>
           </div>
 
           {/* Hotel added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddLocationAlt className="text-[#FFA500]" />
+            <FaMagnifyingGlassPlus className="text-[#FFA500]" />
             <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
           </div>
 
-          {/* Travel Places Updates*/}
+          {/* Travel Hotel Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdTipsAndUpdates className="text-[#FFA500]" />
+            <GrUpdate className="text-[#FFA500]" />
             <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
-          </div>
-
-          {/* Hotels */}
-          <div className=" flex pl-2 items-center gap-x-4">
-            <FaHotel className="text-[#FFA500]" />
-            <NavLink to="/dashboard/hotels">Hotels</NavLink>
           </div>
 
           {/* Travel Packages */}

@@ -17,7 +17,7 @@ const HotelsAdded = () => {
     const postedDate = form.postedDate.value;
 
     // upload image
-    const imageData = await UploadImage(placeImage);
+    const imageData = await UploadImage(hotelImage);
 
     const realImage = imageData?.data?.url;
 
@@ -67,7 +67,7 @@ const HotelsAdded = () => {
             type="text"
             name="hotelName"
             id=""
-            placeholder="Enter travel place name"
+            placeholder="Enter travel hotel name"
             className="font-bold w-full my-2 p-2 rounded"
             required
           />
@@ -97,7 +97,7 @@ const HotelsAdded = () => {
               type="text"
               name="hotelLocation"
               id=""
-              placeholder="Enter travel place location"
+              placeholder="Enter travel hotel location"
               className="font-bold w-full my-2 p-2 rounded"
               required
             />
@@ -114,7 +114,7 @@ const HotelsAdded = () => {
             rows={5}
             name="hotelDescription"
             id=""
-            placeholder="Write travel hotel description"
+            placeholder="Write travel hotel description ........."
             className="font-bold w-full my-2 p-2 rounded"
             required
           ></textarea>
@@ -156,3 +156,8 @@ const HotelsAdded = () => {
 };
 
 export default HotelsAdded;
+
+
+
+   
+

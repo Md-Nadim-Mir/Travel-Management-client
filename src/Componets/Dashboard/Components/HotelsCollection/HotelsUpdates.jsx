@@ -1,67 +1,71 @@
+import swal from "sweetalert";
+import SingleHotel from "./SingleHotel";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
+
 const HotelsUpdates = () => {
-  // <--------------- Places Data Collected  ---------------->
-  const handlePlaces = (e) => {
-    e.preventDefault();
 
-    const form = e.target;
 
-    const placeName = form.placeName.value;
-    const placeImage = form.placeImage.value;
-    const placeLocation=form.placeImage.value;
-    const placeDescription=form.placeDescription.value;
+  // all hotels data loaded
+  const loadedData = useLoaderData();
 
-    const newPlace = {placeName,placeImage,placeLocation,placeDescription};
-    console.log(newPlace);
+  const [hotels, setHotels] = useState(loadedData);
 
+  
+  // Delete opearation
+
+  const deleteFunction = (_id) => {
+    fetch(`http://localhost:3000/hotels/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remainingPlaces = hotels.filter((place) => hotel._id !== _id);
+          setHotels(remainingPlaces);
+          swal(" ", "Travel places deleted successfully", "success");
+        }
+      });
   };
+ 
 
   return (
+
     <div>
-      <h1 className="text-2xl text-center text-[green] font-bold py-5">
-        New Travel Places Added
-      </h1>
+      
+    <h1 className="text-2xl text-center text-[green] font-bold py-5 my-12">
+      All Places Database Overview : {hotels.length}
+    </h1>
 
-      {/*  new places added */}
-      <form onSubmit={handlePlaces} className="border-4 rounded xl:mx-2 bg-slate-400 my-12 flex flex-col justify-center py-5 mx-2">
+    {/* table */}
+    <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+      <table className="table">
+        {/* head */}
+        <thead>
+          <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
+            <th className="border-4 shadow-xl">No</th>
+            <th className="border-4 shadow-xl">Image</th>
+            <th className="border-4 shadow-xl">Name</th>
+            <th className="border-4 shadow-xl">Location</th>
+            <th className="border-4 shadow-xl">Post Date</th>
+            <th className="border-4 shadow-xl">Actions</th>
+          </tr>
+        </thead>
 
-        {/* travel place name  */}
-        <div className="m-5 text-left">
-          <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place name </h1>
-          <input  type="text" name="placeName" id="" className="w-full my-2 p-2 rounded" required />
-        </div>
-
-
-        {/* travel place image  */}
-        <div className="m-5 text-left grid md:grid-cols-3 gap-2 ">
-            
-          <div className="">
-             <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place image </h1>
-             <input  type="file" name="placeImage" id="" className="w-full my-2 py-2 rounded" required />
-          </div>
-
-          {/* place location  */}
-          <div className=" col-span-2">
-             <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place location</h1>
-             <input  type="text" name="placeLocation" id="" className="w-full my-2 p-2 rounded" required />
-          </div>
-
-        </div>
-
-        {/* travel place name  */}
-        <div className="m-5 text-left">
-          <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place Description </h1>
-         
-          <textarea rows={5} name="placeDescription" id="" className="w-full my-2 p-2 rounded" required></textarea>
-        </div>
-
-        {/* submit button  */}
-        <div className="flex justify-center">
-           <button type="submit" className="btn w-1/4 my-2 p-2 rounded font-extrabold text-base">Post</button>
-        </div>
-
-       
-      </form>
+        <tbody>
+          {hotels.map((hotel, index) => (
+            <SingleHotel
+              index={index}
+              key={hotel._id}
+              hotel={hotels}
+              deleteFunction={deleteFunction}
+            ></SingleHotel>
+          ))}
+        </tbody>
+      </table>
     </div>
+  </div>
+   
   );
 };
 
