@@ -37,6 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/places",
         element: <PrivateRoutes><Places></Places></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/places')
       },
       {
         path: "/packages",
