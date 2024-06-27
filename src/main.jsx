@@ -24,6 +24,8 @@ import Statistics from "./Componets/Dashboard/Components/Statistics";
 import HotelsUpdates from "./Componets/Dashboard/Components/HotelsCollection/HotelsUpdates";
 import UpcomingTour from "./Componets/Dashboard/Components/UpcomingTour";
 import PlacesDetails from "./Componets/Places/PlacesDetails";
+import PlacesAdded from "./Componets/Dashboard/Components/PlacesCollection/PlacesAdded";
+import SinglePlaceUpdate from "./Componets/Dashboard/Components/PlacesCollection/SinglePlaceUpdate";
 
 const router = createBrowserRouter([
   {
@@ -79,10 +81,21 @@ const router = createBrowserRouter([
           loader:()=>fetch('http://localhost:3000/users')
         },
         {
-          path:'/dashboard/places',
+          path:'/dashboard/places-added',
+          element:<PlacesAdded></PlacesAdded>,
+         
+        },
+        {
+          path:'/dashboard/places-updates',
           element:<PlacesUpdates></PlacesUpdates>,
           loader:()=>fetch('http://localhost:3000/places')
         },
+        {
+          path:'/dashboard/places-updates/:id',
+          element:<SinglePlaceUpdate></SinglePlaceUpdate>,
+          loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
+        },
+
         {
           path:'/dashboard/hotels',
           element:<HotelsUpdates></HotelsUpdates>

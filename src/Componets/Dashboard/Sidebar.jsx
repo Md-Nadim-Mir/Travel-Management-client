@@ -10,6 +10,7 @@ import { FcStatistics } from "react-icons/fc";
 import { IoDocument, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
 import { CgLogOut } from "react-icons/cg";
+import { MdAddLocationAlt, MdTipsAndUpdates } from "react-icons/md";
 
 const Sidebar = () => {
   return (
@@ -159,10 +160,16 @@ const Sidebar = () => {
             <NavLink to="/dashboard/users">Users</NavLink>
           </div>
 
-          {/* Travel Places */}
+          {/* Travel Places added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaHillRockslide className="text-[#FFA500]" />
-            <NavLink to="/dashboard/places">Places</NavLink>
+            <MdAddLocationAlt  className="text-[#FFA500]" />
+            <NavLink to="/dashboard/places-added">Places Added</NavLink>
+          </div>
+
+          {/* Travel Places Updates*/}
+            <div className=" flex pl-2 items-center gap-x-4">
+            <MdTipsAndUpdates  className="text-[#FFA500]" />
+            <NavLink to="/dashboard/places-updates">Places Update</NavLink>
           </div>
 
           {/* Hotels */}

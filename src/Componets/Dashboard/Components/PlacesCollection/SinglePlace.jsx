@@ -35,7 +35,7 @@ const SinglePlace = ({place , index, deleteFunction}) => {
 
         <th>
            <div className="flex items-center gap-2">
-               <NavLink><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
+               <NavLink to={`/dashboard/places-updates/${_id}`}><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
                <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
@@ -47,3 +47,7 @@ const SinglePlace = ({place , index, deleteFunction}) => {
 };
 
 export default SinglePlace;
+
+
+
+    
