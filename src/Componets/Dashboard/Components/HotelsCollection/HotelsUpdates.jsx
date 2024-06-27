@@ -21,9 +21,9 @@ const HotelsUpdates = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          const remainingPlaces = hotels.filter((place) => hotel._id !== _id);
-          setHotels(remainingPlaces);
-          swal(" ", "Travel places deleted successfully", "success");
+          const remainingHotels = hotels.filter((hotel) => hotel._id !== _id);
+          setHotels(remainingHotels);
+          swal(" ", "Travel hotel deleted successfully", "success");
         }
       });
   };
@@ -34,7 +34,7 @@ const HotelsUpdates = () => {
     <div>
       
     <h1 className="text-2xl text-center text-[green] font-bold py-5 my-12">
-      All Places Database Overview : {hotels.length}
+      All Hotels Database Overview : {hotels.length}
     </h1>
 
     {/* table */}
@@ -57,7 +57,7 @@ const HotelsUpdates = () => {
             <SingleHotel
               index={index}
               key={hotel._id}
-              hotel={hotels}
+              hotel={hotel}
               deleteFunction={deleteFunction}
             ></SingleHotel>
           ))}
