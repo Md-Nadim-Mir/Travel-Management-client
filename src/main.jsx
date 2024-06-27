@@ -26,6 +26,7 @@ import UpcomingTour from "./Componets/Dashboard/Components/UpcomingTour";
 import PlacesDetails from "./Componets/Places/PlacesDetails";
 import PlacesAdded from "./Componets/Dashboard/Components/PlacesCollection/PlacesAdded";
 import SinglePlaceUpdate from "./Componets/Dashboard/Components/PlacesCollection/SinglePlaceUpdate";
+import Hotels from "./Componets/Hotels/Hotels";
 
 const router = createBrowserRouter([
   {
@@ -47,7 +48,10 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><PlacesDetails></PlacesDetails></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
       },
-      
+      {
+        path:'/hotels',
+        element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>
+      },
       {
         path: "/packages",
         element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,

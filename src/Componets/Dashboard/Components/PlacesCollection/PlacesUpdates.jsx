@@ -38,7 +38,7 @@ const PlacesUpdates = () => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr className="border-4 shadow-xl">
+            <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
               <th className="border-4 shadow-xl">No</th>
               <th className="border-4 shadow-xl">Image</th>
               <th className="border-4 shadow-xl">Name</th>

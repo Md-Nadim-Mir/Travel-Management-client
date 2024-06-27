@@ -18,6 +18,11 @@ const Navbar = () => {
           <a>Places</a>
         </li>
       </NavLink>
+      <NavLink to="/hotels">
+        <li>
+          <a>Hotels</a>
+        </li>
+      </NavLink>
       <NavLink to="/packages">
         <li>
           <a>Packages</a>

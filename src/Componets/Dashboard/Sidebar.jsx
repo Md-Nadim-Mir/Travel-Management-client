@@ -14,9 +14,13 @@ import { MdAddLocationAlt, MdTipsAndUpdates } from "react-icons/md";
 
 const Sidebar = () => {
   return (
-    <div className="xl:bg-[#FECACA]">
+    <div className="xl:bg-[#FECACA] ">
       <div className="dropdown xl:hidden">
-        <div tabIndex={0} role="button" className="btn btn-ghost ">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost  mb-5"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5"
@@ -36,7 +40,7 @@ const Sidebar = () => {
           tabIndex={0}
           className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3  shadow"
         >
-          <div className="w-[300px]">
+          <div className="w-[200px]">
             {/* logo and title */}
 
             <div className=" bg-slate-300   py-2 flex flex-col  items-center">
@@ -75,10 +79,16 @@ const Sidebar = () => {
                 <NavLink to="/dashboard/users">Users</NavLink>
               </div>
 
-              {/* Travel Places */}
+              {/* Travel Places added */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaHillRockslide className="text-[#FFA500]" />
-                <NavLink to="/dashboard/places">Places</NavLink>
+                <MdAddLocationAlt className="text-[#FFA500]" />
+                <NavLink to="/dashboard/places-added">Places Added</NavLink>
+              </div>
+
+              {/* Travel Places Updates*/}
+              <div className=" flex pl-2 items-center gap-x-4">
+                <MdTipsAndUpdates className="text-[#FFA500]" />
+                <NavLink to="/dashboard/places-updates">Places Update</NavLink>
               </div>
 
               {/* Hotels */}
@@ -162,13 +172,13 @@ const Sidebar = () => {
 
           {/* Travel Places added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddLocationAlt  className="text-[#FFA500]" />
+            <MdAddLocationAlt className="text-[#FFA500]" />
             <NavLink to="/dashboard/places-added">Places Added</NavLink>
           </div>
 
           {/* Travel Places Updates*/}
-            <div className=" flex pl-2 items-center gap-x-4">
-            <MdTipsAndUpdates  className="text-[#FFA500]" />
+          <div className=" flex pl-2 items-center gap-x-4">
+            <MdTipsAndUpdates className="text-[#FFA500]" />
             <NavLink to="/dashboard/places-updates">Places Update</NavLink>
           </div>
 

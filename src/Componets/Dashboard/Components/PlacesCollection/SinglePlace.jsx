@@ -15,7 +15,7 @@ const SinglePlace = ({place , index, deleteFunction}) => {
 
   return (
    
-      <tr>
+      <tr className="font-semibold">
         <td className="border-2 shadow-xl">{index+1}</td>
 
         <td className="border-2 shadow-xl">
@@ -29,7 +29,7 @@ const SinglePlace = ({place , index, deleteFunction}) => {
           </div>
         </td>
 
-        <td className="border-2 shadow-xl">{name}</td>
+        <td className="text-base font-bold border-2 shadow-xl">{name}</td>
 
         <td className="border-2 shadow-xl">{location}</td>
 
