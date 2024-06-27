@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import {
-  FaHillRockslide,
   FaHotel,
   FaPersonRunning,
   FaUsersGear,
@@ -180,6 +179,18 @@ const Sidebar = () => {
           <div className=" flex pl-2 items-center gap-x-4">
             <MdTipsAndUpdates className="text-[#FFA500]" />
             <NavLink to="/dashboard/places-updates">Places Update</NavLink>
+          </div>
+
+          {/* Hotel added */}
+          <div className=" flex pl-2 items-center gap-x-4">
+            <MdAddLocationAlt className="text-[#FFA500]" />
+            <NavLink to="/dashboard/hotel-added">Hotel Added</NavLink>
+          </div>
+
+          {/* Travel Places Updates*/}
+          <div className=" flex pl-2 items-center gap-x-4">
+            <MdTipsAndUpdates className="text-[#FFA500]" />
+            <NavLink to="/dashboard/hotel-updates">Hotel Update</NavLink>
           </div>
 
           {/* Hotels */}
