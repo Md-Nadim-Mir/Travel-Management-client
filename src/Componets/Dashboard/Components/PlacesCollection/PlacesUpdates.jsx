@@ -49,6 +49,13 @@ const PlacesUpdates = () => {
       });
   };
 
+  // Delete opearation
+  const deleteFunction=(_id)=>{
+
+      fetch(``)
+     
+  }
+
   return (
     <div>
       <h1 className="text-2xl text-center text-[green] font-bold py-5">
@@ -144,13 +151,13 @@ const PlacesUpdates = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Location</th>
-              <th></th>
+              <th>Actions</th>
             </tr>
           </thead>
        
           <tbody>
           {
-             places.map((place,index) => <SinglePlace index={index} key={place._id} place = {place}></SinglePlace> )
+             places.map((place,index) => <SinglePlace index={index} key={place._id} place = {place} deleteFunction={deleteFunction}></SinglePlace> )
           }
           
           </tbody>

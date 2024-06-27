@@ -1,6 +1,17 @@
-const SinglePlace = ({place , index}) => {
+import { MdAutoDelete } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
-    const {name,location,image}=place;
+const SinglePlace = ({place , index, deleteFunction}) => {
+
+    const {name,location,image,_id}=place;
+
+    // handleDelete Opearation
+
+    const handelDelete = (_id)=>{
+
+
+          deleteFunction(_id)
+    }
 
   return (
    
@@ -23,7 +34,12 @@ const SinglePlace = ({place , index}) => {
         <td>{location}</td>
 
         <th>
-          <button className="btn btn-ghost btn-xs">details</button>
+           <div className="flex items-center gap-2">
+               <NavLink><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
+               <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
+               
+            </div> 
+          
         </th>
       </tr>
     
