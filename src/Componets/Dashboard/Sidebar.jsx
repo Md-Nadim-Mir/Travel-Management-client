@@ -184,13 +184,13 @@ const Sidebar = () => {
           {/* Hotel added */}
           <div className=" flex pl-2 items-center gap-x-4">
             <MdAddLocationAlt className="text-[#FFA500]" />
-            <NavLink to="/dashboard/hotel-added">Hotel Added</NavLink>
+            <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
           </div>
 
           {/* Travel Places Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
             <MdTipsAndUpdates className="text-[#FFA500]" />
-            <NavLink to="/dashboard/hotel-updates">Hotel Update</NavLink>
+            <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
           </div>
 
           {/* Hotels */}

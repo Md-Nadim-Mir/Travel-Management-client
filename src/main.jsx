@@ -27,6 +27,8 @@ import PlacesDetails from "./Componets/Places/PlacesDetails";
 import PlacesAdded from "./Componets/Dashboard/Components/PlacesCollection/PlacesAdded";
 import SinglePlaceUpdate from "./Componets/Dashboard/Components/PlacesCollection/SinglePlaceUpdate";
 import Hotels from "./Componets/Hotels/Hotels";
+import HotelsAdded from "./Componets/Dashboard/Components/HotelsCollection/HotelsAdded";
+import SingleHotelUpdate from "./Componets/Dashboard/Components/HotelsCollection/SingleHotelUpdate";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +86,9 @@ const router = createBrowserRouter([
           element:<Users></Users>,
           loader:()=>fetch('http://localhost:3000/users')
         },
+
+        //  <-------- places route admin --------->
+
         {
           path:'/dashboard/places-added',
           element:<PlacesAdded></PlacesAdded>,
@@ -100,18 +105,40 @@ const router = createBrowserRouter([
           loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
         },
 
+
+        // <--------  hotels admin   ---------> 
         {
-          path:'/dashboard/hotels',
-          element:<HotelsUpdates></HotelsUpdates>
+          path:'/dashboard/hotels-added',
+          element:<HotelsAdded></HotelsAdded>,
+         
         },
+        {
+          path:'/dashboard/hotels-updates',
+          element:<HotelsUpdates></HotelsUpdates>,
+          loader:()=>fetch('http://localhost:3000/hotels')
+        },
+        {
+          path:'/dashboard/hotels-updates/:id',
+          element:<SingleHotelUpdate></SingleHotelUpdate>,
+          loader:({params})=>fetch(`http://localhost:3000/hotels/${params.id}`)
+        },
+
+
+        //  <-------- packages admin -------->
+
         {
           path:'/dashboard/packages',
           element:<PackagesUpdate></PackagesUpdate>
         },
+
+
+        // <-----------  blogs admin -------------- >
         {
           path:'/dashboard/blogs',
           element:<BlogsUpadate></BlogsUpadate>
         },
+
+        //  <----------  upcoming tour admin ------------>
         {
           path:'/dashboard/upcoming-tour',
           element:<UpcomingTour></UpcomingTour>
