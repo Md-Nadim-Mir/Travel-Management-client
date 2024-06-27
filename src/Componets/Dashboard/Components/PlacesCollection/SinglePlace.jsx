@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const SinglePlace = ({place , index, deleteFunction}) => {
 
-    const {name,location,image,_id}=place;
+    const {name,location,image,date,_id}=place;
 
     // handleDelete Opearation
 
@@ -16,9 +16,9 @@ const SinglePlace = ({place , index, deleteFunction}) => {
   return (
    
       <tr>
-        <td>{index+1}</td>
+        <td className="border-2 shadow-xl">{index+1}</td>
 
-        <td>
+        <td className="border-2 shadow-xl">
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
@@ -29,11 +29,13 @@ const SinglePlace = ({place , index, deleteFunction}) => {
           </div>
         </td>
 
-        <td>{name}</td>
+        <td className="border-2 shadow-xl">{name}</td>
 
-        <td>{location}</td>
+        <td className="border-2 shadow-xl">{location}</td>
 
-        <th>
+        <td className="border-2 shadow-xl">{date}</td>
+
+        <th className="border-2 shadow-xl">
            <div className="flex items-center gap-2">
                <NavLink to={`/dashboard/places-updates/${_id}`}><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
                <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>

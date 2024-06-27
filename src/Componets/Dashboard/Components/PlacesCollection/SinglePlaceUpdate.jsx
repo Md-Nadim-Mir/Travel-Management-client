@@ -1,10 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const SinglePlaceUpdate = () => {
   const singlePlacesDataLoad = useLoaderData();
 
   const { name, location, image, description, _id } = singlePlacesDataLoad;
+
+  // navigate 
+  const navigate = useNavigate();
 
   // <--------------- Places Data Updated ---------------->
   const handlePlaces = async (e) => {
@@ -16,12 +19,14 @@ const SinglePlaceUpdate = () => {
     const placeImage = form.placeImage.value;
     const placeLocation = form.placeLocation.value;
     const placeDescription = form.placeDescription.value;
+    const postedDate = form.postedDate.value;
 
     const newPlace = {
       name: placeName,
       image: placeImage,
       location: placeLocation,
       description: placeDescription,
+      date : postedDate
     };
 
     console.log(newPlace)
@@ -39,6 +44,7 @@ const SinglePlaceUpdate = () => {
         if (data.modifiedCount > 0) {
           swal(" ", " Update travel place information   successfully !", "success");
           form.reset();
+          navigate('/dashboard/places-updates')
         }
       });
   };
@@ -117,15 +123,38 @@ const SinglePlaceUpdate = () => {
           ></textarea>
         </div>
 
-        {/* submit button  */}
-        <div className="flex justify-center">
-          <button
+
+
+            {/* submit button  */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 m-5">
+          {/* posted date */}
+          <div className=" ">
+            <h1 className="text-lg md:text-xl text-left font-bold py-2">
+              Posted Date
+            </h1>
+            <input
+              type="date"
+              name="postedDate"
+              id=""
+              placeholder=""
+              className="font-bold w-full my-2 p-2 rounded"
+              required
+            />
+          </div>
+
+          <div className=" flex items-end justify-center md:justify-end">
+
+            <button
             type="submit"
-            className="btn w-1/4 my-2 p-2 rounded font-extrabold text-base"
+            className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base"
           >
             Update
           </button>
+
+          </div>
+
         </div>
+
       </form>
     </div>
   );

@@ -2,8 +2,7 @@ import swal from "sweetalert";
 import { UploadImage } from "../Hook/UploadImage";
 
 const PlacesAdded = () => {
-
-    // <--------------- Places Data Collected  ---------------->
+  // <--------------- Places Data Collected  ---------------->
   const handlePlaces = async (e) => {
     e.preventDefault();
 
@@ -13,6 +12,7 @@ const PlacesAdded = () => {
     const placeImage = form.placeImage.files[0];
     const placeLocation = form.placeLocation.value;
     const placeDescription = form.placeDescription.value;
+    const postedDate = form.postedDate.value;
 
     // upload image
     const imageData = await UploadImage(placeImage);
@@ -24,6 +24,7 @@ const PlacesAdded = () => {
       image: realImage,
       location: placeLocation,
       description: placeDescription,
+      date : postedDate
     };
 
     // <-------------------  Post Method : New places added to database ------->
@@ -42,10 +43,9 @@ const PlacesAdded = () => {
       });
   };
 
-
-    return (
-        <div>
-             <h1 className="text-2xl text-center text-[green] font-bold py-5">
+  return (
+    <div>
+      <h1 className="text-2xl text-center text-[green] font-bold py-5">
         New Travel Places Added
       </h1>
 
@@ -117,18 +117,37 @@ const PlacesAdded = () => {
         </div>
 
         {/* submit button  */}
-        <div className="flex justify-center">
-          <button
-            type="submit"
-            className="btn w-1/4 my-2 p-2 rounded font-extrabold text-base"
-          >
-            Post
-          </button>
-        </div>
-      </form>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 m-5">
+          {/* posted date */}
+          <div className=" ">
+            <h1 className="text-lg md:text-xl text-left font-bold py-2">
+              Posted Date
+            </h1>
+            <input
+              type="date"
+              name="postedDate"
+              id=""
+              placeholder=""
+              className="font-bold w-full my-2 p-2 rounded"
+              required
+            />
+          </div>
+
+          <div className=" flex items-end justify-center md:justify-end">
+            <button
+              type="submit"
+              className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base"
+            >
+              Post
+            </button>
+          </div>
 
         </div>
-    );
+
+
+      </form>
+    </div>
+  );
 };
 
 export default PlacesAdded;
