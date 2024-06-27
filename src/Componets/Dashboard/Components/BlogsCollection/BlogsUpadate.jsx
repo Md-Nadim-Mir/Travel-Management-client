@@ -1,31 +1,19 @@
-import { UploadImage } from "../Hook/UploadImage";
 
-const PlacesUpdates = () => {
 
- 
-
-  // <--------------- Places Data Collected  ---------------->
-  const handlePlaces = async(e) => {
+const BlogsUpadate = () => {
+   // <--------------- Places Data Collected  ---------------->
+  const handlePlaces = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
     const placeName = form.placeName.value;
-    const placeImage = form.placeImage.files[0];
-    const placeLocation=form.placeLocation.value;
+    const placeImage = form.placeImage.value;
+    const placeLocation=form.placeImage.value;
     const placeDescription=form.placeDescription.value;
 
-
-    // upload image
-    const imageData = await UploadImage(placeImage);
-
-    const realImage = imageData?.data?.url;
-
-    const newPlace = { name: placeName, image : realImage , location : placeLocation , description : placeDescription};
-
-
-    // <-------------------  Post Method : New places added to database ------->
-
+    const newPlace = {placeName,placeImage,placeLocation,placeDescription};
+    console.log(newPlace);
 
   };
 
@@ -41,7 +29,7 @@ const PlacesUpdates = () => {
         {/* travel place name  */}
         <div className="m-5 text-left">
           <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place name </h1>
-          <input  type="text" name="placeName" id="" className="font-bold w-full my-2 p-2 rounded" required />
+          <input  type="text" name="placeName" id="" className="w-full my-2 p-2 rounded" required />
         </div>
 
 
@@ -56,7 +44,7 @@ const PlacesUpdates = () => {
           {/* place location  */}
           <div className=" col-span-2">
              <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place location</h1>
-             <input  type="text" name="placeLocation" id="" className="font-bold w-full my-2 p-2 rounded" required />
+             <input  type="text" name="placeLocation" id="" className="w-full my-2 p-2 rounded" required />
           </div>
 
         </div>
@@ -65,7 +53,7 @@ const PlacesUpdates = () => {
         <div className="m-5 text-left">
           <h1 className="text-lg md:text-xl text-left font-bold py-2">Travel place Description </h1>
          
-          <textarea rows={5} name="placeDescription" id="" className="font-bold w-full my-2 p-2 rounded" required></textarea>
+          <textarea rows={5} name="placeDescription" id="" className="w-full my-2 p-2 rounded" required></textarea>
         </div>
 
         {/* submit button  */}
@@ -79,4 +67,4 @@ const PlacesUpdates = () => {
   );
 };
 
-export default PlacesUpdates;
+export default BlogsUpadate;

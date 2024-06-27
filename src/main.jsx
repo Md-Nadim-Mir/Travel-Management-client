@@ -18,10 +18,10 @@ import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 import Users from "./Componets/Dashboard/Components/UsersCollection/Users";
 import PlacesUpdates from "./Componets/Dashboard/Components/PlacesCollection/PlacesUpdates";
-import BlogsUpadate from "./Componets/Dashboard/Components/BlogsUpadate";
-import PackagesUpdate from "./Componets/Dashboard/Components/PackagesUpdate";
+import BlogsUpadate from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpadate";
+import PackagesUpdate from "./Componets/Dashboard/Components/PackagesCollection/PackagesUpdate";
 import Statistics from "./Componets/Dashboard/Components/Statistics";
-import HotelsUpdates from "./Componets/Dashboard/Components/HotelsUpdates";
+import HotelsUpdates from "./Componets/Dashboard/Components/HotelsCollection/HotelsUpdates";
 import UpcomingTour from "./Componets/Dashboard/Components/UpcomingTour";
 
 const router = createBrowserRouter([
