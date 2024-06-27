@@ -6,7 +6,7 @@ const SinglePlaceUpdate = () => {
 
   const { name, location, image, description, _id } = singlePlacesDataLoad;
 
-  // <--------------- Places Data Collected  ---------------->
+  // <--------------- Places Data Updated ---------------->
   const handlePlaces = async (e) => {
     e.preventDefault();
 
@@ -23,6 +23,8 @@ const SinglePlaceUpdate = () => {
       location: placeLocation,
       description: placeDescription,
     };
+
+    console.log(newPlace)
 
     // <-------------------  Post Method : New places added to database ------->
     fetch(`http://localhost:3000/places/${_id}`, {
@@ -121,7 +123,7 @@ const SinglePlaceUpdate = () => {
             type="submit"
             className="btn w-1/4 my-2 p-2 rounded font-extrabold text-base"
           >
-            Post
+            Update
           </button>
         </div>
       </form>
