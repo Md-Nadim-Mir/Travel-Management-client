@@ -88,3 +88,18 @@ const SingleUser = ({ user, index, deleteFunction , updateFunction }) => {
 };
 
 export default SingleUser;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

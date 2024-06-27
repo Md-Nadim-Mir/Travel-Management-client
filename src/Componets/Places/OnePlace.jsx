@@ -1,13 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-const OnePlace = ({ place, handleDetails }) => {
+const OnePlace = ({ place}) => {
   const { name, image, location, _id } = place;
 
-  // handle visit function
-
-  const handleVisit = (_id) => {
-    handleDetails(_id);
-  };
+  
 
   return (
     <div className="card bg-base-100  shadow-xl">
@@ -19,9 +15,7 @@ const OnePlace = ({ place, handleDetails }) => {
         <p>{location}</p>
         <div className="card-actions justify-end">
           <NavLink to ={`/places/${_id}`}>
-            <button
-              onClick={() => handleVisit(_id)}
-              className="btn btn-primary"
+            <button className="btn btn-primary"
             >
               Visit Now
             </button>
