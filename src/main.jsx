@@ -52,7 +52,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/hotels',
-        element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>
+        element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/hotels')
       },
       {
         path: "/packages",

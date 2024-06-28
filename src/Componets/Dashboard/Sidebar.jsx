@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import {
-  FaHotel,
   FaMagnifyingGlassPlus,
   FaPersonRunning,
   FaUsersGear,

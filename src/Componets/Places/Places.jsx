@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import OnePlace from "./OnePlace";
 
 const Places = () => {
+  
   // load all places
   const loadPlaces = useLoaderData();
   const [places, setplaces] = useState(loadPlaces);
