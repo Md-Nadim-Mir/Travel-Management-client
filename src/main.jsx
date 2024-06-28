@@ -18,7 +18,7 @@ import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 import Users from "./Componets/Dashboard/Components/UsersCollection/Users";
 import PlacesUpdates from "./Componets/Dashboard/Components/PlacesCollection/PlacesUpdates";
-import BlogsUpadate from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpadate";
+import BlogsUpadate from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpadates";
 import PackagesUpdate from "./Componets/Dashboard/Components/PackagesCollection/PackagesUpdate";
 import Statistics from "./Componets/Dashboard/Components/Statistics";
 import HotelsUpdates from "./Componets/Dashboard/Components/HotelsCollection/HotelsUpdates";
