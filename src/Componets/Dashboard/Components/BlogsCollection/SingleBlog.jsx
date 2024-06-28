@@ -37,7 +37,7 @@ const SingleBlog = ({blog , index, deleteFunction}) => {
 
         <th className="border-2 shadow-xl">
            <div className="flex items-center gap-2">
-               <NavLink to={`/dashboard/places-updates/${_id}`}><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
+               <NavLink to={`/dashboard/blogs-updates/${_id}`}><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
                <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
