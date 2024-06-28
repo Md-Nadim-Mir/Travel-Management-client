@@ -23,7 +23,7 @@ const BlogsAdded = () => {
     const newBlog = {
       name: blogName,
       image: realImage,
-      location: writerName,
+      writer: writerName,
       description: blogDescription,
       date : postedDate
     };
