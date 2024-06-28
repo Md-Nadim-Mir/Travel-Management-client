@@ -6,7 +6,7 @@ import {
   FaUsersGear,
 } from "react-icons/fa6";
 import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
-import { IoPersonCircle } from "react-icons/io5";
+import { IoAppsOutline, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
 import { CgLogOut } from "react-icons/cg";
 import { MdAddLocationAlt } from "react-icons/md";
@@ -19,24 +19,11 @@ const Sidebar = () => {
     <div className="xl:bg-[#FECACA] ">
       <div className="dropdown xl:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost  mb-5">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h8m-8 6h16"
-            />
-          </svg>
+        <IoAppsOutline className="text-red-400"/>
         </div>
         <ul
           tabIndex={0}
-          className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3  shadow"
+          className="menu menu-sm dropdown-content   z-[1] mt-3  shadow"
         >
           <div className="w-[200px]">
             {/* logo and title */}
