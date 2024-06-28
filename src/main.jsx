@@ -32,6 +32,7 @@ import HotelsDetails from "./Componets/Hotels/HotelsDetails";
 import BlogsAdded from "./Componets/Dashboard/Components/BlogsCollection/BlogsAdded";
 import BlogsUpdates from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpdates";
 import SingleBlogUpdate from "./Componets/Dashboard/Components/BlogsCollection/SingleBlogUpdate";
+import BlogsDetails from "./Componets/Blogs/BlogsDetails";
 
 const router = createBrowserRouter([
   {
@@ -83,9 +84,18 @@ const router = createBrowserRouter([
         path: "/packages",
         element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,
       },
+
+      //  <------- Blogs -------------->
+
       {
         path: "/Blogs",
         element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/blogs')
+      },
+      {
+        path: "/blogs/:id",
+        element: <PrivateRoutes><BlogsDetails></BlogsDetails></PrivateRoutes>,
+        loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
       },
       {
         path: "/register",

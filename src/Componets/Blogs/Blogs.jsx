@@ -1,12 +1,30 @@
 import { Helmet } from "react-helmet-async";
+import { useLoaderData } from "react-router-dom";
+import OneBlog from "./OneBlog";
 
 const Blogs = () => {
+
+  // load all places
+  const blogs = useLoaderData();
+
+
+
   return (
     <div>
       <Helmet>
         <title>Travel | Blogs</title>
       </Helmet>
-      <h1 className="text-center text-3xl font-bold">This is our Blogs</h1>
+
+      <h1 className="text-center text-xl md:text-2xl font-bold mt-14 mb-20">
+        Number of travel hotels : {blogs.length}
+      </h1>
+
+      {/* all places card design */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-4 my-24">
+        {blogs.map((blog) => (
+          <OneBlog key={blog._id} blog={blog}></OneBlog>
+        ))}
+      </div>
     </div>
   );
 };
