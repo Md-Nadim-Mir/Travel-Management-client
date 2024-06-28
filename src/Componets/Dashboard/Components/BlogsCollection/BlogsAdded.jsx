@@ -3,43 +3,43 @@ import { UploadImage } from "../Hook/UploadImage";
 
 const BlogsAdded = () => {
 
-     // <--------------- Places Data Collected  ---------------->
-  const handlePlaces = async (e) => {
+     // <--------------- Blogs Data Collected  ---------------->
+  const handleBlogs = async (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    const placeName = form.placeName.value;
-    const placeImage = form.placeImage.files[0];
-    const placeLocation = form.placeLocation.value;
-    const placeDescription = form.placeDescription.value;
+    const blogName = form.blogName.value;
+    const blogImage = form.blogImage.files[0];
+    const writerName = form.writerName.value;
+    const blogDescription = form.blogDescription.value;
     const postedDate = form.postedDate.value;
 
     // upload image
-    const imageData = await UploadImage(placeImage);
+    const imageData = await UploadImage(blogImage);
 
     const realImage = imageData?.data?.url;
 
-    const newPlace = {
-      name: placeName,
+    const newBlog = {
+      name: blogName,
       image: realImage,
-      location: placeLocation,
-      description: placeDescription,
+      location: writerName,
+      description: blogDescription,
       date : postedDate
     };
 
-    // <-------------------  Post Method : New places added to database ------->
-    fetch("http://localhost:3000/places", {
+    // <-------------------  Post Method : New blogs added to database ------->
+    fetch("http://localhost:3000/blogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newPlace),
+      body: JSON.stringify(newBlog),
     })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        swal("", "New travel places added successfully !", "success");
+        swal("", "New travel blogs added successfully !", "success");
         form.reset();
       });
   };
@@ -48,52 +48,52 @@ const BlogsAdded = () => {
     return (
         <div>
         <h1 className="text-2xl text-center text-[green] font-bold py-5">
-          New Travel Places Added
+          New Travel Blogs Added
         </h1>
   
-        {/*  new places added */}
+        {/*  new blogs added */}
         <form
-          onSubmit={handlePlaces}
+          onSubmit={handleBlogs}
           className="border-4 rounded xl:mx-2 bg-slate-400 my-12 flex flex-col justify-center py-5 mx-2"
         >
-          {/* travel place name  */}
+          {/* travel blog name  */}
           <div className="m-5 text-left">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place name{" "}
+              Travel blog name{" "}
             </h1>
             <input
               type="text"
-              name="placeName"
+              name="blogName"
               id=""
-              placeholder="Enter travel place name"
+              placeholder="Enter travel blog name"
               className="font-bold w-full my-2 p-2 rounded"
               required
             />
           </div>
   
-          {/* travel place image  */}
+          {/* travel blog image  */}
           <div className="m-5 text-left grid md:grid-cols-3 gap-2 ">
             <div className="">
               <h1 className="text-lg md:text-xl text-left font-bold py-2">
-                Travel place image{" "}
+                Travel blog image{" "}
               </h1>
               <input
                 type="file"
-                name="placeImage"
+                name="blogImage"
                 id=""
                 className="w-full my-2 py-2 rounded"
                 required
               />
             </div>
   
-            {/* place location  */}
+            {/* blog writer name  */}
             <div className=" col-span-2">
               <h1 className="text-lg md:text-xl text-left font-bold py-2">
-                Travel place location
+                Writer Name
               </h1>
               <input
                 type="text"
-                name="placeLocation"
+                name="writerName"
                 id=""
                 placeholder="Enter travel place location"
                 className="font-bold w-full my-2 p-2 rounded"
@@ -102,15 +102,15 @@ const BlogsAdded = () => {
             </div>
           </div>
   
-          {/* travel place name  */}
+          {/* travel blogs description  */}
           <div className="m-5 text-left">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place Description{" "}
+              Travel blogs Description{" "}
             </h1>
   
             <textarea
               rows={5}
-              name="placeDescription"
+              name="blogDescription"
               id=""
               placeholder="Write travel place description"
               className="font-bold w-full my-2 p-2 rounded"
