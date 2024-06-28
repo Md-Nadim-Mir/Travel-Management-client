@@ -18,7 +18,6 @@ import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 import Users from "./Componets/Dashboard/Components/UsersCollection/Users";
 import PlacesUpdates from "./Componets/Dashboard/Components/PlacesCollection/PlacesUpdates";
-import BlogsUpadate from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpadates";
 import PackagesUpdate from "./Componets/Dashboard/Components/PackagesCollection/PackagesUpdate";
 import Statistics from "./Componets/Dashboard/Components/Statistics";
 import HotelsUpdates from "./Componets/Dashboard/Components/HotelsCollection/HotelsUpdates";
@@ -30,6 +29,8 @@ import Hotels from "./Componets/Hotels/Hotels";
 import HotelsAdded from "./Componets/Dashboard/Components/HotelsCollection/HotelsAdded";
 import SingleHotelUpdate from "./Componets/Dashboard/Components/HotelsCollection/SingleHotelUpdate";
 import HotelsDetails from "./Componets/Hotels/HotelsDetails";
+import BlogsAdded from "./Componets/Dashboard/Components/BlogsCollection/BlogsAdded";
+import BlogsUpdates from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpdates";
 
 const router = createBrowserRouter([
   {
@@ -157,8 +158,19 @@ const router = createBrowserRouter([
 
         // <-----------  blogs admin -------------- >
         {
-          path:'/dashboard/blogs',
-          element:<BlogsUpadate></BlogsUpadate>
+          path:'/dashboard/blogs-added',
+          element:<BlogsAdded></BlogsAdded>,
+         
+        },
+        {
+          path:'/dashboard/blogs-updates',
+          element:<BlogsUpdates></BlogsUpdates>,
+          loader:()=>fetch('http://localhost:3000/blogs')
+        },
+        {
+          path:'/dashboard/blogs-updates/:id',
+          element:<SingleHotelUpdate></SingleHotelUpdate>,
+          loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
         },
 
         //  <----------  upcoming tour admin ------------>

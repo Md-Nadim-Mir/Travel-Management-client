@@ -1,6 +1,6 @@
 
 
-const BlogsUpadate = () => {
+const BlogsUpdates = () => {
    // <--------------- Places Data Collected  ---------------->
   const handlePlaces = (e) => {
     e.preventDefault();
@@ -67,4 +67,4 @@ const BlogsUpadate = () => {
   );
 };
 
-export default BlogsUpadate;
+export default BlogsUpdates;
