@@ -112,7 +112,7 @@ const BlogsAdded = () => {
               rows={5}
               name="blogDescription"
               id=""
-              placeholder="Write travel place description"
+              placeholder="Write travel blog description"
               className="font-bold w-full my-2 p-2 rounded"
               required
             ></textarea>
@@ -153,3 +153,14 @@ const BlogsAdded = () => {
 };
 
 export default BlogsAdded;
+
+
+
+
+
+
+
+
+
+
+

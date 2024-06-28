@@ -6,7 +6,7 @@ import {
   FaUsersGear,
 } from "react-icons/fa6";
 import { FcStatistics } from "react-icons/fc";
-import { IoDocument, IoPersonCircle } from "react-icons/io5";
+import { IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
 import { CgLogOut } from "react-icons/cg";
 import { MdAddLocationAlt } from "react-icons/md";
