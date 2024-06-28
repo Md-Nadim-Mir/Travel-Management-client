@@ -8,45 +8,47 @@ const SingleBlogUpdate = () => {
 
   const { name, writer, image, description,date, _id } = singleBlogsDataLoad;
 
+  console.log(singleBlogsDataLoad);
+
   // navigate 
   const navigate = useNavigate();
 
-  // <--------------- Places Data Updated ---------------->
+  // <--------------- Blogs Data Updated ---------------->
   const handleBlogs = async (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    const placeName = form.placeName.value;
-    const placeImage = form.placeImage.value;
+    const blogName = form.blogName.value;
+    const blogImage = form.blogImage.value;
     const writer = form.writer.value;
-    const placeDescription = form.placeDescription.value;
+    const blogDescription = form.blogDescription.value;
     const postedDate = form.postedDate.value;
 
-    const newPlace = {
-      name: placeName,
-      image: placeImage,
+    const newBlog = {
+      name: blogName,
+      image: blogImage,
       writer: writer,
-      description: placeDescription,
+      description: blogDescription,
       date : postedDate
     };
 
-    console.log(newPlace)
+    console.log(newBlog)
 
-    // <-------------------  Post Method : New places added to database ------->
+    // <-------------------  Post Method : New blog added to database ------->
     fetch(`http://localhost:3000/blogs/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(newPlace),
+      body: JSON.stringify(newBlog),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           swal(" ", " Update travel blogs information   successfully !", "success");
           form.reset();
-          navigate('/dashboard/places-blogs')
+          navigate('/dashboard/blogs-updates')
         }
       });
   };

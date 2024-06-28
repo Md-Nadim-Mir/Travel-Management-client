@@ -5,13 +5,14 @@ import {
   FaPersonRunning,
   FaUsersGear,
 } from "react-icons/fa6";
-import { FcStatistics } from "react-icons/fc";
+import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
 import { IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
 import { CgLogOut } from "react-icons/cg";
 import { MdAddLocationAlt } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
+import { TfiExchangeVertical } from "react-icons/tfi";
 
 const Sidebar = () => {
   return (
@@ -67,74 +68,74 @@ const Sidebar = () => {
               {/* <----------------   Statistics Nav Link    ----------------> */}
 
               <div className=" flex pl-2 items-center gap-x-4">
-                <FcStatistics className="text-[#FFA500]" />
+                <FcStatistics className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/statistics">Statistics</NavLink>
               </div>
 
               {/* <--------------  User Manage  Nav Link    ---------------> */}
 
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaUsersGear className="text-[#FFA500]" />
+                <FaUsersGear className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/users">Users Manage</NavLink>
               </div>
 
               {/* <-------------   Places Nav Link    --------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <MdAddLocationAlt className="text-[#FFA500]" />
+                <MdAddLocationAlt className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/places-added">Place Added</NavLink>
               </div>
 
               {/* Travel Places Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaExchangeAlt className="text-[#FFA500]" />
+                <FaExchangeAlt className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/places-updates">Place Update</NavLink>
               </div>
 
               {/* <----------  Hotels Nav Link    -------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaMagnifyingGlassPlus className="text-[#FFA500]" />
+                <FaMagnifyingGlassPlus className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
               </div>
 
               {/* Travel Hotel Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <GrUpdate className="text-[#FFA500]" />
+                <GrUpdate className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
               </div>
 
               {/* <---------  Packages Nav Link    -----------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <TbPackages className="text-[#FFA500]" />
+                <TbPackages className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/packages">Packages</NavLink>
               </div>
 
               {/* Blogs */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaMagnifyingGlassPlus className="text-[#FFA500]" />
+                <FcMultipleInputs className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/blogs-added">Blog Added</NavLink>
               </div>
 
               {/* Blogs Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <GrUpdate className="text-[#FFA500]" />
+                <TfiExchangeVertical  className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
               </div>
 
               {/* <----------   Upcoming Tour Nav Link    ----> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaPersonRunning className="text-[#FFA500]" />
+                <FaPersonRunning className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
               </div>
 
               {/* <----------   Profile Nav Link    ----------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <IoPersonCircle className="text-[#FFA500]" />
+                <IoPersonCircle className="text-[#3C76C2]" />
                 <NavLink to="">Profile</NavLink>
               </div>
 
               {/* <----   Logout Nav Link    ----------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <CgLogOut className="text-[#FFA500]" />
+                <CgLogOut className="text-[#3C76C2]" />
                 <NavLink to="">Logout</NavLink>
               </div>
             </div>
@@ -171,13 +172,13 @@ const Sidebar = () => {
         <div className="bg-red-200 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
           {/* statistics */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FcStatistics className="text-[#FFA500]" />
+            <FcStatistics className="text-[#3C76C2]" />
             <NavLink to="/dashboard/statistics">Statistics</NavLink>
           </div>
 
           {/* all users */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaUsersGear className="text-[#FFA500]" />
+            <FaUsersGear className="text-[#3C76C2]" />
             <NavLink to="/dashboard/users">Users Manage</NavLink>
           </div>
 
@@ -185,13 +186,13 @@ const Sidebar = () => {
 
           {/* Travel Places added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddLocationAlt className="text-[#FFA500]" />
+            <MdAddLocationAlt className="text-[#3C76C2]" />
             <NavLink to="/dashboard/places-added">Place Added</NavLink>
           </div>
 
           {/* Travel Places Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaExchangeAlt className="text-[#FFA500]" />
+            <FaExchangeAlt className="text-[#3C76C2]" />
             <NavLink to="/dashboard/places-updates">Place Update</NavLink>
           </div>
 
@@ -199,13 +200,13 @@ const Sidebar = () => {
 
           {/* Hotel added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaMagnifyingGlassPlus className="text-[#FFA500]" />
+            <FaMagnifyingGlassPlus className="text-[#3C76C2]" />
             <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
           </div>
 
           {/* Travel Hotel Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <GrUpdate className="text-[#FFA500]" />
+            <GrUpdate className="text-[#3C76C2]" />
             <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
           </div>
 
@@ -213,7 +214,7 @@ const Sidebar = () => {
 
           {/* Travel Packages */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <TbPackages className="text-[#FFA500]" />
+            <TbPackages className="text-[#3C76C2]" />
             <NavLink to="/dashboard/packages">Packages</NavLink>
           </div>
 
@@ -221,13 +222,13 @@ const Sidebar = () => {
 
           {/* Blogs */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaMagnifyingGlassPlus className="text-[#FFA500]" />
+            <FcMultipleInputs className="text-[#3C76C2]" />
             <NavLink to="/dashboard/blogs-added">Blog Added</NavLink>
           </div>
 
           {/* Blogs Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <GrUpdate className="text-[#FFA500]" />
+            <TfiExchangeVertical  className="text-[#3C76C2]" />
             <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
           </div>
 
@@ -235,7 +236,7 @@ const Sidebar = () => {
 
           {/* Upcoming Tour */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaPersonRunning className="text-[#FFA500]" />
+            <FaPersonRunning className="text-[#3C76C2]" />
             <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
           </div>
 
@@ -243,7 +244,7 @@ const Sidebar = () => {
 
           {/* profile */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <IoPersonCircle className="text-[#FFA500]" />
+            <IoPersonCircle className="text-[#3C76C2]" />
             <NavLink to="">Profile</NavLink>
           </div>
 
@@ -251,7 +252,7 @@ const Sidebar = () => {
 
           {/* Logout */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <CgLogOut className="text-[#FFA500]" />
+            <CgLogOut className="text-[#3C76C2]" />
             <NavLink to="">Logout</NavLink>
           </div>
         </div>

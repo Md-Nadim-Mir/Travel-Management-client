@@ -31,6 +31,7 @@ import SingleHotelUpdate from "./Componets/Dashboard/Components/HotelsCollection
 import HotelsDetails from "./Componets/Hotels/HotelsDetails";
 import BlogsAdded from "./Componets/Dashboard/Components/BlogsCollection/BlogsAdded";
 import BlogsUpdates from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpdates";
+import SingleBlogUpdate from "./Componets/Dashboard/Components/BlogsCollection/SingleBlogUpdate";
 
 const router = createBrowserRouter([
   {
@@ -169,7 +170,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/dashboard/blogs-updates/:id',
-          element:<SingleHotelUpdate></SingleHotelUpdate>,
+          element:<SingleBlogUpdate></SingleBlogUpdate>,
           loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
         },
 
