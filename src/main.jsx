@@ -29,6 +29,7 @@ import SinglePlaceUpdate from "./Componets/Dashboard/Components/PlacesCollection
 import Hotels from "./Componets/Hotels/Hotels";
 import HotelsAdded from "./Componets/Dashboard/Components/HotelsCollection/HotelsAdded";
 import SingleHotelUpdate from "./Componets/Dashboard/Components/HotelsCollection/SingleHotelUpdate";
+import HotelsDetails from "./Componets/Hotels/HotelsDetails";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
       },
+
+      //  <-------  UI places route -------------->
+
+
+
       {
         path: "/places",
         element: <PrivateRoutes><Places></Places></PrivateRoutes>,
@@ -50,11 +56,27 @@ const router = createBrowserRouter([
         element: <PrivateRoutes><PlacesDetails></PlacesDetails></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
       },
+
+
+
+
+       //  <-------  UI hotels route -------------->
+
       {
         path:'/hotels',
         element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>,
         loader:()=>fetch('http://localhost:3000/hotels')
       },
+      {
+        path: "/hotels/:id",
+        element: <PrivateRoutes><HotelsDetails></HotelsDetails></PrivateRoutes>,
+        loader:({params})=>fetch(`http://localhost:3000/hotels/${params.id}`)
+      },
+
+
+      //  <-------  UI packages route -------------->
+
+
       {
         path: "/packages",
         element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,
