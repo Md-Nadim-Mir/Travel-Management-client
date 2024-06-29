@@ -32,7 +32,7 @@ const SinglePackage = ({packaged,deleteFunction,index}) => {
 
         <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
 
-        <td className="border-2 shadow-xl">{price}</td>
+        <td className="border-2 shadow-xl">$ {price}</td>
 
 
         <td className="border-2 shadow-xl">
