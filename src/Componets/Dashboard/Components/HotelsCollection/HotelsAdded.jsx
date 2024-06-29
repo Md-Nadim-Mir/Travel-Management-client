@@ -1,10 +1,8 @@
 import swal from "sweetalert";
 import { UploadImage } from "../Hook/UploadImage";
 
-
 const HotelsAdded = () => {
-
-    // <--------------- Hotels Data Collected  ---------------->
+  // <--------------- Hotels Data Collected  ---------------->
   const handleHotels = async (e) => {
     e.preventDefault();
 
@@ -26,7 +24,7 @@ const HotelsAdded = () => {
       image: realImage,
       location: hotelLocation,
       description: hotelDescription,
-      date : postedDate
+      date: postedDate,
     };
 
     // <-------------------  Post Method : New hotel added to database ------->
@@ -45,10 +43,8 @@ const HotelsAdded = () => {
       });
   };
 
-
-    return (
-
-        <div>
+  return (
+    <div>
       <h1 className="text-2xl text-center text-[green] font-bold py-5">
         New Hotel Added
       </h1>
@@ -145,19 +141,10 @@ const HotelsAdded = () => {
               Post
             </button>
           </div>
-
         </div>
-
-
       </form>
     </div>
-
-    );
+  );
 };
 
 export default HotelsAdded;
-
-
-
-   
-
