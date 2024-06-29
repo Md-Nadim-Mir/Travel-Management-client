@@ -15,7 +15,7 @@ const PackagesAdded = () => {
 
     const placeName = form.placeName.value;
     const Image1 = form.placeImage.files[0];
-    const placeLocation = form.placeLocation.value;
+    const price = form.price.value;
     const placeDescription = form.placeDescription.value;
     const hotelName = form.hotelName.value;
     const Image2 = form.hotelImage.files[0];
@@ -33,7 +33,7 @@ const PackagesAdded = () => {
     const newPackages = {
       placeName: placeName,
       placeImage: placeImage,
-      placeLocation: placeLocation,
+      price: price,
       placeDescription: placeDescription,
       hotelName: hotelName,
       hotelImage: hotelImage,
@@ -100,16 +100,16 @@ const PackagesAdded = () => {
             />
           </div>
 
-          {/* place location  */}
+          {/* Package price  */}
           <div className=" col-span-2">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place location
+              Travel package price
             </h1>
             <input
               type="text"
-              name="placeLocation"
+              name="price"
               id=""
-              placeholder="Enter travel place location"
+              placeholder="Enter travel package price"
               className="font-bold w-full my-2 p-2 rounded"
               required
             />

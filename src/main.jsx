@@ -35,6 +35,7 @@ import SingleBlogUpdate from "./Componets/Dashboard/Components/BlogsCollection/S
 import BlogsDetails from "./Componets/Blogs/BlogsDetails";
 import PackagesAdded from "./Componets/Dashboard/Components/PackagesCollection/PackagesAdded";
 import SinglePackageUpdate from "./Componets/Dashboard/Components/PackagesCollection/SinglePackageUpdate";
+import PackagesDetails from "./Componets/Packages/PackagesDetails";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,12 @@ const router = createBrowserRouter([
       {
         path: "/packages",
         element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/packages')
+      },
+      {
+        path: "/packages/:id",
+        element: <PrivateRoutes><PackagesDetails></PackagesDetails></PrivateRoutes>,
+        loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`)
       },
 
       //  <------- Blogs -------------->
@@ -200,7 +207,7 @@ const router = createBrowserRouter([
 
         //  <----------  upcoming tour admin ------------>
         {
-          path:'/dashboard/upcoming-tour',
+          path:'/dashboard/sta',
           element:<UpcomingTour></UpcomingTour>
         },
       ]

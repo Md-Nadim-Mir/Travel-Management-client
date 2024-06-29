@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const SinglePackage = ({packaged,deleteFunction,index}) => {
 
-    const {placeName,placeImage,placeLocation,hotelName,hotelImage,hotelLocation,postedDate,_id}=packaged;
+    const {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,postedDate,_id}=packaged;
 
 
     // handleDelete Opearation
@@ -32,7 +32,7 @@ const SinglePackage = ({packaged,deleteFunction,index}) => {
 
         <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
 
-        <td className="border-2 shadow-xl">{placeLocation}</td>
+        <td className="border-2 shadow-xl">{price}</td>
 
 
         <td className="border-2 shadow-xl">

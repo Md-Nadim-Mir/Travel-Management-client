@@ -45,7 +45,7 @@ const PackagesUpdate = () => {
             <th className="border-4 shadow-xl">No</th>
             <th className="border-4 shadow-xl">Place Image</th>
             <th className="border-4 shadow-xl">Place Name</th>
-            <th className="border-4 shadow-xl">Place Location</th>
+            <th className="border-4 shadow-xl">Price</th>
             <th className="border-4 shadow-xl">Hotel Image</th>
             <th className="border-4 shadow-xl">Hotel Name</th>
             <th className="border-4 shadow-xl">Hotel Location</th>

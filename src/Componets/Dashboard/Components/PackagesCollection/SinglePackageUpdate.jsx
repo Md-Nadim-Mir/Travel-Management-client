@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 const SinglePackageUpdate = () => {
 
     const singlePackageData = useLoaderData();
 
-    const { placeName,placeImage,placeDescription,placeLocation,hotelName,hotelDescription,hotelImage,hotelLocation , postedDate} = singlePackageData;
+    const { placeName,placeImage,placeDescription,price,hotelName,hotelDescription,hotelImage,hotelLocation , postedDate , _id} = singlePackageData;
 
     const navigate =useNavigate();
 
@@ -18,7 +18,7 @@ const SinglePackageUpdate = () => {
   
       const placeName = form.placeName.value;
       const placeImage = form.placeImage.value;
-      const placeLocation = form.placeLocation.value;
+      const price = form.price.value;
       const placeDescription = form.placeDescription.value;
       const hotelName = form.hotelName.value;
       const hotelImage = form.hotelImage.value;
@@ -31,7 +31,7 @@ const SinglePackageUpdate = () => {
       const newPackages = {
         placeName: placeName,
         placeImage: placeImage,
-        placeLocation: placeLocation,
+        price: price,
         placeDescription: placeDescription,
         hotelName: hotelName,
         hotelImage: hotelImage,
@@ -41,7 +41,7 @@ const SinglePackageUpdate = () => {
       };
   
      // <------------------- POST Method : New packages added to database ------->
-      fetch("http://localhost:3000/packages", {
+      fetch(`http://localhost:3000/packages/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -93,7 +93,7 @@ const SinglePackageUpdate = () => {
               Travel place image{" "}
             </h1>
             <input
-              type="file"
+              type="text"
               name="placeImage"
               defaultValue={placeImage}
               id=""
@@ -102,15 +102,15 @@ const SinglePackageUpdate = () => {
             />
           </div>
 
-          {/* place location  */}
+          {/* package price  */}
           <div className=" col-span-2">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place location
+              Travel package price
             </h1>
             <input
               type="text"
-              name="placeLocation"
-              defaultValue={placeLocation}
+              name="price"
+              defaultValue={price}
               id=""
               placeholder="Enter travel place location"
               className="font-bold w-full my-2 p-2 rounded"
@@ -159,7 +159,7 @@ const SinglePackageUpdate = () => {
               Travel hotel image{" "}
             </h1>
             <input
-              type="file"
+              type="text"
               name="hotelImage"
               defaultValue={hotelImage}
               id=""

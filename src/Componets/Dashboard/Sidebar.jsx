@@ -8,7 +8,6 @@ import {
 import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
 import { IoAppsOutline, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
-import { CgLogOut } from "react-icons/cg";
 import { MdAddLocationAlt } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
@@ -117,22 +116,10 @@ const Sidebar = () => {
                 <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
               </div>
 
-              {/* <----------   Upcoming Tour Nav Link    ----> */}
-              <div className=" flex pl-2 items-center gap-x-4">
-                <FaPersonRunning className="text-[#3C76C2]" />
-                <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
-              </div>
-
               {/* <----------   Profile Nav Link    ----------> */}
               <div className=" flex pl-2 items-center gap-x-4">
                 <IoPersonCircle className="text-[#3C76C2]" />
                 <NavLink to="">Profile</NavLink>
-              </div>
-
-              {/* <----   Logout Nav Link    ----------> */}
-              <div className=" flex pl-2 items-center gap-x-4">
-                <CgLogOut className="text-[#3C76C2]" />
-                <NavLink to="">Logout</NavLink>
               </div>
             </div>
           </div>
@@ -233,28 +220,19 @@ const Sidebar = () => {
             <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
           </div>
 
-          {/* <------------------   Upcoming  Nav Link    --------------------> */}
-
-          {/* Upcoming Tour */}
-          <div className=" flex pl-2 items-center gap-x-4">
-            <FaPersonRunning className="text-[#3C76C2]" />
-            <NavLink to="/dashboard/upcoming-tour">Upcoming Tour</NavLink>
-          </div>
-
           {/* <------------------  Profile Nav Link    --------------------> */}
 
           {/* profile */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <IoPersonCircle className="text-[#3C76C2]" />
+            {/* <IoPersonCircle className="text-[#3C76C2]" /> */}
+            <div className="w-10 rounded-2xl">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                className="rounded-2xl"
+              />
+            </div>
             <NavLink to="">Profile</NavLink>
-          </div>
-
-          {/* <------------------  Logout Nav Link    --------------------> */}
-
-          {/* Logout */}
-          <div className=" flex pl-2 items-center gap-x-4">
-            <CgLogOut className="text-[#3C76C2]" />
-            <NavLink to="">Logout</NavLink>
           </div>
         </div>
       </div>
