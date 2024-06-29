@@ -1,7 +1,12 @@
+import swal from "sweetalert";
 import { UploadImage } from "../Hook/UploadImage";
 
 const PackagesAdded = () => {
+
+
   const handlePackages = async (e) => {
+
+    
     e.preventDefault();
 
     const form = e.target;
@@ -16,30 +21,39 @@ const PackagesAdded = () => {
     const hotelDescription = form.hotelDescription.value;
     const postedDate = form.postedDate.value;
 
+    // upload image
+    const imageData1 = await UploadImage(Image1);
+    const imageData2 = await UploadImage(Image2);
 
-      // upload image
-      const imageData1 = await UploadImage(Image1);
-      const imageData2 = await UploadImage(Image2);
+    const placeImage = imageData1?.data?.url;
+    const hotelImage = imageData2?.data?.url;
 
-      const placeImage = imageData1?.data?.url;
-      const hotelImage = imageData2?.data?.url;
+    const newPackages = {
+      placeName: placeName,
+      placeImage: placeImage,
+      placeLocation: placeLocation,
+      placeDescription: placeDescription,
+      hotelName: hotelName,
+      hotelImage: hotelImage,
+      hotelLocation: hotelLocation,
+      hotelDescription: hotelDescription,
+      postedDate: postedDate
+    };
 
-
-      const newPackages = {
-        placeName:placeName,
-        placeImage:placeImage,
-        placeLocation:placeLocation,
-        placeDescription:placeDescription,
-        hotelName:hotelName,
-        hotelImage:hotelImage,
-        hotelLocation:hotelLocation,
-        hotelDescription:hotelDescription,
-        postedDate:postedDate
-
-        };
-
-        console.log(newPackages)
-
+   // <------------------- POST Method : New packages added to database ------->
+    fetch("http://localhost:3000/packages", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newPackages),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        swal("", "New travel packages added successfully !", "success");
+        form.reset();
+      });
   };
 
   return (
