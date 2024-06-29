@@ -13,13 +13,14 @@ import { MdAddLocationAlt } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
 import { TfiExchangeVertical } from "react-icons/tfi";
+import { LuPackageSearch } from "react-icons/lu";
 
 const Sidebar = () => {
   return (
     <div className="xl:bg-[#FECACA] ">
       <div className="dropdown xl:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost  mb-5">
-        <IoAppsOutline className="text-red-400"/>
+          <IoAppsOutline className="text-red-400" />
         </div>
         <ul
           tabIndex={0}
@@ -91,9 +92,17 @@ const Sidebar = () => {
               </div>
 
               {/* <---------  Packages Nav Link    -----------> */}
+              {/* Travel Packages */}
               <div className=" flex pl-2 items-center gap-x-4">
                 <TbPackages className="text-[#3C76C2]" />
-                <NavLink to="/dashboard/packages">Packages</NavLink>
+                <NavLink to="/dashboard/packages-added">Package Added</NavLink>
+              </div>
+
+              <div className=" flex pl-2 items-center gap-x-4">
+                <LuPackageSearch className="text-[#3C76C2]" />
+                <NavLink to="/dashboard/packages-updates">
+                  Packages Update
+                </NavLink>
               </div>
 
               {/* Blogs */}
@@ -104,7 +113,7 @@ const Sidebar = () => {
 
               {/* Blogs Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <TfiExchangeVertical  className="text-[#3C76C2]" />
+                <TfiExchangeVertical className="text-[#3C76C2]" />
                 <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
               </div>
 
@@ -202,7 +211,12 @@ const Sidebar = () => {
           {/* Travel Packages */}
           <div className=" flex pl-2 items-center gap-x-4">
             <TbPackages className="text-[#3C76C2]" />
-            <NavLink to="/dashboard/packages">Packages</NavLink>
+            <NavLink to="/dashboard/packages-added">Package Added</NavLink>
+          </div>
+
+          <div className=" flex pl-2 items-center gap-x-4">
+            <LuPackageSearch className="text-[#3C76C2]" />
+            <NavLink to="/dashboard/packages-updates">Packages Update</NavLink>
           </div>
 
           {/* <------------------  Blogs Nav Link    --------------------> */}
@@ -215,7 +229,7 @@ const Sidebar = () => {
 
           {/* Blogs Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <TfiExchangeVertical  className="text-[#3C76C2]" />
+            <TfiExchangeVertical className="text-[#3C76C2]" />
             <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
           </div>
 

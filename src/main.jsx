@@ -33,6 +33,8 @@ import BlogsAdded from "./Componets/Dashboard/Components/BlogsCollection/BlogsAd
 import BlogsUpdates from "./Componets/Dashboard/Components/BlogsCollection/BlogsUpdates";
 import SingleBlogUpdate from "./Componets/Dashboard/Components/BlogsCollection/SingleBlogUpdate";
 import BlogsDetails from "./Componets/Blogs/BlogsDetails";
+import PackagesAdded from "./Componets/Dashboard/Components/PackagesCollection/PackagesAdded";
+import SinglePackageUpdate from "./Componets/Dashboard/Components/PackagesCollection/SinglePackageUpdate";
 
 const router = createBrowserRouter([
   {
@@ -161,9 +163,21 @@ const router = createBrowserRouter([
 
         //  <-------- packages admin -------->
 
+      
         {
-          path:'/dashboard/packages',
-          element:<PackagesUpdate></PackagesUpdate>
+          path:'/dashboard/packages-added',
+          element:<PackagesAdded></PackagesAdded>,
+         
+        },
+        {
+          path:'/dashboard/packages-updates',
+          element:<PackagesUpdate></PackagesUpdate>,
+          loader:()=>fetch('http://localhost:3000/packages')
+        },
+        {
+          path:'/dashboard/packages-updates/:id',
+          element:<SinglePackageUpdate></SinglePackageUpdate>,
+          loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`)
         },
 
 
