@@ -1,8 +1,10 @@
 import swal from "sweetalert";
 import { UploadImage } from "../Hook/UploadImage";
+import { useNavigate } from "react-router-dom";
 
 const PackagesAdded = () => {
 
+  const navigate =useNavigate();
 
   const handlePackages = async (e) => {
 
@@ -53,6 +55,7 @@ const PackagesAdded = () => {
         console.log(data);
         swal("", "New travel packages added successfully !", "success");
         form.reset();
+        navigate('/dashboard/packages-updates')
       });
   };
 
