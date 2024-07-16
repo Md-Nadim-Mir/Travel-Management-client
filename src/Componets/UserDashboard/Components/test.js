@@ -1,1 +1,9 @@
-console.log('ddd')
+
+
+function test() {
+  return (
+    <div>test</div>
+  )
+}
+
+export default test
