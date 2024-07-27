@@ -103,20 +103,20 @@ const Navbar = () => {
           </div>
 
           <img
-            className="w-1/4  hidden md:block animate-bounce hover:animate-none"
+            className="w-1/4  hidden md:block "
             src={logo}
             alt=""
           />
           <NavLink
             to="/"
-            className="md:text-base font-bold animate-bounce hover:animate-none"
+            className="md:text-base font-bold flex"
           >
-            <span className="md:text-2xl text-[orange] font-extrabold">
-              Travel.
-            </span>
-            <span className="md:text-2xl text-[#326fc5] font-extrabold animate-pulse">
-              com
-            </span>
+            <h1 className="md:text-2xl text-[orange] font-extrabold">
+              Travel
+            </h1>
+            <h1 className="md:text-2xl text-[#326fc5] font-extrabold animate-bounce hover:animate-none">
+              .com
+            </h1>
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex text-xl">

@@ -223,14 +223,12 @@ const Sidebar = () => {
           {/* <------------------  Profile Nav Link    --------------------> */}
 
           {/* profile */}
-          <div className=" flex pl-2 items-center gap-x-4">
+          <div className=" mt-10 flex pl-2 items-center gap-x-4">
             {/* <IoPersonCircle className="text-[#3C76C2]" /> */}
-            <div className="w-10 rounded-2xl">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                className="rounded-2xl"
-              />
+            <div>
+            <img className="w-10 rounded-full"
+            alt="Tailwind CSS Navbar component"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
             </div>
             <NavLink to="">Profile</NavLink>
           </div>
