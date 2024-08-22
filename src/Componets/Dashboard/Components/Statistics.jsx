@@ -69,96 +69,39 @@ const Statistics = () => {
 
   return (
     <div>
-      <h1 className="text-center pt-5 font-bold text-xl md:text-4xl text-[#870c50dc]">
+      <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[#870c50dc]">
         Statistics Reports
       </h1>
 
-      {/* details */}
-      <div className="stats shadow my-20">
-        <div className="stat">
-          <div className="stat-figure text-primary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              ></path>
-            </svg>
-          </div>
-          <div className="stat-title">Total Likes</div>
-          <div className="stat-value text-primary">25.6K</div>
-          <div className="stat-desc">21% more than last month</div>
-        </div>
-
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              className="inline-block h-8 w-8 stroke-current"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              ></path>
-            </svg>
-          </div>
-          <div className="stat-title">Page Views</div>
-          <div className="stat-value text-secondary">2.6M</div>
-          <div className="stat-desc">21% more than last month</div>
-        </div>
-
-        <div className="stat">
-          <div className="stat-figure text-secondary">
-            <div className="avatar online">
-              <div className="w-16 rounded-full">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-              </div>
-            </div>
-          </div>
-          <div className="stat-value">86%</div>
-          <div className="stat-title">Tasks done</div>
-          <div className="stat-desc text-secondary">31 tasks remaining</div>
-        </div>
-      </div>
 
       {/* custom statistics */}
 
-      <div className="border-4 border-[#FF00D3] mx-5 rounded-lg shadow-2xl">
+      <div className="border-4 border-[#FF00D3] mx-5 rounded-lg shadow-2xl my-16">
 
-        <div className="grid grid-cols-3 border-b-2 mx-2">
+        <div className="grid grid-cols-3 border-b border-[#0fd420] mx-2">
 
           {/* users */}
-          <div className="border-r-4 border-red-400  my-5 ">
-            <div className="text-xl font-bold">
+          <div className="border-r-2 border-red-400  my-5 ">
+            <div className="text-md md:text-xl  font-bold">
               Total Users
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{user.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce ">{user.length}</h1>
           </div>
 
           {/* places */}
-          <div className="border-r-4 border-red-400  my-5 ">
-            <div className="text-xl font-bold">
+          <div className="border-r-2 border-red-400  my-5 ">
+            <div className="text-md md:text-xl  font-bold">
               Total Places
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{place.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">{place.length}</h1>
           </div>
 
           {/* Hotels */}
           <div className="my-5 ">
-            <div className="text-xl font-bold">
+            <div className="text-md md:text-xl  font-bold">
               Total Hotels
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{hotel.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">{hotel.length}</h1>
           </div>
 
         </div>
@@ -166,27 +109,27 @@ const Statistics = () => {
         <div className="grid grid-cols-3 mx-2">
 
           {/* Packages */}
-          <div className="border-r-4 border-red-400  my-5 ">
-            <div className="text-xl font-bold">
+          <div className="border-r-2 border-red-400  my-5 ">
+            <div className="text-md md:text-xl  font-bold">
               Total Packages
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{packaged.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">{packaged.length}</h1>
           </div>
 
           {/* Blogs */}
-          <div className="border-r-4 border-red-400 my-5 ">
-            <div className="text-xl font-bold">
+          <div className="border-r-2 border-red-400 my-5 ">
+            <div className="text-md md:text-xl  font-bold">
               Total Blogs
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{blog.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">{blog.length}</h1>
           </div>
 
           {/* Bookings */}
           <div className="my-5 ">
-            <div className="text-xl font-bold">
+            <div className="text-md md:text-xl  font-bold">
               Total Bookings
             </div>
-            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{booking.length}</h1>
+            <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">{booking.length}</h1>
           </div>
 
         </div>
