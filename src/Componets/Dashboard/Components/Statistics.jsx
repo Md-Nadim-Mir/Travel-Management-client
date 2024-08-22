@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CustomShapeBarChart from "./CustomShapeBarChart";
 
 const Statistics = () => {
   
@@ -135,6 +136,9 @@ const Statistics = () => {
         </div>
        
       </div>
+
+      {/* chart */}
+      <CustomShapeBarChart></CustomShapeBarChart>
     </div>
   );
 };
