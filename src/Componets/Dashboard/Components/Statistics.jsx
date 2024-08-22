@@ -34,6 +34,39 @@ const Statistics = () => {
 
   // hotels lenth end 
 
+
+  // packages length find
+  const [packaged, setPackage] = useState([]);
+
+  
+  fetch('http://localhost:3000/packages')
+    .then((res) => res.json())
+    .then((packages) => setPackage(packages));
+
+  // packages lenth end 
+
+
+  // blogs length find
+  const [blog, setBlog] = useState([]);
+
+  
+  fetch('http://localhost:3000/blogs')
+    .then((res) => res.json())
+    .then((blogs) => setBlog(blogs));
+
+  // blogs lenth end 
+
+
+  // booking length find
+  const [booking, setBooking] = useState([]);
+
+  
+  fetch('http://localhost:3000/blogs')
+    .then((res) => res.json())
+    .then((bookings) => setBooking(bookings));
+
+  // bookings lenth end 
+
   return (
     <div>
       <h1 className="text-center pt-5 font-bold text-xl md:text-4xl text-[#870c50dc]">
@@ -100,20 +133,21 @@ const Statistics = () => {
 
       {/* custom statistics */}
 
-      <div className="border-4 mx-5 rounded-lg shadow-2xl">
+      <div className="border-4 border-[#FF00D3] mx-5 rounded-lg shadow-2xl">
+
         <div className="grid grid-cols-3 border-b-2 mx-2">
 
           {/* users */}
-          <div className="border-r-4  my-5 ">
-            <div className="text-3xl font-bold">
+          <div className="border-r-4 border-red-400  my-5 ">
+            <div className="text-xl font-bold">
               Total Users
             </div>
             <h1 className="text-[blue] text-2xl font-extrabold mt-2">{user.length}</h1>
           </div>
 
           {/* places */}
-          <div className="border-r-4  my-5 ">
-            <div className="text-3xl font-bold">
+          <div className="border-r-4 border-red-400  my-5 ">
+            <div className="text-xl font-bold">
               Total Places
             </div>
             <h1 className="text-[blue] text-2xl font-extrabold mt-2">{place.length}</h1>
@@ -121,18 +155,42 @@ const Statistics = () => {
 
           {/* Hotels */}
           <div className="my-5 ">
-            <div className="text-3xl font-bold">
+            <div className="text-xl font-bold">
               Total Hotels
             </div>
             <h1 className="text-[blue] text-2xl font-extrabold mt-2">{hotel.length}</h1>
           </div>
 
         </div>
-        <div className="grid grid-cols-3">
-          <div className="border-r-4 my-2 font-bold">Total Packages</div>
-          <div className="border-r-4 my-2 font-bold">Total Blogs</div>
-          <div className="my-2 font-bold">Total Bookings</div>
+
+        <div className="grid grid-cols-3 mx-2">
+
+          {/* Packages */}
+          <div className="border-r-4 border-red-400  my-5 ">
+            <div className="text-xl font-bold">
+              Total Packages
+            </div>
+            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{packaged.length}</h1>
+          </div>
+
+          {/* Blogs */}
+          <div className="border-r-4 border-red-400 my-5 ">
+            <div className="text-xl font-bold">
+              Total Blogs
+            </div>
+            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{blog.length}</h1>
+          </div>
+
+          {/* Bookings */}
+          <div className="my-5 ">
+            <div className="text-xl font-bold">
+              Total Bookings
+            </div>
+            <h1 className="text-[blue] text-2xl font-extrabold mt-2">{booking.length}</h1>
+          </div>
+
         </div>
+       
       </div>
     </div>
   );
