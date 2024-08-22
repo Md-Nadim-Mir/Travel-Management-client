@@ -2,7 +2,6 @@ import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import {
   FaMagnifyingGlassPlus,
-  FaPersonRunning,
   FaUsersGear,
 } from "react-icons/fa6";
 import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
