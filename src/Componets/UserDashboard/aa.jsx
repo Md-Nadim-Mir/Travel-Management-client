@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 const aa = () => {
     return (
         <div>
-            
+            <h1 className='text-xl'></h1>
         </div>
     );
 };
