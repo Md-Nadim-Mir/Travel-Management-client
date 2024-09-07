@@ -1,5 +1,5 @@
 import { FaArrowsTurnRight } from "react-icons/fa6";
-import { useLoaderData } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 
 const PackagesDetails = () => {
@@ -25,14 +25,25 @@ const PackagesDetails = () => {
   const str2 = hotelDescription;
   const parts2 = str2.split("#");
 
-  // handle Booking
+ 
 
-  const handleBooking = () => {
-    swal("", "Thank you , your booking is pending", "success");
-  };
+
+  // <<< ----------- Packages info sent to backend -------------- >>> 
+
+  const handleBooking =(e)=>{
+
+    e.preventDefault();
+
+    const date = e.target.date.value;
+
+     console.log(placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date)
+
+  }
+
+
 
   return (
-    <div>
+    <Form onSubmit={handleBooking}>
       <h1 className="text-lg md:text-3xl font-extrabold mt-12 mb-2 mx-2">
         {placeName}
       </h1>
@@ -41,7 +52,7 @@ const PackagesDetails = () => {
       </h1>
 
       {/* section 2 */}
-      <div className="grid grid-cols-1 md:grid-cols-4  mt-12 mb-2 mx-2 ">
+      <div className="grid grid-cols-1 lg:grid-cols-4  mt-12 mb-2 mx-2 ">
         <div className="col-span-2 w-full  ">
           <img src={placeImage} className="h-[60vh] w-full rounded" alt="" />
         </div>
@@ -72,7 +83,7 @@ const PackagesDetails = () => {
         {hotelLocation}
       </h1>
 
-      <div className="flex flex-col-reverse md:grid md:grid-cols-4 gap-2 mt-12 mb-2 mx-2  p-1  items-center">
+      <div className="flex flex-col-reverse lg:grid md:grid-cols-4 gap-2 mt-12 mb-2 mx-2  p-1  items-center">
         <div className=" col-span-2">
           
 
@@ -86,10 +97,13 @@ const PackagesDetails = () => {
             </div>
           ))}
 
-          <div className="grid grid-cols-3 justify-center gap-5 mt-2">
-            <h1 className="btn col-span-2   mb-4  font-bold px-2">$ {price}</h1>
+          <div className="grid grid-cols-1  md:grid-cols-3 w-full justify-center gap-5 mt-2">
+            <h1 className="btn co mb-4  font-bold px-2">$ {price}</h1>
+
+            <input name="date" className="border-4  rounded-md h-12 px-2" type="date" />
+
             <button
-              onClick={handleBooking}
+              type="submit"
               className="btn btn-primary  mb-4  font-bold px-2"
             >
               Booking Now
@@ -101,7 +115,7 @@ const PackagesDetails = () => {
           <img src={hotelImage} className="h-full w-full rounded" alt="" />
         </div>
       </div>
-    </div>
+    </Form>
   );
 };
 

@@ -39,7 +39,7 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
-    console.log("log out successful");
+    
 
     logout()
       .then(() => {
