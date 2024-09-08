@@ -1,6 +1,7 @@
 import { FaArrowsTurnRight } from "react-icons/fa6";
 import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
+// import swal from "sweetalert";
 
 const PackagesDetails = () => {
   const loadPackage = useLoaderData();
@@ -37,6 +38,36 @@ const PackagesDetails = () => {
     const date = e.target.date.value;
 
      console.log(placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date)
+
+
+     const newBooking={
+          placeName:placeName,
+          placeImage:placeImage,
+          price:price,
+          hotelName:hotelName,
+          hotelImage:hotelImage,
+          hotelLocation:hotelLocation,
+          date:date,
+          condition:'pending'
+     }
+
+
+     // <-------------------  Post Method : New bookings added to database ------->
+    fetch("http://localhost:3000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBooking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        swal("", "New booings added successfully !", "success");
+        
+      });
+
+
 
   }
 

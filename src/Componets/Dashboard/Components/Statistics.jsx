@@ -1,6 +1,8 @@
 import { useState } from "react";
 import CustomShapeBarChart from "./CustomShapeBarChart";
 import PieChartWithCustomizedLabel from "./PieChartWithCustomizedLabel";
+import { useLoaderData } from "react-router-dom";
+import swal from "sweetalert";
 
 const Statistics = () => {
   // users length find
@@ -48,14 +50,35 @@ const Statistics = () => {
 
   // blogs lenth end
 
-  // booking length find
-  const [booking, setBooking] = useState([]);
 
-  fetch("http://localhost:3000/blogs")
-    .then((res) => res.json())
-    .then((bookings) => setBooking(bookings));
+
+  // booking length find
+  const bookingData = useLoaderData();
+  const [booking, setBooking] = useState(bookingData);
+
+
+  // Delete opearation
+
+  const deleteFunction = (_id) => {
+    fetch(`http://localhost:3000/bookings/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remainingPackages = booking.filter((booked) => booked._id !== _id);
+          setBooking(remainingPackages);
+          swal(" ", "Travel Booking deleted successfully", "success");
+        }
+      });
+
+    };
 
   // bookings lenth end
+
+
+
+  //  
 
   return (
     <div>
@@ -128,7 +151,9 @@ const Statistics = () => {
 
       {/*  Booking requsts Table create */}
 
-      <h1 className="text-center font-bold text-amber-400 text-2xl   animate-bounce my-10">Booking requsts Table create pending </h1>
+      <h1 className="text-center text-3xl font-bold my-10">
+          Booking History :{booking.length}
+        </h1>
     </div>
   );
 };

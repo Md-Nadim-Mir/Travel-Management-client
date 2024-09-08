@@ -122,8 +122,11 @@ const router = createBrowserRouter([
 
   {
       path:"/dashboard/user-statistics",
-      element:<PrivateRoutes><UserInfo></UserInfo></PrivateRoutes>
+      element:<PrivateRoutes><UserInfo></UserInfo></PrivateRoutes>,
+      loader:()=>fetch('http://localhost:3000/bookings')
   },
+
+ 
 
   // <<----------  Admin Panel Route ------------->>
   {
@@ -133,7 +136,8 @@ const router = createBrowserRouter([
       children:[
         {
           path:'/dashboard/statistics',
-          element:<Statistics></Statistics>
+          element:<Statistics></Statistics>,
+          loader:()=>fetch('http://localhost:3000/bookings')
         },
         {
           path:'/dashboard/users',

@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import person from "../../../public/person.png";
