@@ -1,13 +1,25 @@
 // import React, { PureComponent } from 'react';
 import { useState } from 'react';
-import { PieChart, Pie,  Cell, ResponsiveContainer } from 'recharts';
+import {
+    ComposedChart,
+    Line,
+    Area,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    Scatter,
+    ResponsiveContainer,
+  } from 'recharts';
 
 
 
 const PieChartWithCustomizedLabel = () => {
 
 
-    // data load 
+// data load 
 
 // users length find
 const [user, setUser] = useState([]);
@@ -74,46 +86,71 @@ fetch('http://localhost:3000/users')
  // bookings lenth end 
 
 
-    const data = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
-      ];
+ const data = [
+    {
+      name: 'Users',
+      uv: user.length,
+      pv: 100,
+      amt: 200,
+    },
+    {
+      name: 'Places',
+      uv: place.length,
+      pv: 100,
+      amt: 200,
+    },
+    {
+      name: 'Hotels',
+      uv: hotel.length,
+      pv: 100,
+      amt: 200,
+    },
+    {
+      name: 'Packages',
+      uv: packaged.length,
+      pv: 100,
+      amt: 200,
+    },
+    {
+      name: 'Blogs',
+      uv: blog.length,
+      pv: 100,
+      amt: 200,
+    },
+    {
+      name: 'Bookings',
+      uv: booking.length,
+      pv: 100,
+      amt: 200,
+    },
+   
+  ];
       
-      const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
       
-      const RADIAN = Math.PI / 180;
-      const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent}) => {
-        const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-        const x = cx + radius * Math.cos(-midAngle * RADIAN);
-        const y = cy + radius * Math.sin(-midAngle * RADIAN);
-      
-        return (
-          <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-            {`${(percent * 100).toFixed(0)}%`}
-          </text>
-        );
-      };
 
     return (
         <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
-          <Pie
-            data={data}
-            cx="50%"
-            cy="50%"
-            labelLine={false}
-            label={renderCustomizedLabel}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-          >
-            {data.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-        </PieChart>
+        <ComposedChart
+          width={500}
+          height={400}
+          data={data}
+          margin={{
+            top: 20,
+            right: 20,
+            bottom: 20,
+            left: 20,
+          }}
+        >
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="name" scale="band" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
+          <Bar dataKey="pv" barSize={20} fill="#413ea0" />
+          <Line type="monotone" dataKey="uv" stroke="#ff7300" />
+          <Scatter dataKey="cnt" fill="red" />
+        </ComposedChart>
       </ResponsiveContainer>
     );
  
@@ -122,6 +159,18 @@ fetch('http://localhost:3000/users')
 export default PieChartWithCustomizedLabel;
 
 
+
+
+
+// export default class Example extends PureComponent {
+//   static demoUrl = 'https://codesandbox.io/p/sandbox/simple-composed-chart-lyz572';
+
+//   render() {
+//     return (
+     
+//     );
+//   }
+// }
 
 
 

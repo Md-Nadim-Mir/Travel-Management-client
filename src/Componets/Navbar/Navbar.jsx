@@ -158,6 +158,12 @@ const Navbar = () => {
                     <a>Dashboard </a>
                   </li>
                 </NavLink>
+
+                <NavLink to="/dashboard/user-statistics">
+                  <li>
+                    <a>User Dashboard </a>
+                  </li>
+                </NavLink>
             
               <NavLink to="" className="font-medium text-[#159bc8]">
                 <li>

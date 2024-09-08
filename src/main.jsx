@@ -36,6 +36,7 @@ import BlogsDetails from "./Componets/Blogs/BlogsDetails";
 import PackagesAdded from "./Componets/Dashboard/Components/PackagesCollection/PackagesAdded";
 import SinglePackageUpdate from "./Componets/Dashboard/Components/PackagesCollection/SinglePackageUpdate";
 import PackagesDetails from "./Componets/Packages/PackagesDetails";
+import UserInfo from "./Componets/UserDashboard/UserInfo";
 
 const router = createBrowserRouter([
   {
@@ -116,6 +117,15 @@ const router = createBrowserRouter([
       },
     ],
   },
+
+  // <<< --------------  User Dashboard Route ----------->>>
+
+  {
+      path:"/dashboard/user-statistics",
+      element:<PrivateRoutes><UserInfo></UserInfo></PrivateRoutes>
+  },
+
+  // <<----------  Admin Panel Route ------------->>
   {
     
       path: "/dashboard",

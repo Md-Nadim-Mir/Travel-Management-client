@@ -63,6 +63,12 @@ const Statistics = () => {
         Statistics Reports
       </h1>
 
+      {/* chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-between my-20">
+        <CustomShapeBarChart></CustomShapeBarChart>
+        <PieChartWithCustomizedLabel></PieChartWithCustomizedLabel>
+      </div>
+
       {/* custom statistics */}
 
       <div className="border-4 border-[#FF00D3] mx-5 rounded-lg shadow-2xl my-16">
@@ -119,11 +125,10 @@ const Statistics = () => {
         </div>
       </div>
 
-      {/* chart */}
-    <div className="grid grid-cols-1 md:grid-cols-2 justify-between">
-        <CustomShapeBarChart></CustomShapeBarChart>
-        <PieChartWithCustomizedLabel></PieChartWithCustomizedLabel>
-      </div>
+
+      {/*  Booking requsts Table create */}
+
+      <h1 className="text-center font-bold text-amber-400 text-2xl   animate-bounce my-10">Booking requsts Table create pending </h1>
     </div>
   );
 };

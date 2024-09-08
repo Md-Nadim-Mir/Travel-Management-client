@@ -131,8 +131,8 @@ const data = [
 
     return (
         <BarChart
-        width={700}
-        height={300}
+        width={500}
+        height={400}
         data={data}
         margin={{
           top: 20,
