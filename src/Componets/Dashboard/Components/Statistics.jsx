@@ -3,6 +3,7 @@ import CustomShapeBarChart from "./CustomShapeBarChart";
 import PieChartWithCustomizedLabel from "./PieChartWithCustomizedLabel";
 import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
+import StatisticUserBookingInfo from "./StatisticUserBookingInfo";
 
 const Statistics = () => {
   // users length find
@@ -68,18 +69,41 @@ const Statistics = () => {
         if (data.deletedCount > 0) {
           const remainingPackages = booking.filter((booked) => booked._id !== _id);
           setBooking(remainingPackages);
-          swal(" ", "Travel Booking deleted successfully", "success");
+          swal(" ", "Booking request canceled", "success");
         }
       });
 
     };
 
-  // bookings lenth end
 
+    //  <--------------  update function ------------------->
 
+  const updateFunction = (_id,updateInfo)=>{
+    console.log(_id,updateInfo);
 
-  //  
+    fetch(`http://localhost:3000/bookings/${_id}`,{
+        method:'PUT',
+        headers:{
+          'content-type':'application/json'
+        },
+        body: JSON.stringify(updateInfo)
+    })
+    .then(res=>res.json())
+    .then((data)=>{
+         console.log(data);
 
+         if(data.modifiedCount > 0){
+          
+            // const remainingBooking = booking.filter(booked=>booked._id !== _id);
+            // setBooking(remainingBooking);
+
+            swal('','Booking Requested accepted','success')
+
+         }
+    })
+}
+
+  
   return (
     <div>
       <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[#870c50dc]">
@@ -151,9 +175,47 @@ const Statistics = () => {
 
       {/*  Booking requsts Table create */}
 
-      <h1 className="text-center text-3xl font-bold my-10">
+       <div>
+           
+        <h1 className="text-center text-3xl font-bold my-10">
           Booking History :{booking.length}
         </h1>
+
+        <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
+                <th className="border-4 shadow-xl">No</th>
+                <th className="border-4 shadow-xl">Place Image</th>
+                <th className="border-4 shadow-xl">Place Name</th>
+                <th className="border-4 shadow-xl">Price</th>
+                <th className="border-4 shadow-xl">Hotel Image</th>
+                <th className="border-4 shadow-xl">Hotel Name</th>
+                <th className="border-4 shadow-xl">Hotel Location</th>
+                <th className="border-4 shadow-xl">Post Date</th>
+                <th className="border-4 shadow-xl">Status</th>
+                <th className="border-4 shadow-xl">Actions</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {booking.map((booked, index) => (
+                <StatisticUserBookingInfo
+                  index={index}
+                  key={booked._id}
+                  booked={booked}
+                  deleteFunction={deleteFunction}
+                  updateFunction={updateFunction}
+                ></StatisticUserBookingInfo>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+       </div>
+
+     
     </div>
   );
 };
