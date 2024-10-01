@@ -13,7 +13,7 @@ const BlogsDetails = () => {
         <div className="pb-10">
        
   
-        <img src={image} className="w-full h-[60vh] rounded-xl px-2" alt="" />
+        <img src={image} className="w-full h-[60vh] rounded-2xl px-2" alt="" />
 
         <h1 className="text-lg md:text-3xl font-extrabold mt-12 mb-2 mx-2">
           {name}

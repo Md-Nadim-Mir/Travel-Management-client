@@ -50,10 +50,10 @@ const Footer = () => {
         </aside>
         <nav className="md:place-self-center md:justify-self-end">
           <div className="grid grid-cols-1 gap-4">
-            <h1 className="text-xl font-bold text-[#FFA500]">Developed By</h1>
+            <h1 className="textl-lg font-bold text-[#FFA500]">Developed By</h1>
             <div className="grid grid-flow-col">
             
-              <a href="https://www.linkedin.com/in/md-nadim-mir-6665252a4/">
+              <a href="https://www.linkedin.com/in/md-nadim-mir-6665252a4/"  className="animate-bounce hover:animate-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -74,7 +74,7 @@ const Footer = () => {
               </a>
 
 
-              <a href="https://github.com/Md-Nadim-Mir">
+              <a href="https://github.com/Md-Nadim-Mir" className="animate-bounce hover:animate-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -89,7 +89,7 @@ const Footer = () => {
 
                 
 
-              <a href="https://www.facebook.com/mdnadim.mir.96">
+              <a href="https://www.facebook.com/mdnadim.mir.96" className="animate-bounce hover:animate-none">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"

@@ -9,7 +9,7 @@ const OneBlog = ({ blog }) => {
 
         <div>
           <figure>
-            <img src={image} className="h-[50vh]" alt="Shoes" />
+            <img src={image} className="h-[50vh] rounded-t-2xl" alt="Shoes" />
           </figure>
         </div>
 
