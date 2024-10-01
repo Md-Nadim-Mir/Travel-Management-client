@@ -70,7 +70,7 @@ fetch('http://localhost:3000/users')
  const [booking, setBooking] = useState([]);
 
  
- fetch('http://localhost:3000/blogs')
+ fetch('http://localhost:3000/bookings')
    .then((res) => res.json())
    .then((bookings) => setBooking(bookings));
 
