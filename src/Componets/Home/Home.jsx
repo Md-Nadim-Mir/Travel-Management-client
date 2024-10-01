@@ -3,7 +3,10 @@ import Banner from "./Banner";
 
 
 
+
+
 import Feedback from "../Review/Feedback";
+import Hikings from "./Hikings";
 
 const Home = () => {
     return (
@@ -11,11 +14,13 @@ const Home = () => {
             <Helmet>
                 <title>Travel | Home</title>
             </Helmet>
+            
             <Banner></Banner>
+            
             <Feedback></Feedback>
+            <Hikings></Hikings>
+            
          
-            
-            
         </div>
     );
 };

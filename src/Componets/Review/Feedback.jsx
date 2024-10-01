@@ -46,7 +46,7 @@ const Feedback = () => {
   }, []);
 
   return (
-    <div className="w-full px-5 md:px-4 my-8 ">
+    <div className="w-full px-5 md:px-4 lg:px-0 my-8 ">
       <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
         Traveller Review
       </h1>
