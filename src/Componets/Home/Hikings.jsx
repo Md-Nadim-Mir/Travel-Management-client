@@ -17,8 +17,8 @@ const Hikings = () => {
               alt=""
             />
           </div>
-          <h1 className="text-center py-8 text-xl font-bold">350+ Hikings</h1>
-          <h1 className="text-center">
+          <h1 className="text-center mt-5 mb-4 text-xl font-bold">350+ Hikings</h1>
+          <h1 className="">
             Hiking offers a refreshing escape into nature, providing physical
             exercise and mental relaxation. The stunning views, fresh air, and
             sense of accomplishment make it incredibly rewarding.
@@ -33,8 +33,8 @@ const Hikings = () => {
               alt=""
             />
           </div>
-          <h1 className="text-center py-8 text-xl font-bold">200+ Sea View</h1>
-          <h1 className="text-center">
+          <h1 className="text-center mt-5 mb-4 text-xl font-bold">200+ Sea View</h1>
+          <h1 className="">
             A sea view provides a calming, picturesque experience. The rhythmic
             sound of waves, fresh ocean breeze, and stunning sunsets create a
             perfect setting for relaxation.
@@ -49,10 +49,10 @@ const Hikings = () => {
               alt=""
             />
           </div>
-          <h1 className="text-center py-8 text-xl font-bold">
+          <h1 className="text-center mt-5 mb-4 text-xl font-bold">
             2000+ Customers
           </h1>
-          <h1 className="text-center">
+          <h1 className="">
             Outstanding customer support! Friendly and knowledgeable staff
             quickly resolved my issue. Their commitment to customer satisfaction
             exceeded my expectations. Highly recommended.
@@ -62,7 +62,7 @@ const Hikings = () => {
 
       {/* card */}
 
-      <div className="hero bg-base-200  mt-10  rounded-md" style={{ backgroundImage: "url(https://i.ibb.co.com/3rftw97/nature-landscape-with-black-sand-beach.jpg)" }}>
+      <div className="hero bg-base-200  mt-10  rounded-md bg-opacity-25" style={{ backgroundImage: "url(https://i.ibb.co.com/3rftw97/nature-landscape-with-black-sand-beach.jpg)" }}>
         <div className="hero-content grid gird-cols-1 md:grid-cols-2 gap-4 ">
           <div className="text-white">
             <h1 className="text-3xl font-bold">

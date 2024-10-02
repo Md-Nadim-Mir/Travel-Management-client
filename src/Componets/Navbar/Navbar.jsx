@@ -4,8 +4,12 @@ import { useContext} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import person from "../../../public/person.png";
+import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({allUser}) => {
+
+ 
+
   const links = (
     <>
       <NavLink to="/">
@@ -36,11 +40,9 @@ const Navbar = () => {
     </>
   );
 
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout , setLoading} = useContext(AuthContext);
 
   const handleLogout = () => {
-    
-
     logout()
       .then(() => {
         swal("", "Logout Successful", "success");
@@ -50,27 +52,28 @@ const Navbar = () => {
       });
   };
 
-  // use hook for check admin or users
-  // const [loadedUsers, setLoadedUsers] = useState([]);
+ 
+  console.log(allUser)
 
-  //  all user data loaded
-  // useEffect(() => {
-  //   fetch(`http://localhost:3000/users`)
-  //     .then((res) => res.json())
-  //     .then((data) => setLoadedUsers(data));
-  // },[]);
 
-//   let targetUsers={
-//     email:'mdnadimmir50@gmail.com',
-//     role : 'admin'
-//   }
+ 
 
-//  if(user?.email){ 
-//   targetUsers = loadedUsers.find((singleUser) => singleUser.email === user?.email);
-//  }
+ 
+    const CurrentUsers = allUser.find(
+      (singleUser) => singleUser?.email === user?.email
+    );
 
-  
-//    console.log(targetUsers);
+    console.log(CurrentUsers)
+
+    console.log(CurrentUsers?.role)
+
+      // let [role,setRole]=useState(CurrentUsers)
+
+  // setRole(CurrentUsers);
+
+
+
+
 
   return (
     <div className="border-b-2 mb-2">
@@ -102,18 +105,9 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <img
-            className="w-1/4  hidden md:block "
-            src={logo}
-            alt=""
-          />
-          <NavLink
-            to="/"
-            className="md:text-base font-bold flex"
-          >
-            <h1 className="md:text-2xl text-[orange] font-extrabold">
-              Travel
-            </h1>
+          <img className="w-1/4  hidden md:block " src={logo} alt="" />
+          <NavLink to="/" className="md:text-base font-bold flex">
+            <h1 className="md:text-2xl text-[orange] font-extrabold">Travel</h1>
             <h1 className="md:text-2xl text-[#326fc5] font-extrabold animate-bounce hover:animate-none">
               .com
             </h1>
@@ -152,19 +146,29 @@ const Navbar = () => {
                   </li>
                 </NavLink>
               )}
-              
-                <NavLink to="/dashboard/statistics">
-                  <li>
-                    <a>Dashboard </a>
-                  </li>
-                </NavLink>
 
-                <NavLink to="/dashboard/user-statistics">
-                  <li>
-                    <a>User Dashboard </a>
-                  </li>
-                </NavLink>
-            
+              
+                      
+              <NavLink>
+                         {
+                           CurrentUsers?.role === 'admin' 
+                           ? 
+                           <NavLink to="/dashboard/statistics">
+                              <li>
+                                 <a>Dashboard </a>
+                               </li>
+                           </NavLink>
+                           : 
+                           <NavLink to="/dashboard/user-statistics">
+                                <li>
+                                   <a>User Dashboard </a>
+                                 </li>
+                           </NavLink>
+                         }
+              </NavLink>
+
+                        
+
               <NavLink to="" className="font-medium text-[#159bc8]">
                 <li>
                   <a>{user?.email}</a>

@@ -1,9 +1,6 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
-import {
-  FaMagnifyingGlassPlus,
-  FaUsersGear,
-} from "react-icons/fa6";
+import { FaMagnifyingGlassPlus, FaUsersGear } from "react-icons/fa6";
 import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
 import { IoAppsOutline, IoPersonCircle } from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
@@ -12,8 +9,25 @@ import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
 import { TfiExchangeVertical } from "react-icons/tfi";
 import { LuPackageSearch } from "react-icons/lu";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const Sidebar = () => {
+  //  logout
+
+  const { user, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        swal("Log Out Successfully !");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
   return (
     <div className="xl:bg-[#FECACA] ">
       <div className="dropdown xl:hidden">
@@ -116,10 +130,13 @@ const Sidebar = () => {
               </div>
 
               {/* <----------   Profile Nav Link    ----------> */}
-              <div className=" flex pl-2 items-center gap-x-4">
-                <IoPersonCircle className="text-[#3C76C2]" />
-                <NavLink to="">Profile</NavLink>
-              </div>
+
+              <button
+                onClick={handleLogout}
+                className="text-[black] text-xl font-extrabold hover:text-[#92b8ed] border-4 border-[#FFA500] hover:border-[#FFA500] rounded-md px-2 py-2"
+              >
+                Log Out
+              </button>
             </div>
           </div>
         </ul>
@@ -222,15 +239,22 @@ const Sidebar = () => {
           {/* <------------------  Profile Nav Link    --------------------> */}
 
           {/* profile */}
-          <div className=" mt-10 flex pl-2 items-center gap-x-4">
+          {/* <div className=" mt-10 flex pl-2 items-center gap-x-4">
             {/* <IoPersonCircle className="text-[#3C76C2]" /> */}
-            <div>
+          {/* <div>
             <img className="w-10 rounded-full"
             alt="Tailwind CSS Navbar component"
             src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
             </div>
             <NavLink to="">Profile</NavLink>
-          </div>
+          </div> */}
+
+          <button
+            onClick={handleLogout}
+            className="text-[black] text-xl font-extrabold hover:text-[#3370C5] border-4 border-[#FFA500] hover:border-[#FFA500] rounded-md px-4 py-2 my-10"
+          >
+            Log Out
+          </button>
         </div>
       </div>
     </div>

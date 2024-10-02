@@ -54,7 +54,7 @@ const Popular_Destination = () => {
       </p>
       <Slider {...settings}>
         {testmonial.map((card) => (
-          <div key={card.id} className=" h-full px-2 py-4">
+          <div key={card._id} className=" h-full px-2 py-4">
             <div className="bg-[#ffffff] p-6 text-center border border-gray-200 rounded-lg shadow-lg">
               <div>
                 <div className="flex justify-center">

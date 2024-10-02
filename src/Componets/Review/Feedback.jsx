@@ -52,7 +52,7 @@ const Feedback = () => {
       </h1>
       <Slider {...settings}>
         {testmonial.map((card) => (
-          <div key={card.id} className=" h-full px-2">
+          <div key={card._id} className=" h-full px-2">
             <div className="bg-[#ffffff] p-6 text-center border border-gray-200 rounded-lg shadow-lg">
               <div>
                 <div className="flex justify-center">
@@ -62,7 +62,7 @@ const Feedback = () => {
                     alt=""
                   />
                 </div>
-                <h1 className="text-2xl font-bold text-left mt-5 mb-2">{card.name}</h1>
+                <h1 className="text-2xl text-center font-bold  mt-5 mb-2">{card.name}</h1>
                 <h1 className="text-left">{card.details}</h1>
               </div>
             </div>

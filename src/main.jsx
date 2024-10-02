@@ -43,6 +43,7 @@ const router = createBrowserRouter([
     path: "/",
     errorElement:<ErrorPage></ErrorPage>,
     element: <Loop></Loop>,
+    loader:()=>fetch('http://localhost:3000/users'),
     children: [
       {
         path: "/",
