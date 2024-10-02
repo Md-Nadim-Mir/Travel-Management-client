@@ -7,6 +7,7 @@ import Banner from "./Banner";
 
 import Feedback from "../Review/Feedback";
 import Hikings from "./Hikings";
+import Popular_Destination from "./Popular_Destination";
 
 const Home = () => {
     return (
@@ -16,7 +17,7 @@ const Home = () => {
             </Helmet>
             
             <Banner></Banner>
-            
+            <Popular_Destination></Popular_Destination>
             <Feedback></Feedback>
             <Hikings></Hikings>
             

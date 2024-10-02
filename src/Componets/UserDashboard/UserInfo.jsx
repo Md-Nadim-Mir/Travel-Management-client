@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
-import { useLoaderData } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
 import SingleUserInfoBooking from "./SingleUserInfoBooking";
+import { FaHome } from "react-icons/fa";
 
 const UserInfo = () => {
   const { user, logout } = useContext(AuthContext);
@@ -20,7 +21,6 @@ const UserInfo = () => {
   const bookingData = useLoaderData();
   const [booking, setBooking] = useState(bookingData);
 
-
   // Delete opearation
 
   const deleteFunction = (_id) => {
@@ -30,13 +30,14 @@ const UserInfo = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
-          const remainingPackages = booking.filter((booked) => booked._id !== _id);
+          const remainingPackages = booking.filter(
+            (booked) => booked._id !== _id
+          );
           setBooking(remainingPackages);
           swal(" ", "Travel Booking deleted successfully", "success");
         }
       });
-
-    };
+  };
 
   return (
     <div>
@@ -46,9 +47,15 @@ const UserInfo = () => {
           Travel.com site.
         </h1>
 
+        <button className="text-[white] hover:text-[yellow]  border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 mr-2">
+          <NavLink to='http://localhost:5173/'>
+            <FaHome />
+          </NavLink>
+        </button>
+
         <button
           onClick={handleLogout}
-          className="text-[white] hover:text-[yellow] border-4 border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 animate-bounce"
+          className="text-[white] hover:text-[yellow] border-4 border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 "
         >
           Log Out
         </button>

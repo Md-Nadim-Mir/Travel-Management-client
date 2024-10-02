@@ -58,7 +58,7 @@ const Banner = () => {
   return (
 
 
-    <div className="w-full px-5 md:px-4 lg:px-0 my-4">
+    <div className="w-full px-5 md:px-4 xl:px-0 my-4">
     <Slider {...settings}>
       {testmonial.map((card) => (
         <div key={card.id} className="px-2 lg:px-1">
