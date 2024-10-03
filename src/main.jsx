@@ -99,7 +99,7 @@ const router = createBrowserRouter([
       //  <------- Blogs -------------->
 
       {
-        path: "/Blogs",
+        path: "/blogs",
         element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
         loader:()=>fetch('http://localhost:3000/blogs')
       },

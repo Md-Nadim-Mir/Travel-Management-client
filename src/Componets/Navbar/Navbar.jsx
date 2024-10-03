@@ -32,7 +32,7 @@ const Navbar = ({allUser}) => {
           <a>Packages</a>
         </li>
       </NavLink>
-      <NavLink to="/Blogs">
+      <NavLink to="/blogs">
         <li>
           <a>Blogs</a>
         </li>
@@ -53,30 +53,15 @@ const Navbar = ({allUser}) => {
   };
 
  
-  // console.log(allUser)
-
-
- 
-
- 
+  //  user and admin find
     const CurrentUsers = allUser.find(
       (singleUser) => singleUser?.email === user?.email
     );
 
-    // console.log(CurrentUsers)
-
-    // console.log(CurrentUsers?.role)
-
-      // let [role,setRole]=useState(CurrentUsers)
-
-  // setRole(CurrentUsers);
-
-
-
-
+    
 
   return (
-    <div className="border-b-2 mb-2">
+    <div className="border-b-2 mb-2 font-serif">
       {/* fixed shadow-xl max-w-7xl rounded-lg */}
       <div className="navbar bg-base-100 ">
         <div className="navbar-start">
@@ -99,7 +84,7 @@ const Navbar = ({allUser}) => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-md"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-md font-bold"
             >
               {links}
             </ul>
@@ -169,7 +154,7 @@ const Navbar = ({allUser}) => {
 
                         
 
-              <NavLink to="" className="font-medium text-[#159bc8]">
+              <NavLink to="" className="font-bold text-[#159bc8] ">
                 <li>
                   <a>{user?.email}</a>
                 </li>
@@ -177,21 +162,24 @@ const Navbar = ({allUser}) => {
             </div>
           </div>
 
-          {user ? (
-            <NavLink
-              to="/register"
-              className="btn bg-[#4ea7b3]  font-bold md:text-base text-md "
-            >
-              Register
-            </NavLink>
-          ) : (
+          {user ?  (
             <NavLink
               to="/login"
-              className="btn bg-[#4ea7b3]  font-bold md:text-base text-md "
+              className="btn bg-[#FFA500] rounded-full font-bold  text-white text-[14px] hover:bg-[#326FC5]"
             >
               Login
             </NavLink>
-          )}
+          )
+          :
+          (
+            <NavLink
+              to="/register"
+              className="btn bg-[#FFA500] rounded-full  font-bold  text-white text-[14px] hover:bg-[#326FC5]"
+            >
+              Register
+            </NavLink>
+          )
+        }
         </div>
       </div>
     </div>
