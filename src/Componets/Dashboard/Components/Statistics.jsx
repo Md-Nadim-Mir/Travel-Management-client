@@ -187,12 +187,13 @@ const Statistics = () => {
             <thead>
               <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
                 <th className="border-4 shadow-xl">No</th>
-                <th className="border-4 shadow-xl">Place Image</th>
+                <th className="border-4 shadow-xl">Email</th>
+                {/* <th className="border-4 shadow-xl">Place Image</th> */}
                 <th className="border-4 shadow-xl">Place Name</th>
-                <th className="border-4 shadow-xl">Price</th>
-                <th className="border-4 shadow-xl">Hotel Image</th>
+                {/* <th className="border-4 shadow-xl">Hotel Image</th> */}
                 <th className="border-4 shadow-xl">Hotel Name</th>
                 <th className="border-4 shadow-xl">Hotel Location</th>
+                <th className="border-4 shadow-xl">Price</th>
                 <th className="border-4 shadow-xl">Post Date</th>
                 <th className="border-4 shadow-xl">Status</th>
                 <th className="border-4 shadow-xl">Actions</th>

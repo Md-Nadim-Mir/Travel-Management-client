@@ -13,13 +13,13 @@ const Packages = () => {
       </Helmet>
 
       <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
-        Popular Packages
+        Popular Packages : 
       </h1>
 
       {/* all places card design */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12">
         {packages.map((packaged) => (
-          <OnePackage key={packaged._id} packaged={packaged}></OnePackage>
+          <OnePackage key={packaged._id} packaged={packaged} ></OnePackage>
         ))}
       </div>
     </div>

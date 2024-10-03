@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import {  useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { NavLink, useLoaderData } from "react-router-dom";
@@ -18,8 +18,33 @@ const UserInfo = () => {
       });
   };
 
+
+ 
   const bookingData = useLoaderData();
-  const [booking, setBooking] = useState(bookingData);
+
+
+  const specificEmailBookings=bookingData.filter((b)=>b?.email===user?.email);
+  
+  console.log(specificEmailBookings);
+
+  const [booking,setBooking]=useState(specificEmailBookings);
+  console.log(booking)
+  
+
+  // const [a,setA]=useState(null)
+
+ 
+  // useEffect(()=>{
+    
+  //     fetch(`http://localhost:3000/bookings/${user.email}`)
+  //     .then(res=>res.json())
+  //     .then(data=>setA(data))
+
+  //     console.log(a)
+
+  // },[])
+
+
 
   // Delete opearation
 
@@ -65,7 +90,7 @@ const UserInfo = () => {
 
       <div>
         <h1 className="text-center text-3xl font-bold my-10">
-          Booking History :{booking.length}
+          {/* Booking History :{booking.length} */}
         </h1>
 
         <div className="overflow-x-auto border-4 rounded mx-2 my-5">

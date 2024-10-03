@@ -4,7 +4,7 @@ import { useContext} from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import person from "../../../public/person.png";
-import { useState } from "react";
+
 
 const Navbar = ({allUser}) => {
 
@@ -40,7 +40,7 @@ const Navbar = ({allUser}) => {
     </>
   );
 
-  const { user, logout , setLoading} = useContext(AuthContext);
+  const { user, logout } = useContext(AuthContext);
 
   const handleLogout = () => {
     logout()
@@ -53,7 +53,7 @@ const Navbar = ({allUser}) => {
   };
 
  
-  console.log(allUser)
+  // console.log(allUser)
 
 
  
@@ -63,9 +63,9 @@ const Navbar = ({allUser}) => {
       (singleUser) => singleUser?.email === user?.email
     );
 
-    console.log(CurrentUsers)
+    // console.log(CurrentUsers)
 
-    console.log(CurrentUsers?.role)
+    // console.log(CurrentUsers?.role)
 
       // let [role,setRole]=useState(CurrentUsers)
 

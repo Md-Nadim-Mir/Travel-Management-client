@@ -1,10 +1,18 @@
+
+import { useContext } from "react";
 import { FaArrowsTurnRight } from "react-icons/fa6";
 import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 // import swal from "sweetalert";
 
 const PackagesDetails = () => {
   const loadPackage = useLoaderData();
+
+  const { user } = useContext(AuthContext);
+
+ 
 
   const {
     placeName,
@@ -33,11 +41,15 @@ const PackagesDetails = () => {
 
   const handleBooking =(e)=>{
 
+
+   console.log(user.email)
+
     e.preventDefault();
 
     const date = e.target.date.value;
+   
 
-     console.log(placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date)
+    //  console.log(placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,user.email)
 
 
      const newBooking={
@@ -48,12 +60,16 @@ const PackagesDetails = () => {
           hotelImage:hotelImage,
           hotelLocation:hotelLocation,
           date:date,
-          condition:'pending'
+          condition:'pending',
+          email:user.email
      }
 
 
+     console.log(user.email)
+
+
      // <-------------------  Post Method : New bookings added to database ------->
-    fetch("http://localhost:3000/bookings", {
+    fetch("http://localhost:3000/bookings/", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -124,7 +124,7 @@ const router = createBrowserRouter([
   {
       path:"/dashboard/user-statistics",
       element:<PrivateRoutes><UserInfo></UserInfo></PrivateRoutes>,
-      loader:()=>fetch('http://localhost:3000/bookings')
+      loader:()=>fetch('http://localhost:3000/bookings/')
   },
 
  

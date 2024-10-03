@@ -4,7 +4,7 @@ import { MdAutoDelete } from "react-icons/md";
 
 const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) => {
 
-    const {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,_id,condition}=booked;
+    const {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,_id,condition,email}=booked;
 
 
     //  booking Condition change start 
@@ -44,8 +44,9 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
     return (
         <tr className="font-semibold">
         <td className="border-2 shadow-xl">{index+1}</td>
+        <td className="border-2 shadow-xl">{email}</td>
 
-        <td className="border-2 shadow-xl">
+        {/* <td className="border-2 shadow-xl">
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
@@ -54,14 +55,14 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
               />
             </div>
           </div>
-        </td>
+        </td> */}
 
         <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
 
-        <td className="border-2 shadow-xl">$ {price}</td>
+        
 
 
-        <td className="border-2 shadow-xl">
+        {/* <td className="border-2 shadow-xl">
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
@@ -70,9 +71,12 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
               />
             </div>
           </div>
-        </td>
+        </td> */}
 
         <td className="text-base font-bold border-2 shadow-xl">{hotelName}</td>
+
+
+        <td className="border-2 shadow-xl">$ {price}</td>
 
         <td className="border-2 shadow-xl">{hotelLocation}</td>
 
