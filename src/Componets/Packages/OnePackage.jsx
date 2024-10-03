@@ -14,9 +14,9 @@ const OnePackage = ({packaged}) => {
           <h2 className="card-title">{placeName}</h2>
           <p>{hotelLocation}</p>
           <p>$ {price}</p>
-          <div className="card-actions justify-end">
+          <div className="card-actions mt-4 justify-end">
             <NavLink to ={`/packages/${_id}`}>
-              <button className="btn btn-primary"
+              <button className="btn bg-[orange] hover:bg-[#326FC5] text-white"
               >
                 Visit Now
               </button>

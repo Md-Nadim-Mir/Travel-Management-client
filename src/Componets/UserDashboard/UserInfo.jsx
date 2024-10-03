@@ -1,9 +1,10 @@
-import {  useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { NavLink, useLoaderData } from "react-router-dom";
 import SingleUserInfoBooking from "./SingleUserInfoBooking";
 import { FaHome } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const UserInfo = () => {
   const { user, logout } = useContext(AuthContext);
@@ -18,24 +19,21 @@ const UserInfo = () => {
       });
   };
 
-
- 
   const bookingData = useLoaderData();
 
+  const specificEmailBookings = bookingData.filter(
+    (b) => b?.email === user?.email
+  );
 
-  const specificEmailBookings=bookingData.filter((b)=>b?.email===user?.email);
-  
   console.log(specificEmailBookings);
 
-  const [booking,setBooking]=useState(specificEmailBookings);
-  console.log(booking)
-  
+  const [booking, setBooking] = useState(specificEmailBookings);
+  console.log(booking);
 
   // const [a,setA]=useState(null)
 
- 
   // useEffect(()=>{
-    
+
   //     fetch(`http://localhost:3000/bookings/${user.email}`)
   //     .then(res=>res.json())
   //     .then(data=>setA(data))
@@ -43,8 +41,6 @@ const UserInfo = () => {
   //     console.log(a)
 
   // },[])
-
-
 
   // Delete opearation
 
@@ -66,6 +62,10 @@ const UserInfo = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Travel | User Dashboard</title>
+      </Helmet>
+
       <div className=" text-center text-xl md:text-2xl px-5 py-10 font-extrabold border-b-2 h-[200px] bg-[#0a97bd]">
         <h1 className="text-[#870c50dc] ">
           Welcome , <span className="text-[#07f93b]">{user.email}</span> to
@@ -73,7 +73,7 @@ const UserInfo = () => {
         </h1>
 
         <button className="text-[white] hover:text-[yellow]  border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 mr-2">
-          <NavLink to='http://localhost:5173/'>
+          <NavLink to="http://localhost:5173/">
             <FaHome />
           </NavLink>
         </button>

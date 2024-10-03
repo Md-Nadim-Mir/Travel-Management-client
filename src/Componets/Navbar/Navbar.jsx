@@ -116,7 +116,7 @@ const Navbar = ({allUser}) => {
             </div>
             <div
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow font-bold border-4"
             >
               {user ? (
                 <NavLink>
@@ -154,7 +154,7 @@ const Navbar = ({allUser}) => {
 
                         
 
-              <NavLink to="" className="font-bold text-[#159bc8] ">
+              <NavLink to="" className="font-medium text-[#159bc8] ">
                 <li>
                   <a>{user?.email}</a>
                 </li>
@@ -165,7 +165,7 @@ const Navbar = ({allUser}) => {
           {user ?  (
             <NavLink
               to="/login"
-              className="btn bg-[orange] hover:bg-[#326FC5] rounded-full font-bold  text-white text-[14px] "
+              className="btn bg-[orange] hover:bg-[#326FC5] rounded-full font-bold  text-white text-[14px] md:w-36"
             >
               Login
             </NavLink>
@@ -174,7 +174,7 @@ const Navbar = ({allUser}) => {
           (
             <NavLink
               to="/register"
-              className="btn bg-[orange] rounded-full  font-bold  text-white text-[14px] hover:bg-[#326FC5]"
+              className="btn bg-[orange] rounded-full  font-bold  text-white text-[14px] hover:bg-[#326FC5] md:w-36"
             >
               Register
             </NavLink>

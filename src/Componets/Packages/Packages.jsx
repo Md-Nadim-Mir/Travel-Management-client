@@ -7,17 +7,17 @@ const Packages = () => {
   const packages = useLoaderData();
 
   return (
-    <div>
+    <div className="font-serif">
       <Helmet>
         <title>Travel | Packages</title>
       </Helmet>
 
-      <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
-        Popular Packages : 
+      <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500] px-2 md:px-4">
+        Popular Packages 
       </h1>
 
       {/* all places card design */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12 px-2 md:px-4">
         {packages.map((packaged) => (
           <OnePackage key={packaged._id} packaged={packaged} ></OnePackage>
         ))}

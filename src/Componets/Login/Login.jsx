@@ -97,7 +97,7 @@ const Login = () => {
   };
 
   return (
-    <div className="my-5 md:my-12">
+    <div className="my-5 md:my-12 font-serif md:mx-4">
       <div className="bgImage  rounded-lg  py-10 m-2 xl:m-0">
         <div className=" my-5 md:max-w-sm md:mx-auto mx-2 pb-5 shadow-2xl rounded-lg">
           <div className=" rounded-md p-5 bg-white">
@@ -156,17 +156,17 @@ const Login = () => {
             <h1 className="divider my-5 font-bold text-base text-center">Or</h1>
 
             {/* connect facebook */}
-            <div className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
+            {/* <div className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
               <FaFacebook className="bg-[white] text-[#3076FF] text-[24px]"></FaFacebook>
               <h1 className="font-medium text-[16px]">
                 Continue with Facebook
               </h1>
-            </div>
+            </div> */}
 
             {/* connect google */}
             <div onClick={googleSignUp} className="flex gap-5 border rounded-2xl px-2 py-2 btn bg-white hover:bg-white my-1">
               <FcGoogle className="bg-[white] text-[#3076FF] text-[24px]"></FcGoogle>
-              <h1 className="font-medium text-[16px]">Continue with Google</h1>
+              <h1 className="font-bold text-[16px]">Continue with Google</h1>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaArrowsTurnRight } from "react-icons/fa6";
 import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
@@ -11,6 +11,21 @@ const PackagesDetails = () => {
   const loadPackage = useLoaderData();
 
   const { user } = useContext(AuthContext);
+
+
+  const [allUser,setUser]=useState(null)
+
+  useEffect(()=>{
+    
+     fetch(`http://localhost:3000/users`)
+     .then(res=>res.json())
+     .then(data=>setUser(data.find((a)=>a?.email ===user?.email)))
+
+  },[])
+
+
+    
+    
 
  
 
@@ -50,9 +65,12 @@ const PackagesDetails = () => {
    
 
     //  console.log(placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,user.email)
+    let newBooking;
 
+     {
+       if(date !== ''){
 
-     const newBooking={
+        newBooking={
           placeName:placeName,
           placeImage:placeImage,
           price:price,
@@ -62,6 +80,17 @@ const PackagesDetails = () => {
           date:date,
           condition:'pending',
           email:user.email
+        }
+
+       }
+
+       else{
+        swal("", "Please Select Your Tour Date !", "error");
+        return;
+       }
+          
+        
+       
      }
 
 
@@ -90,11 +119,11 @@ const PackagesDetails = () => {
 
 
   return (
-    <Form onSubmit={handleBooking}>
+    <Form className="pb-10 font-serif md:px-4" onSubmit={handleBooking}>
       <h1 className="text-lg md:text-3xl font-extrabold mt-12 mb-2 mx-2">
         {placeName}
       </h1>
-      <h1 className="text-lg  font-extrabold mt-12 mb-2 mx-2">
+      <h1 className="text-lg  font-extrabold mt-4 mb-2 mx-2">
         Date: {postedDate}
       </h1>
 
@@ -104,7 +133,7 @@ const PackagesDetails = () => {
           <img src={placeImage} className="h-[60vh] w-full rounded" alt="" />
         </div>
 
-        <div className="pl-20">
+        <div className="xl:pl-20">
 
         <h1 className="text-lg  font-extrabold mt-2 mb-2 mx-2">
             Most tourist place
@@ -113,10 +142,10 @@ const PackagesDetails = () => {
           {parts1.map((part1, index) => (
             <div
               key={index}
-              className="p-3 mx-2  font-semibold px-5 flex  items-center  "
+              className="p-3 mx-2  font-medium px-5 flex  items-center  "
             >
               <FaArrowsTurnRight className="mr-2 text-lg font-bold " />{" "}
-              <h1 className="font-semi-bold">{part1}</h1>
+              <h1 className="font-medium">{part1}</h1>
             </div>
           ))}
         </div>
@@ -126,11 +155,11 @@ const PackagesDetails = () => {
       <h1 className="text-lg md:text-3xl font-extrabold mt-12 mb-2 mx-2">
         {hotelName}
       </h1>
-      <h1 className="text-lg md:text-xl font-bold mt-12 mb-2 mx-2">
+      <h1 className="text-lg  font-extrabold md:text-xl  mt-4 mb-2 mx-2">
         {hotelLocation}
       </h1>
 
-      <div className="flex flex-col-reverse lg:grid md:grid-cols-4 gap-2 mt-12 mb-2 mx-2  p-1  items-center">
+      <div className="flex flex-col-reverse lg:grid md:grid-cols-4 gap-2 mt-4 mb-2 mx-2  p-1  items-center">
         <div className=" col-span-2">
           
 
@@ -140,26 +169,37 @@ const PackagesDetails = () => {
               className="p-3 mx-2   font-semibold px-5 flex  items-center  "
             >
               <FaArrowsTurnRight className="mr-2  text-lg font-bold " />{" "}
-              <h1 className="font-semi-bold">{part1}</h1>
+              <h1 className="font-medium">{part1}</h1>
             </div>
           ))}
 
-          <div className="grid grid-cols-1  md:grid-cols-3 w-full justify-center gap-5 mt-2">
-            <h1 className="btn co mb-4  font-bold px-2">$ {price}</h1>
+          <div className="grid grid-cols-1  md:grid-cols-3 w-full justify-center gap-5 mt-10">
+            <h1 className="btn bg-[orange] mb-4 text-white font-bold px-2">$ {price}</h1>
 
             <input name="date" className="border-4  rounded-md h-12 px-2" type="date" />
 
-            <button
+           {
+              allUser?.role ==='admin' ? 
+              <button
               type="submit"
-              className="btn btn-primary  mb-4  font-bold px-2"
+              disabled
+              className="btn cursor-not-allowed bg-[orange] hover:bg-[#326FC5] text-white  mb-4  font-bold px-2"
             >
               Booking Now
             </button>
+            :
+            <button
+            type="submit"
+            className="btn  bg-[orange] hover:bg-[#326FC5] text-white  mb-4  font-bold px-2"
+          >
+            Booking Now
+          </button>
+           }
           </div>
         </div>
 
         <div className="col-span-2 w-full  ">
-          <img src={hotelImage} className="h-full w-full rounded" alt="" />
+          <img src={hotelImage} className="h-[3/4] w-full rounded" alt="" />
         </div>
       </div>
     </Form>
