@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
   
-      <div className="mt-2 mb-4 font-serif">
+      <div className="mt-2 mb-4 font-serif mx-2 md:mx-8  xl:mx-0">
       <footer className="footer bg-base-200 rounded-t-2xl mb-1 text-base-content p-10">
         <nav className="font-semibold">
           <h6 className="footer-title">Services</h6>
           <a href="http://localhost:5173/blogs" className="link link-hover">Travel Blogs</a>
-          <a  href="http://localhost:5173/places" className="link link-hover">Visiting Place</a>
-          <a href="http://localhost:5173/hotels"  className="link link-hover">Hotel Booking</a>
+          <a  href="http://localhost:5173/places" className="link link-hover">Visiting Places</a>
+          <a href="http://localhost:5173/hotels"  className="link link-hover">Popular Hotels</a>
           <a  href="http://localhost:5173/packages" className="link link-hover">Attractive Packages</a>
         </nav>
         <nav className="font-semibold">

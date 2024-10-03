@@ -44,11 +44,11 @@ const Popular_Destination = () => {
   }, []);
 
   return (
-    <div className="w-full px-5 md:px-4 xl:px-0 my-14 ">
+    <div className="w-full px-5 md:mx-5 lg:mx-0 xl:px-0 my-14 font-serif">
       <h1 className="text-xl md:text-2xl font-bold mt-14  text-[#FFA500]">
         Popular Destinations
       </h1>
-      <p className="my-2 font-bold">
+      <p className="my-2 font-medium">
         From historical cities to natural specteculars , come see the best of
         the world !
       </p>

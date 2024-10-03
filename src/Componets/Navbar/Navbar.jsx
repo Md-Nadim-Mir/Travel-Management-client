@@ -165,7 +165,7 @@ const Navbar = ({allUser}) => {
           {user ?  (
             <NavLink
               to="/login"
-              className="btn bg-[#FFA500] rounded-full font-bold  text-white text-[14px] hover:bg-[#326FC5]"
+              className="btn bg-[orange] hover:bg-[#326FC5] rounded-full font-bold  text-white text-[14px] "
             >
               Login
             </NavLink>
@@ -174,7 +174,7 @@ const Navbar = ({allUser}) => {
           (
             <NavLink
               to="/register"
-              className="btn bg-[#FFA500] rounded-full  font-bold  text-white text-[14px] hover:bg-[#326FC5]"
+              className="btn bg-[orange] rounded-full  font-bold  text-white text-[14px] hover:bg-[#326FC5]"
             >
               Register
             </NavLink>

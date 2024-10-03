@@ -2,13 +2,13 @@ import { NavLink } from "react-router-dom";
 
 const Hikings = () => {
   return (
-    <div className="my-16 mx-5">
+    <div className="my-16 mx-2 md:mx-8 xl:mx-0 font-serif">
       <h1 className="text-xl text-center md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
         Why Choose Us?
       </h1>
 
       {/* 3 sections */}
-      <div className=" card grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pt-5">
+      <div className=" card grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4  bg-base-200 px-4 py-16 rounded-t-2xl rounded-b-none">
         <div>
           <div className=" px-2 flex justify-center ">
             <img
@@ -62,7 +62,7 @@ const Hikings = () => {
 
       {/* card */}
 
-      <div className="hero bg-base-200  mt-10  rounded-md bg-opacity-25" style={{ backgroundImage: "url(https://i.ibb.co.com/3rftw97/nature-landscape-with-black-sand-beach.jpg)" }}>
+      <div className="hero bg-base-200 rounded-b-2xl  bg-opacity-25" style={{ backgroundImage: "url(https://i.ibb.co.com/3rftw97/nature-landscape-with-black-sand-beach.jpg)" }}>
         <div className="hero-content grid gird-cols-1 md:grid-cols-2 gap-4 ">
           <div className="text-white">
             <h1 className="text-3xl font-bold">
@@ -74,7 +74,7 @@ const Hikings = () => {
               et a id nisi.
             </p>
             <NavLink to='http://localhost:5173/packages'>
-              <button className="btn btn-primary text-white">Get Started</button>
+              <button className="btn bg-[orange] hover:bg-[#326FC5] border-none text-white">Get Started</button>
             </NavLink>
           </div>
 

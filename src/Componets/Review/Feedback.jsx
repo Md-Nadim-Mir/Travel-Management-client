@@ -46,7 +46,7 @@ const Feedback = () => {
   }, []);
 
   return (
-    <div className="w-full px-5 md:px-4 xl:px-0 my-8 ">
+    <div className="w-full px-5 md:mx-5 lg:mx-0 xl:px-0 mt-8 mb-16 font-serif">
       <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
         Traveller Review
       </h1>
@@ -63,7 +63,7 @@ const Feedback = () => {
                   />
                 </div>
                 <h1 className="text-2xl text-center font-bold  mt-5 mb-2">{card.name}</h1>
-                <h1 className="text-left">{card.details}</h1>
+                <h1 className="text-left font-medium">{card.details}</h1>
               </div>
             </div>
           </div>
