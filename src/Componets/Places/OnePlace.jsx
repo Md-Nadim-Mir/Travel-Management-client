@@ -13,9 +13,9 @@ const OnePlace = ({ place}) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>{location}</p>
-        <div className="card-actions justify-end">
+        <div className="card-actions mt-4 justify-end">
           <NavLink to ={`/places/${_id}`}>
-            <button className="btn btn-primary"
+            <button className="btn bg-[orange] hover:bg-[#326FC5] text-white"
             >
               Visit Now
             </button>

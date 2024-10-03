@@ -10,7 +10,7 @@ const BlogsDetails = () => {
   const parts = str.split("#");
 
     return (
-        <div className="pb-10">
+        <div className="pb-10 font-serif md:px-4">
        
   
         <img src={image} className="w-full h-[60vh] rounded-2xl px-2" alt="" />
@@ -25,7 +25,7 @@ const BlogsDetails = () => {
   
   
        {
-          parts.map((part,index)=><li key={index} className="mx-2 mb-4  font-semibold px-5">{part}</li>)
+          parts.map((part,index)=><li key={index} className="mx-2 mb-4  font-medium px-5">{part}</li>)
        }
   
       </div>

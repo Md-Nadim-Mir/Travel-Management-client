@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
   
-      <div className="mt-2 mb-4 font-serif mx-2 md:mx-8  xl:mx-0">
+      <div className="mt-2 mb-4 font-serif mx-2 md:px-4  xl:mx-0">
       <footer className="footer bg-base-200 rounded-t-2xl mb-1 text-base-content p-10">
         <nav className="font-semibold">
           <h6 className="footer-title">Services</h6>

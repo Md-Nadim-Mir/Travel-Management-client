@@ -9,16 +9,16 @@ const Hotels = () => {
   const hotels = useLoaderData();
 
   return (
-    <div>
+    <div className="font-serif">
       <Helmet>
         <title>Travel | Hotels</title>
       </Helmet>
-      <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500]">
+      <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500] px-2 md:px-4">
         Popular Hotels
       </h1>
 
       {/* all places card design */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12  px-2 md:px-4">
         {hotels.map((hotel) => (
           <OneHotel key={hotel._id} hotel={hotel}></OneHotel>
         ))}

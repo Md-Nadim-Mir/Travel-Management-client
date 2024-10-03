@@ -10,7 +10,7 @@ const HotelsDetails = () => {
   const parts = str.split("#");
 
   return (
-    <div className="pb-10">
+    <div className="pb-10 font-serif md:px-4">
       <h1 className="text-lg md:text-3xl font-extrabold mt-12 mb-2 mx-2">
         {name}
       </h1>
@@ -23,7 +23,7 @@ const HotelsDetails = () => {
 
 
      {
-        parts.map((part,index)=><li key={index} className="mx-2 mb-4  font-semibold px-5">{part}</li>)
+        parts.map((part,index)=><li key={index} className="mx-2 mb-4  font-medium px-5">{part}</li>)
      }
 
     </div>
