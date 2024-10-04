@@ -17,9 +17,9 @@ const SinglePackage = ({packaged,deleteFunction,index}) => {
 
     return (
         <tr className="font-semibold">
-        <td className="border-2 shadow-xl">{index+1}</td>
+        <td className="border-2 shadow-xl text-sm  font-semibold">{index+1}</td>
 
-        <td className="border-2 shadow-xl">
+        <td className="border-2 shadow-xl text-sm  font-semibold">
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
@@ -30,12 +30,12 @@ const SinglePackage = ({packaged,deleteFunction,index}) => {
           </div>
         </td>
 
-        <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{placeName}</td>
 
-        <td className="border-2 shadow-xl">$ {price}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">$ {price}</td>
 
 
-        <td className="border-2 shadow-xl">
+        <td className="text-sm  font-semibold border-2 shadow-xl">
           <div className="avatar">
             <div className="mask mask-squircle h-12 w-12">
               <img
@@ -46,19 +46,19 @@ const SinglePackage = ({packaged,deleteFunction,index}) => {
           </div>
         </td>
 
-        <td className="text-base font-bold border-2 shadow-xl">{hotelName}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{hotelName}</td>
 
-        <td className="border-2 shadow-xl">{hotelLocation}</td>
-
-
+        <td className="text-sm  font-semibold border-2 shadow-xl">{hotelLocation}</td>
 
 
-        <td className="border-2 shadow-xl">{postedDate}</td>
 
-        <th className="border-2 shadow-xl">
+
+        <td className="text-sm  font-semibold border-2 shadow-xl">{postedDate}</td>
+
+        <th className="text-sm  font-semibold border-2 shadow-xl">
            <div className="flex items-center gap-2">
-               <NavLink to={`/dashboard/packages-updates/${_id}`}><button className="btn btn-accent text-white text-base btn-sm">Update</button></NavLink>
-               <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
+               <NavLink to={`/dashboard/packages-updates/${_id}`}><button className="btn text-[white] bg-[orange] hover:bg-[#326FC5]">Update</button></NavLink>
+               <button onClick={()=>handelDelete(_id)} className="btn text-[white] bg-[orange] hover:bg-[#326FC5]"><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
           

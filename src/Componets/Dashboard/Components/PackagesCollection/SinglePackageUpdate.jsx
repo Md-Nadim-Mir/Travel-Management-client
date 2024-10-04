@@ -60,9 +60,9 @@ const SinglePackageUpdate = () => {
 
 
     return (
-        <div>
-      <h1 className="text-2xl text-center text-[green] font-bold py-5">
-        Updaeted Packages
+      <div className="font-serif">
+      <h1 className="text-center text-[orange] text-3xl font-bold mt-16 mb-20">
+      Update Package Information
       </h1>
 
       {/*  new packages added */}
@@ -223,7 +223,7 @@ const SinglePackageUpdate = () => {
           <div className=" flex items-end justify-center md:justify-end">
             <button
               type="submit"
-              className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base"
+              className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base  text-[white] bg-[orange] hover:bg-[#326FC5] border-none"
             >
               Post
             </button>

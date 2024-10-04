@@ -195,7 +195,7 @@ const Register = () => {
                   )} */}
                 {/* </div> */}
 
-                <button className="btn bg-[#4ea7b3] w-full font-bold my-2">
+                <button className="btn  w-full font-bold my-2 text-[white] bg-[orange] hover:bg-[#326FC5] border-none">
                   Create an account
                 </button>
 
