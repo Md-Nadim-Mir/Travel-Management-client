@@ -42,9 +42,9 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
 
 
     return (
-        <tr className="font-semibold">
-        <td className="border-2 shadow-xl">{index+1}</td>
-        <td className="border-2 shadow-xl">{email}</td>
+        <tr className="font-semibold ">
+        <td className="border-2 shadow-xl text-sm  font-semibold">{index+1}</td>
+        <td className="border-2 shadow-xl text-sm  font-semibold">{email}</td>
 
         {/* <td className="border-2 shadow-xl">
           <div className="avatar">
@@ -57,7 +57,7 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
           </div>
         </td> */}
 
-        <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{placeName}</td>
 
         
 
@@ -73,23 +73,23 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
           </div>
         </td> */}
 
-        <td className="text-base font-bold border-2 shadow-xl">{hotelName}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{hotelName}</td>
 
 
-        <td className="border-2 shadow-xl">$ {price}</td>
+        <td className="border-2 shadow-xl text-sm  font-semibold">$ {price}</td>
 
-        <td className="border-2 shadow-xl">{hotelLocation}</td>
-
-
+        <td className="border-2 shadow-xl text-sm  font-semibold">{hotelLocation}</td>
 
 
-        <td className="border-2 shadow-xl">{date}</td>
+
+
+        <td className="border-2 shadow-xl text-sm  font-semibold">{date}</td>
 
         <th>
           <div className="flex">
             <form onSubmit={handleUpdate}>
               <select
-                className="font-extrabold rounded"
+                className=" rounded text-sm  font-semibold"
                 id="options"
                 value={selectedCondition}
                 name="userRole"
@@ -110,7 +110,7 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
 
         <th className="border-2 shadow-xl">
            <div className="flex items-center gap-2">
-               <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
+               <button onClick={()=>handelDelete(_id)} className="btn text-[white] bg-[orange] hover:bg-[#326FC5] "><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
           

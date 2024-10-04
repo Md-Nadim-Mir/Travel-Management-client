@@ -37,25 +37,21 @@ const SingleUser = ({ user, index, deleteFunction , updateFunction }) => {
   };
 
   return (
-    <tbody className="text-[#0a0a0a]">
+    <tbody className="font-semibold">
       {/* row 1 */}
       <tr>
-        <th> {index + 1}</th>
+        <td className="border-2 shadow-xl text-sm  font-semibold"> {index + 1}</td>
 
-        <td>
-          <div>
-            <div className="font-extrabold">{displayName}</div>
-          </div>
+        <td className="text-sm  font-semibold border-2 shadow-xl">
+            {displayName}
         </td>
 
-        <td>
-          <div>
-            <div className="font-extrabold">{email}</div>
-          </div>
+        <td className="text-sm  font-semibold border-2 shadow-xl">
+           {email}
         </td>
-        <th>
-          <div className="flex">
-            <form onSubmit={handleUpdate}>
+        <th className="text-sm  font-semibold border-2 shadow-xl">
+          <div >
+            <form className="flex  items-center" onSubmit={handleUpdate}>
               <select
                 className="font-extrabold rounded"
                 id="options"
@@ -68,16 +64,17 @@ const SingleUser = ({ user, index, deleteFunction , updateFunction }) => {
               </select>
 
               <button className=" ml-5" type="submit">
-                <FaCheckCircle className="text-[#eaea42] text-2xl bg-none m-1" />
+                <FaCheckCircle className="text-[orange] hover:text-[#326FC5] text-2xl bg-none m-1" />
               </button>
+
             </form>
           </div>
         </th>
 
-        <th>
+        <th className="text-sm  font-semibold border-2 shadow-xl">
           <button
             onClick={() => handleDelete(_id)}
-            className="btn btn-secondary text-base "
+            className="btn text-[white] bg-[orange] hover:bg-[#326FC5]"
           >
             <MdAutoDelete></MdAutoDelete>
           </button>

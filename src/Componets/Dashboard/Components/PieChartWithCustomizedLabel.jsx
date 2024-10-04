@@ -1,5 +1,5 @@
 // import React, { PureComponent } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     ComposedChart,
     Line,
@@ -23,10 +23,14 @@ const PieChartWithCustomizedLabel = () => {
 
 // users length find
 const [user, setUser] = useState([]);
- 
-fetch('http://localhost:3000/users')
+
+useEffect(()=>{
+  fetch('http://localhost:3000/users')
   .then((res) => res.json())
-  .then((users) => setUser(users));
+  .then((data) => setUser(data));
+},[])
+ 
+
 
 // users lenth end 
 
@@ -34,10 +38,12 @@ fetch('http://localhost:3000/users')
  // places length find
  const [place, setPlace] = useState([]);
 
-  
- fetch('http://localhost:3000/places')
+ useEffect(()=>{
+  fetch('http://localhost:3000/places')
    .then((res) => res.json())
-   .then((places) => setPlace(places));
+  .then((data) => setPlace(data));
+},[])
+ 
 
  // places lenth end 
 
@@ -46,31 +52,36 @@ fetch('http://localhost:3000/users')
  const [hotel, setHotel] = useState([]);
 
  
- fetch('http://localhost:3000/hotels')
+ useEffect(()=>{
+  fetch('http://localhost:3000/hotels')
    .then((res) => res.json())
-   .then((hotels) => setHotel(hotels));
-
+  .then((data) => setHotel(data));
+},[])
  // hotels lenth end 
 
 
  // packages length find
  const [packaged, setPackage] = useState([]);
 
- 
- fetch('http://localhost:3000/packages')
-   .then((res) => res.json())
-   .then((packages) => setPackage(packages));
 
+ useEffect(()=>{
+  fetch('http://localhost:3000/packages')
+   .then((res) => res.json())
+   .then((data) => setPackage(data));
+},[])
+ 
  // packages lenth end 
 
 
  // blogs length find
  const [blog, setBlog] = useState([]);
 
- 
- fetch('http://localhost:3000/blogs')
+ useEffect(()=>{
+  fetch('http://localhost:3000/blogs')
    .then((res) => res.json())
-   .then((blogs) => setBlog(blogs));
+   .then((data) => setBlog(data));
+},[])
+ 
 
  // blogs lenth end 
 
@@ -78,12 +89,11 @@ fetch('http://localhost:3000/users')
  // booking length find
  const [booking, setBooking] = useState([]);
 
- 
- fetch('http://localhost:3000/bookings')
+ useEffect(()=>{
+  fetch('http://localhost:3000/bookings')
    .then((res) => res.json())
-   .then((bookings) => setBooking(bookings));
-
- // bookings lenth end 
+   .then((data) => setBooking(data));
+},[])
 
 
  const data = [

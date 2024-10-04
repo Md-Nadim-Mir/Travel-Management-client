@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import SingleUserInfoBooking from "./SingleUserInfoBooking";
 import { FaHome } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
@@ -77,7 +77,7 @@ const UserInfo = () => {
 
           <div className="flex justify-center items-center my-5 ">
            
-            <a href='http://localhost:5173/' className="text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-10 py-3  mr-2 text-[24px] font-extrabold border-2">
+            <a href='/' className="text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-10 py-3  mr-2 text-[24px] font-extrabold border-2">
               
                 <FaHome />
               

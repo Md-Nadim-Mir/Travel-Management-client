@@ -47,7 +47,7 @@ const SingleUserInfoBooking = ({booked,deleteFunction,index}) => {
           </div>
         </td>
 
-        <td className="text-sm  border-2 shadow-xl font-semibold">{hotelName}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl ">{hotelName}</td>
 
         <td className="border-2 text-sm shadow-xl font-semibold">{hotelLocation}</td>
 

@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import logo from "../../../public/logo.png";
 import { FaMagnifyingGlassPlus, FaUsersGear } from "react-icons/fa6";
-import { FcMultipleInputs, FcStatistics } from "react-icons/fc";
-import { IoAppsOutline, IoPersonCircle } from "react-icons/io5";
+import { FcStatistics } from "react-icons/fc";
+import { IoAppsOutline} from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
-import { MdAddLocationAlt } from "react-icons/md";
+import { MdAddCard, MdAddLocationAlt } from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
 import { TfiExchangeVertical } from "react-icons/tfi";
@@ -16,7 +16,7 @@ import swal from "sweetalert";
 const Sidebar = () => {
   //  logout
 
-  const { user, logout } = useContext(AuthContext);
+  const {  logout } = useContext(AuthContext);
 
   const handleLogout = () => {
     logout()
@@ -29,7 +29,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="xl:bg-[#FECACA] ">
+    <div className="bg-slate-300 font-serif">
       <div className="dropdown xl:hidden">
         <div tabIndex={0} role="button" className="btn btn-ghost  mb-5">
           <IoAppsOutline className="text-red-400" />
@@ -41,7 +41,7 @@ const Sidebar = () => {
           <div className="w-[200px]">
             {/* logo and title */}
 
-            <div className=" bg-slate-300   py-2 flex flex-col  items-center">
+            <div className=" bg-base-200   py-2 flex flex-col  items-center">
               <div className="flex justify-center">
                 <img
                   src={logo}
@@ -50,8 +50,8 @@ const Sidebar = () => {
                 />
               </div>
 
-              <NavLink
-                to="/"
+              <a
+                href="/"
                 className=" md:text-base font-bold animate-bounce hover:animate-none"
               >
                 <span className="md:text-2xl text-[orange] font-extrabold">
@@ -60,58 +60,58 @@ const Sidebar = () => {
                 <span className="md:text-2xl text-[#326fc5] font-extrabold animate-pulse">
                   com
                 </span>
-              </NavLink>
+              </a>
             </div>
 
             {/* sidebar link */}
-            <div className="bg-red-200 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
+            <div className="bg-slate-300 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
               {/* <----------------   Statistics Nav Link    ----------------> */}
 
               <div className=" flex pl-2 items-center gap-x-4">
-                <FcStatistics className="text-[#3C76C2]" />
+                <FcStatistics className="text-[orange]" />
                 <NavLink to="/dashboard/statistics">Statistics</NavLink>
               </div>
 
               {/* <--------------  User Manage  Nav Link    ---------------> */}
 
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaUsersGear className="text-[#3C76C2]" />
+                <FaUsersGear className="text-[orange]" />
                 <NavLink to="/dashboard/users">Users Manage</NavLink>
               </div>
 
               {/* <-------------   Places Nav Link    --------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <MdAddLocationAlt className="text-[#3C76C2]" />
+                <MdAddLocationAlt className="text-[orange]" />
                 <NavLink to="/dashboard/places-added">Place Added</NavLink>
               </div>
 
               {/* Travel Places Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaExchangeAlt className="text-[#3C76C2]" />
+                <FaExchangeAlt className="text-[orange]" />
                 <NavLink to="/dashboard/places-updates">Place Update</NavLink>
               </div>
 
               {/* <----------  Hotels Nav Link    -------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FaMagnifyingGlassPlus className="text-[#3C76C2]" />
+                <FaMagnifyingGlassPlus className="text-[orange]" />
                 <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
               </div>
 
               {/* Travel Hotel Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <GrUpdate className="text-[#3C76C2]" />
+                <GrUpdate className="text-[orange]" />
                 <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
               </div>
 
               {/* <---------  Packages Nav Link    -----------> */}
               {/* Travel Packages */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <TbPackages className="text-[#3C76C2]" />
+                <TbPackages className="text-[orange]" />
                 <NavLink to="/dashboard/packages-added">Package Added</NavLink>
               </div>
 
               <div className=" flex pl-2 items-center gap-x-4">
-                <LuPackageSearch className="text-[#3C76C2]" />
+                <LuPackageSearch className="text-[orange]" />
                 <NavLink to="/dashboard/packages-updates">
                   Packages Update
                 </NavLink>
@@ -119,13 +119,13 @@ const Sidebar = () => {
 
               {/* Blogs */}
               <div className=" flex pl-2 items-center gap-x-4">
-                <FcMultipleInputs className="text-[#3C76C2]" />
+                <MdAddCard className="text-[orange]"  /> 
                 <NavLink to="/dashboard/blogs-added">Blog Added</NavLink>
               </div>
 
               {/* Blogs Updates*/}
               <div className=" flex pl-2 items-center gap-x-4">
-                <TfiExchangeVertical className="text-[#3C76C2]" />
+                <TfiExchangeVertical className="text-[orange]" />
                 <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
               </div>
 
@@ -133,7 +133,7 @@ const Sidebar = () => {
 
               <button
                 onClick={handleLogout}
-                className="text-[black] text-xl font-extrabold hover:text-[#92b8ed] border-4 border-[#FFA500] hover:border-[#FFA500] rounded-md px-2 py-2"
+                className="btn text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-2 py-2"
               >
                 Log Out
               </button>
@@ -142,10 +142,22 @@ const Sidebar = () => {
         </ul>
       </div>
 
+
+
+
+
+
+
+
+      {/* mobile device */}
+
+
+
+
       <div className="w-[300px] hidden xl:block">
         {/* logo and title */}
 
-        <div className=" bg-slate-300   py-14 flex flex-col  items-center">
+        <div className=" bg-base-200   py-14 flex flex-col  items-center">
           <div className="flex justify-center">
             <img
               src={logo}
@@ -168,16 +180,16 @@ const Sidebar = () => {
         </div>
 
         {/* sidebar link */}
-        <div className="bg-red-200 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
+        <div className="bg-slate-300 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
           {/* statistics */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FcStatistics className="text-[#3C76C2]" />
+            <FcStatistics className="text-[orange]" />
             <NavLink to="/dashboard/statistics">Statistics</NavLink>
           </div>
 
           {/* all users */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaUsersGear className="text-[#3C76C2]" />
+            <FaUsersGear className="text-[orange]" />
             <NavLink to="/dashboard/users">Users Manage</NavLink>
           </div>
 
@@ -185,13 +197,13 @@ const Sidebar = () => {
 
           {/* Travel Places added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddLocationAlt className="text-[#3C76C2]" />
+            <MdAddLocationAlt className="text-[orange]" />
             <NavLink to="/dashboard/places-added">Place Added</NavLink>
           </div>
 
           {/* Travel Places Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaExchangeAlt className="text-[#3C76C2]" />
+            <FaExchangeAlt className="text-[orange]" />
             <NavLink to="/dashboard/places-updates">Place Update</NavLink>
           </div>
 
@@ -199,13 +211,13 @@ const Sidebar = () => {
 
           {/* Hotel added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FaMagnifyingGlassPlus className="text-[#3C76C2]" />
+            <FaMagnifyingGlassPlus className="text-[orange]" />
             <NavLink to="/dashboard/hotels-added">Hotel Added</NavLink>
           </div>
 
           {/* Travel Hotel Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <GrUpdate className="text-[#3C76C2]" />
+            <GrUpdate className="text-[orange]" />
             <NavLink to="/dashboard/hotels-updates">Hotel Update</NavLink>
           </div>
 
@@ -213,12 +225,12 @@ const Sidebar = () => {
 
           {/* Travel Packages */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <TbPackages className="text-[#3C76C2]" />
+            <TbPackages className="text-[orange]" />
             <NavLink to="/dashboard/packages-added">Package Added</NavLink>
           </div>
 
           <div className=" flex pl-2 items-center gap-x-4">
-            <LuPackageSearch className="text-[#3C76C2]" />
+            <LuPackageSearch className="text-[orange]" />
             <NavLink to="/dashboard/packages-updates">Packages Update</NavLink>
           </div>
 
@@ -226,13 +238,13 @@ const Sidebar = () => {
 
           {/* Blogs */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <FcMultipleInputs className="text-[#3C76C2]" />
-            <NavLink to="/dashboard/blogs-added">Blog Added</NavLink>
+            <MdAddCard className="text-[orange]"/> 
+            <NavLink to="/dashboard/blogs-added">Blog Added </NavLink>
           </div>
 
           {/* Blogs Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <TfiExchangeVertical className="text-[#3C76C2]" />
+            <TfiExchangeVertical className="text-[orange]" />
             <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
           </div>
 
@@ -251,7 +263,7 @@ const Sidebar = () => {
 
           <button
             onClick={handleLogout}
-            className="text-[black] text-xl font-extrabold hover:text-[#3370C5] border-4 border-[#FFA500] hover:border-[#FFA500] rounded-md px-4 py-2 my-10"
+            className="btn text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-4 py-2 my-10 font-extrabold text-base border-none"
           >
             Log Out
           </button>

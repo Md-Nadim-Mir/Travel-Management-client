@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomShapeBarChart from "./CustomShapeBarChart";
 import PieChartWithCustomizedLabel from "./PieChartWithCustomizedLabel";
 import { useLoaderData } from "react-router-dom";
@@ -6,50 +6,70 @@ import swal from "sweetalert";
 import StatisticUserBookingInfo from "./StatisticUserBookingInfo";
 
 const Statistics = () => {
-  // users length find
-  const [user, setUser] = useState([]);
+  
+  
+  // data load 
 
-  fetch("http://localhost:3000/users")
-    .then((res) => res.json())
-    .then((users) => setUser(users));
+// users length find
+const [user, setUser] = useState([]);
 
-  // users lenth end
+useEffect(()=>{
+  fetch('http://localhost:3000/users')
+  .then((res) => res.json())
+  .then((data) => setUser(data));
+},[])
+ 
 
-  // places length find
-  const [place, setPlace] = useState([]);
 
-  fetch("http://localhost:3000/places")
-    .then((res) => res.json())
-    .then((places) => setPlace(places));
+// users lenth end 
 
-  // places lenth end
 
-  // hotels length find
-  const [hotel, setHotel] = useState([]);
+ // places length find
+ const [place, setPlace] = useState([]);
 
-  fetch("http://localhost:3000/hotels")
-    .then((res) => res.json())
-    .then((hotels) => setHotel(hotels));
+ useEffect(()=>{
+  fetch('http://localhost:3000/places')
+   .then((res) => res.json())
+  .then((data) => setPlace(data));
+},[])
+ 
 
-  // hotels lenth end
+ // places lenth end 
 
-  // packages length find
-  const [packaged, setPackage] = useState([]);
 
-  fetch("http://localhost:3000/packages")
-    .then((res) => res.json())
-    .then((packages) => setPackage(packages));
+ // hotels length find
+ const [hotel, setHotel] = useState([]);
 
-  // packages lenth end
+ 
+ useEffect(()=>{
+  fetch('http://localhost:3000/hotels')
+   .then((res) => res.json())
+  .then((data) => setHotel(data));
+},[])
+ // hotels lenth end 
 
-  // blogs length find
-  const [blog, setBlog] = useState([]);
 
-  fetch("http://localhost:3000/blogs")
-    .then((res) => res.json())
-    .then((blogs) => setBlog(blogs));
+ // packages length find
+ const [packaged, setPackage] = useState([]);
 
-  // blogs lenth end
+
+ useEffect(()=>{
+  fetch('http://localhost:3000/packages')
+   .then((res) => res.json())
+   .then((data) => setPackage(data));
+},[])
+ 
+ // packages lenth end 
+
+
+ // blogs length find
+ const [blog, setBlog] = useState([]);
+
+ useEffect(()=>{
+  fetch('http://localhost:3000/blogs')
+   .then((res) => res.json())
+   .then((data) => setBlog(data));
+},[])
 
 
 
@@ -105,8 +125,8 @@ const Statistics = () => {
 
   
   return (
-    <div>
-      <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[#870c50dc]">
+    <div className="font-serif">
+      <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[orange]">
         Statistics Reports
       </h1>
 
@@ -118,7 +138,7 @@ const Statistics = () => {
 
       {/* custom statistics */}
 
-      <div className="border-4 border-[#FF00D3] mx-5 rounded-lg shadow-2xl my-16">
+      <div className="border-4 border-[orange] mx-2 rounded-lg shadow-2xl my-16">
         <div className="grid grid-cols-3 border-b border-[#0fd420] mx-2">
           {/* users */}
           <div className="border-r-2 border-red-400  my-5 ">
@@ -177,26 +197,26 @@ const Statistics = () => {
 
        <div>
            
-        <h1 className="text-center text-3xl font-bold my-10">
-          Booking History :{booking.length}
+        <h1 className="text-center text-[orange] text-3xl font-bold mt-24 mb-20">
+          Booking History 
         </h1>
 
-        <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+        <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
           <table className="table">
             {/* head */}
             <thead>
-              <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
-                <th className="border-4 shadow-xl">No</th>
-                <th className="border-4 shadow-xl">Email</th>
-                {/* <th className="border-4 shadow-xl">Place Image</th> */}
-                <th className="border-4 shadow-xl">Place Name</th>
-                {/* <th className="border-4 shadow-xl">Hotel Image</th> */}
-                <th className="border-4 shadow-xl">Hotel Name</th>
-                <th className="border-4 shadow-xl">Hotel Location</th>
-                <th className="border-4 shadow-xl">Price</th>
-                <th className="border-4 shadow-xl">Post Date</th>
-                <th className="border-4 shadow-xl">Status</th>
-                <th className="border-4 shadow-xl">Actions</th>
+              <tr className="border-4   shadow-2xl text-base font-extrabold text-black">
+                <th className="border-4  shadow-xl">No</th>
+                <th className="border-4  shadow-xl">Email</th>
+                {/* <th className="border-4  shadow-xl">Place Image</th> */}
+                <th className="border-4  shadow-xl">Place Name</th>
+                {/* <th className="border-4  shadow-xl">Hotel Image</th> */}
+                <th className="border-4  shadow-xl">Hotel Name</th>
+                <th className="border-4  shadow-xl">Hotel Location</th>
+                <th className="border-4  shadow-xl">Price</th>
+                <th className="border-4  shadow-xl">Post Date</th>
+                <th className="border-4  shadow-xl">Status</th>
+                <th className="border-4  shadow-xl">Actions</th>
               </tr>
             </thead>
 
