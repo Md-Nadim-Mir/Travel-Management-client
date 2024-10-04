@@ -44,15 +44,15 @@ const PlacesAdded = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl text-center text-[green] font-bold py-5">
+    <div className="font-serif">
+      <h1 className="text-center text-[orange] text-3xl font-bold mt-16 mb-20">
         New Travel Places Added
       </h1>
 
       {/*  new places added */}
       <form
         onSubmit={handlePlaces}
-        className="border-4 rounded xl:mx-2 bg-slate-400 my-12 flex flex-col justify-center py-5 mx-2"
+        className="border-4 rounded xl:mx-2 bg-slate-300  flex flex-col justify-center py-5 mx-2 border-[#326FC5]"
       >
         {/* travel place name  */}
         <div className="m-5 text-left">
@@ -136,7 +136,7 @@ const PlacesAdded = () => {
           <div className=" flex items-end justify-center md:justify-end">
             <button
               type="submit"
-              className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base"
+              className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base  text-[white] bg-[orange] hover:bg-[#326FC5] border-none"
             >
               Post
             </button>

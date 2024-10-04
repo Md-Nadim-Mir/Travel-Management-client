@@ -27,14 +27,14 @@ const PlacesUpdates = () => {
   };
 
   return (
-    <div>
+    <div className="font-serif">
       
-      <h1 className="text-2xl text-center text-[green] font-bold py-5 my-12">
-        All Places Database Overview : {places.length}
+      <h1 className="text-center text-[orange] text-3xl font-bold mt-24 mb-20">
+        All Places Database Overview 
       </h1>
 
       {/* table */}
-      <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+      <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
         <table className="table">
           {/* head */}
           <thead>
