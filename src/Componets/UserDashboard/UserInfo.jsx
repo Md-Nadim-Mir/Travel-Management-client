@@ -6,6 +6,8 @@ import SingleUserInfoBooking from "./SingleUserInfoBooking";
 import { FaHome } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
+import { Typewriter } from "react-simple-typewriter";
+
 const UserInfo = () => {
   const { user, logout } = useContext(AuthContext);
 
@@ -30,18 +32,6 @@ const UserInfo = () => {
   const [booking, setBooking] = useState(specificEmailBookings);
   console.log(booking);
 
-  // const [a,setA]=useState(null)
-
-  // useEffect(()=>{
-
-  //     fetch(`http://localhost:3000/bookings/${user.email}`)
-  //     .then(res=>res.json())
-  //     .then(data=>setA(data))
-
-  //     console.log(a)
-
-  // },[])
-
   // Delete opearation
 
   const deleteFunction = (_id) => {
@@ -60,68 +50,86 @@ const UserInfo = () => {
       });
   };
 
+  const wish = `Welcome , ${user.email} to Travel.com `;
+  const wish2 = "Enjoy Fill & Chill";
+  const wish3 = "Tour The World";
+
   return (
-    <div>
+    <div className="font-serif">
       <Helmet>
         <title>Travel | User Dashboard</title>
       </Helmet>
 
-      <div className=" text-center text-xl md:text-2xl px-5 py-10 font-extrabold border-b-2 h-[200px] bg-[#0a97bd]">
-        <h1 className="text-[#870c50dc] ">
-          Welcome , <span className="text-[#07f93b]">{user.email}</span> to
-          Travel.com site.
-        </h1>
+      <div className="bg-[#4c5e76]">
+        <div className=" text-center px-5  h-[350px] md:h-[200]  py-16">
+          <h1 className="text-[orange] text-2xl font-bold mb-12 md:pb-0">
+            {/* typewritter */}
+            <Typewriter
+              words={[wish, wish2, wish3]}
+              loop={true} // Set true to loop the typewriter effect
+              cursor
+              cursorStyle="_"
+              typeSpeed={50}
+              deleteSpeed={30}
+              delaySpeed={100}
+            />
+          </h1>
 
-        <button className="text-[white] hover:text-[yellow]  border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 mr-2">
-          <NavLink to="http://localhost:5173/">
-            <FaHome />
-          </NavLink>
-        </button>
+          <div className="flex justify-center items-center my-5 ">
+           
+            <a href='http://localhost:5173/' className="text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-10 py-3  mr-2 text-[24px] font-extrabold border-2">
+              
+                <FaHome />
+              
+            </a>
 
-        <button
-          onClick={handleLogout}
-          className="text-[white] hover:text-[yellow] border-4 border-[#4ddcfccc] hover:border-[orange] rounded-md px-10 py-2 my-10 "
-        >
-          Log Out
-        </button>
+            <a
+              onClick={handleLogout}
+              className="text-[white] bg-[orange] hover:bg-[#326FC5] rounded-md px-10 py-3  mr-2 text-base font-bold border-2"
+            >
+              Log Out
+            </a>
+          </div>
+        </div>
       </div>
-
       {/* booking data load */}
 
-      <div>
-        <h1 className="text-center text-3xl font-bold my-10">
-          {/* Booking History :{booking.length} */}
-        </h1>
+      <div className="bg-base-200 py-10">
+        <div className="">
+          <h1 className="text-center text-3xl font-bold my-10">
+            {/* Booking History :{booking.length} */}
+          </h1>
 
-        <div className="overflow-x-auto border-4 rounded mx-2 my-5">
-          <table className="table">
-            {/* head */}
-            <thead>
-              <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
-                <th className="border-4 shadow-xl">No</th>
-                <th className="border-4 shadow-xl">Place Image</th>
-                <th className="border-4 shadow-xl">Place Name</th>
-                <th className="border-4 shadow-xl">Price</th>
-                <th className="border-4 shadow-xl">Hotel Image</th>
-                <th className="border-4 shadow-xl">Hotel Name</th>
-                <th className="border-4 shadow-xl">Hotel Location</th>
-                <th className="border-4 shadow-xl">Post Date</th>
-                <th className="border-4 shadow-xl">Status</th>
-                <th className="border-4 shadow-xl">Actions</th>
-              </tr>
-            </thead>
+          <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
+                  <th className="border-4 shadow-xl">No</th>
+                  <th className="border-4 shadow-xl">Place Image</th>
+                  <th className="border-4 shadow-xl">Place Name</th>
+                  <th className="border-4 shadow-xl">Price</th>
+                  <th className="border-4 shadow-xl">Hotel Image</th>
+                  <th className="border-4 shadow-xl">Hotel Name</th>
+                  <th className="border-4 shadow-xl">Hotel Location</th>
+                  <th className="border-4 shadow-xl">Post Date</th>
+                  <th className="border-4 shadow-xl">Status</th>
+                  <th className="border-4 shadow-xl">Actions</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              {booking.map((booked, index) => (
-                <SingleUserInfoBooking
-                  index={index}
-                  key={booked._id}
-                  booked={booked}
-                  deleteFunction={deleteFunction}
-                ></SingleUserInfoBooking>
-              ))}
-            </tbody>
-          </table>
+              <tbody>
+                {booking.map((booked, index) => (
+                  <SingleUserInfoBooking
+                    index={index}
+                    key={booked._id}
+                    booked={booked}
+                    deleteFunction={deleteFunction}
+                  ></SingleUserInfoBooking>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

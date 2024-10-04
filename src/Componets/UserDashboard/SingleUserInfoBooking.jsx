@@ -18,7 +18,7 @@ const SingleUserInfoBooking = ({booked,deleteFunction,index}) => {
 
     return (
         <tr className="font-semibold">
-        <td className="border-2 shadow-xl">{index+1}</td>
+        <td className="border-2 shadow-xl font-semibold">{index+1}</td>
 
         <td className="border-2 shadow-xl">
           <div className="avatar">
@@ -31,9 +31,9 @@ const SingleUserInfoBooking = ({booked,deleteFunction,index}) => {
           </div>
         </td>
 
-        <td className="text-base font-bold border-2 shadow-xl">{placeName}</td>
+        <td className="text-sm border-2 shadow-xl font-semibold">{placeName}</td>
 
-        <td className="border-2 shadow-xl">$ {price}</td>
+        <td className="border-2 text-sm shadow-xl font-semibold">$ {price}</td>
 
 
         <td className="border-2 shadow-xl">
@@ -47,20 +47,20 @@ const SingleUserInfoBooking = ({booked,deleteFunction,index}) => {
           </div>
         </td>
 
-        <td className="text-base font-bold border-2 shadow-xl">{hotelName}</td>
+        <td className="text-sm  border-2 shadow-xl font-semibold">{hotelName}</td>
 
-        <td className="border-2 shadow-xl">{hotelLocation}</td>
-
-
+        <td className="border-2 text-sm shadow-xl font-semibold">{hotelLocation}</td>
 
 
-        <td className="border-2 shadow-xl">{date}</td>
 
-        <td className="border-2 shadow-xl">{condition}</td>
+
+        <td className="border-2 text-sm shadow-xl font-semibold">{date}</td>
+
+        <td className="border-2 text-sm shadow-xl font-semibold">{condition}</td>
 
         <th className="border-2 shadow-xl">
            <div className="flex items-center gap-2">
-               <button onClick={()=>handelDelete(_id)} className="btn btn-secondary text-base"><MdAutoDelete></MdAutoDelete></button>
+               <button onClick={()=>handelDelete(_id)} className="btn text-[white] bg-[orange] hover:bg-[#326FC5]"><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
           
