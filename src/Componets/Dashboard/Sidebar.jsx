@@ -29,10 +29,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg-slate-300 font-serif">
-      <div className="dropdown xl:hidden">
-        <div tabIndex={0} role="button" className="btn btn-ghost  mb-5">
-          <IoAppsOutline className="text-red-400" />
+    <div className="bg-none xl:bg-slate-300  font-serif">
+      <div className="dropdown xl:hidden  w-0">
+        <div tabIndex={0} role="button" className="btn btn-ghost  mb-1">
+          <IoAppsOutline className="text-[orange]" />
         </div>
         <ul
           tabIndex={0}
@@ -64,7 +64,7 @@ const Sidebar = () => {
             </div>
 
             {/* sidebar link */}
-            <div className="bg-slate-300 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
+            <div className="bg-slate-300 flex flex-col gap-y-6  font-bold px-5 py-10 text-sm md:text-sm ">
               {/* <----------------   Statistics Nav Link    ----------------> */}
 
               <div className=" flex pl-2 items-center gap-x-4">
@@ -180,7 +180,7 @@ const Sidebar = () => {
         </div>
 
         {/* sidebar link */}
-        <div className="bg-slate-300 flex flex-col gap-y-6 text-base font-bold px-5 py-10">
+        <div className="bg-slate-300 flex flex-col gap-y-6 text-[18px] font-bold px-5 py-10">
           {/* statistics */}
           <div className=" flex pl-2 items-center gap-x-4">
             <FcStatistics className="text-[orange]" />

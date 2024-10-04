@@ -56,7 +56,7 @@ const SingleBlogUpdate = () => {
 
     return (
       <div className="font-serif">
-      <h1 className="text-center text-[orange] text-3xl font-bold mt-16 mb-20">
+      <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-16 mb-20">
           Update {name} Information
         </h1>
   

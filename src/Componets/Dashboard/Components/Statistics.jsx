@@ -126,7 +126,7 @@ useEffect(()=>{
   
   return (
     <div className="font-serif">
-      <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[orange]">
+      <h1 className="text-center pt-5 font-bold text-xl md:text-3xl text-[orange]">
         Statistics Reports
       </h1>
 
@@ -197,7 +197,7 @@ useEffect(()=>{
 
        <div>
            
-        <h1 className="text-center text-[orange] text-3xl font-bold mt-24 mb-20">
+        <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
           Booking History 
         </h1>
 

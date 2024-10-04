@@ -58,10 +58,10 @@ const Users = () => {
   return (
     <div className="font-serif">
       {users.length >= 1 ? (
-        <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[orange]">
+        <h1 className="text-center pt-5 font-bold text-xl md:text-3xl text-[orange]">
           Number Of Users </h1>
       ) : (
-        <h1 className="text-center pt-5 font-bold text-md md:text-3xl text-[orange]">
+        <h1 className="text-center pt-5 font-bold text-xl md:text-3xl text-[orange]">
           No Users Found
         </h1>
       )}

@@ -34,7 +34,7 @@ const BlogsUpdates = () => {
   return (
     <div className="font-serif">
       
-      <h1 className="text-center text-[orange] text-3xl font-bold mt-24 mb-20">
+      <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
         All Places Database Overview 
       </h1>
 
