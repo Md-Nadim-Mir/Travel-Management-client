@@ -37,6 +37,11 @@ const Navbar = ({allUser}) => {
           <a>Blogs</a>
         </li>
       </NavLink>
+      <NavLink to="/chatbot">
+        <li>
+          <a>Chatbot</a>
+        </li>
+      </NavLink>
     </>
   );
 

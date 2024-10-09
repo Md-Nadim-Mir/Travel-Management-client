@@ -37,6 +37,7 @@ import PackagesAdded from "./Componets/Dashboard/Components/PackagesCollection/P
 import SinglePackageUpdate from "./Componets/Dashboard/Components/PackagesCollection/SinglePackageUpdate";
 import PackagesDetails from "./Componets/Packages/PackagesDetails";
 import UserInfo from "./Componets/UserDashboard/UserInfo";
+import Chat from "./Componets/Chatbot/Chat";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
         path: "/blogs/:id",
         element: <PrivateRoutes><BlogsDetails></BlogsDetails></PrivateRoutes>,
         loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
+      },
+      {
+         path:"/chatbot",
+         element:<Chat></Chat>
       },
       {
         path: "/register",
