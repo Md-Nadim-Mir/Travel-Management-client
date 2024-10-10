@@ -1,58 +1,82 @@
+import { ThemeProvider } from "styled-components";
+import ChatBot from "react-simple-chatbot";
 
-import ChatBot from 'react-simple-chatbot';
-import { ThemeProvider } from 'styled-components';
+// all available props
+const theme = {
+  background: "#f5f8fb",
+  fontFamily: "serif",
+  headerBgColor: "#EF6C00",
+  headerFontColor: "#fff",
+  headerFontSize: "15px",
+  botBubbleColor: "#EF6C00",
+  botFontColor: "#fff",
+  userBubbleColor: "blue",
+  userFontColor: "#fff",
+};
 
-// Define a custom theme
-// const theme = {
-//   background: '#f5f8fb',
-//   fontFamily: 'Arial',
-//   headerBgColor: '#00bfff',
-//   headerFontColor: '#fff',
-//   headerFontSize: '15px',
-//   botBubbleColor: '#00bfff',
-//   botFontColor: '#fff',
-//   userBubbleColor: '#fff',
-//   userFontColor: '#4a4a4a',
-// };
 
-// Define the steps for the chatbot
-const steps = [
+
+
+ const steps = [
   {
     id: '1',
-    message: 'Welcome to Travel & Tour Accommodations! How can I assist you today?',
-    trigger: 'options',
+    message: 'Hello , Sir ! Welcome to Travel.com site ! What is your name?',
+    trigger: 'name',
   },
   {
-    id: 'options',
+    id: 'name',
+    user: true,
+    trigger: '3',
+  },
+  {
+    id: '3',
+    message: 'Hello , {previousValue} Sir . Nice to meet you! Are you facing any problems?',
+    trigger: 'problem',
+  },
+  {
+    id: 'problem',
     options: [
-      { value: 'booking', label: 'Help with booking', trigger: 'bookingHelp' },
-      { value: 'services', label: 'Information about services', trigger: 'servicesInfo' },
-      { value: 'support', label: 'Contact support', trigger: 'supportInfo' },
+      { value: 'yes', label: 'Yes', trigger: 'askPhone' },
+      { value: 'no', label: 'No', trigger: 'endMessage' },
     ],
   },
   {
-    id: 'bookingHelp',
-    message: 'You can book by visiting the "Book Now" section on our website.',
+    id: 'askPhone',
+    message: 'Please give me your phone number.',
+    trigger: 'phone',
+  },
+  {
+    id: 'phone',
+    user: true,
+    validator: (value) => {
+      if (isNaN(value)) {
+        return 'value should be a number';
+      }
+      return true;
+    },
+    trigger: 'sendMessage',
+  },
+  {
+    id: 'sendMessage',
+    message:
+      "Our support team will be contact you as soon as possible . Any queries, call us at +8801779198286 , +8801879824775",
     end: true,
   },
   {
-    id: 'servicesInfo',
-    message: 'We offer a variety of services including guided tours, accommodations, and travel packages.',
-    end: true,
-  },
-  {
-    id: 'supportInfo',
-    message: 'You can contact our support team at support@travel.com or call +123456789.',
+    id: 'endMessage',
+    message: 'Thank you very much, Sir. Keep in touch!',
     end: true,
   },
 ];
 
-// Chatbot component
 const Chat = () => {
   return (
-    // <ThemeProvider theme={theme}>
-      <ChatBot steps={steps} />
-    // </ThemeProvider>
+    <div className="flex justify-center my-14 font-serif text-[16px] mx-2 md:mx-0">
+    
+      <ThemeProvider theme={theme}>
+        <ChatBot steps={steps} />
+      </ThemeProvider>
+    </div>
   );
 };
 
