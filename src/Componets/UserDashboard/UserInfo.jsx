@@ -35,7 +35,7 @@ const UserInfo = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`http://localhost:3000/bookings/${_id}`, {
+    fetch(`http://localhost:3000/bookings-packages/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -45,7 +45,7 @@ const UserInfo = () => {
             (booked) => booked._id !== _id
           );
           setBooking(remainingPackages);
-          swal(" ", "Travel Booking deleted successfully", "success");
+          swal(" ", "Travel Booking packages deleted successfully", "success");
         }
       });
   };
@@ -97,7 +97,7 @@ const UserInfo = () => {
       <div className="bg-base-200 py-10">
         <div className="">
           <h1 className="text-center text-3xl font-bold my-10">
-            {/* Booking History :{booking.length} */}
+             Packages Booking History
           </h1>
 
           <div className="overflow-x-auto border-4 rounded mx-2 my-5">

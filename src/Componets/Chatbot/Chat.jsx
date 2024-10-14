@@ -1,6 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
-import axios from 'axios';
+// import axios from 'axios';
 
 
 // all available props
@@ -73,26 +73,29 @@ const theme = {
 
 
 //  <-------    Handle Payment  ------>
-const handlePayment =()=>{
+//const handlePayment =()=>{
   
-  axios.post("http://localhost:3000/create-paymet",{
-     amount:1000,
-     currency:"USD"
-  })
-  .then((res)=>{
-    console.log(res);
+  // axios.post("http://localhost:3000/create-paymet",{
+  //    amount:1000,
+  //    currency:"USD"
+  // })
+  // .then((res)=>{
+  //   console.log(res);
 
-    const redirectUrl = res.data.paymentUrl;
+  //   const redirectUrl = res.data.paymentUrl;
 
-    if(redirectUrl){
+  //   if(redirectUrl){
      
-       window.location.replace(redirectUrl);
+  //      window.location.replace(redirectUrl);
 
-    }
+  //   }
 
-  })
+  // })
 
-}
+
+  
+
+//}
 
 const Chat = () => {
   return (
@@ -102,7 +105,7 @@ const Chat = () => {
         <ChatBot steps={steps} />
       </ThemeProvider>
 
-      <button onClick={handlePayment} className="btn flex justify-center font-bold">Order Now</button>
+      <button  className="btn flex justify-center font-bold">Order Now</button>
     </div>
   );
 };

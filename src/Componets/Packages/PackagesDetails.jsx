@@ -4,7 +4,7 @@ import { FaArrowsTurnRight } from "react-icons/fa6";
 import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-
+import axios from 'axios';
 // import swal from "sweetalert";
 
 const PackagesDetails = () => {
@@ -98,19 +98,42 @@ const PackagesDetails = () => {
 
 
      // <-------------------  Post Method : New bookings added to database ------->
-    fetch("http://localhost:3000/bookings/", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newBooking),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        swal("", "New booings added successfully !", "success");
-        
-      });
+    
+     
+  axios.post("http://localhost:3000/create-paymet",{
+  info:newBooking,
+   })
+  .then((res)=>{
+     console.log(res);
+ 
+     const redirectUrl = res.data.paymentUrl;
+ 
+     if(redirectUrl){
+
+        window.location.replace(redirectUrl);
+
+       
+     }
+
+ 
+   })
+    
+    
+    
+    
+  //  fetch("http://localhost:3000/bookings/", {
+  //   method: "POST",
+  //   headers: {
+  //     "content-type": "application/json",
+  //   },
+  //   body: JSON.stringify(newBooking),
+  // })
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     console.log(data);
+  //     swal("", "New booings added successfully !", "success");
+      
+  //   });
 
 
 

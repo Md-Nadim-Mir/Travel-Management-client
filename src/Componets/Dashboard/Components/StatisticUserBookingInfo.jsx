@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { FaCheckCircle } from "react-icons/fa";
+// import { useState } from "react";
+// import { FaCheckCircle } from "react-icons/fa";
 import { MdAutoDelete } from "react-icons/md";
 
 const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) => {
@@ -9,27 +9,27 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
 
     //  booking Condition change start 
 
-  const [selectedCondition, setSelectedCondition] = useState(condition);
+  // const [selectedCondition, setSelectedCondition] = useState(condition);
 
-  const handleChange = (event) => {
-    setSelectedCondition(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setSelectedCondition(event.target.value);
+  // };
 
   //  booking condition chane end 
 
 
   // <------------- update opearations ------------------>
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    const condition = (e.target.options.value)
-    // const newRole = (e.target.userRole.value)
+  // const handleUpdate = (e) => {
+  //   e.preventDefault();
+  //   const condition = (e.target.options.value)
+  //   // const newRole = (e.target.userRole.value)
    
-    const updateInfo = {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,_id,condition};
+  //   const updateInfo = {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,_id,condition};
 
-    updateFunction(_id,updateInfo)
+  //   updateFunction(_id,updateInfo)
 
 
-  };
+  // };
 
     // handleDelete Opearation
 
@@ -85,7 +85,7 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
 
         <td className="border-2 shadow-xl text-sm  font-semibold">{date}</td>
 
-        <th>
+        {/* <th>
           <div className="flex">
             <form onSubmit={handleUpdate}>
               <select
@@ -104,9 +104,9 @@ const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) 
               </button>
             </form>
           </div>
-        </th>
+        </th> */}
 
-     
+        <th  className=" border-2 shadow-xl text-sm  font-semibold">{condition}</th>
 
         <th className="border-2 shadow-xl">
            <div className="flex items-center gap-2">

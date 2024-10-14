@@ -81,7 +81,7 @@ useEffect(()=>{
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`http://localhost:3000/bookings/${_id}`, {
+    fetch(`http://localhost:3000/bookings-packages/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -98,30 +98,30 @@ useEffect(()=>{
 
     //  <--------------  update function ------------------->
 
-  const updateFunction = (_id,updateInfo)=>{
-    console.log(_id,updateInfo);
+//   const updateFunction = (_id,updateInfo)=>{
+//     console.log(_id,updateInfo);
 
-    fetch(`http://localhost:3000/bookings/${_id}`,{
-        method:'PUT',
-        headers:{
-          'content-type':'application/json'
-        },
-        body: JSON.stringify(updateInfo)
-    })
-    .then(res=>res.json())
-    .then((data)=>{
-         console.log(data);
+//     fetch(`http://localhost:3000/bookings/${_id}`,{
+//         method:'PUT',
+//         headers:{
+//           'content-type':'application/json'
+//         },
+//         body: JSON.stringify(updateInfo)
+//     })
+//     .then(res=>res.json())
+//     .then((data)=>{
+//          console.log(data);
 
-         if(data.modifiedCount > 0){
+//          if(data.modifiedCount > 0){
           
-            // const remainingBooking = booking.filter(booked=>booked._id !== _id);
-            // setBooking(remainingBooking);
+//             // const remainingBooking = booking.filter(booked=>booked._id !== _id);
+//             // setBooking(remainingBooking);
 
-            swal('','Booking Requested accepted','success')
+//             swal('','Booking Requested accepted','success')
 
-         }
-    })
-}
+//          }
+//     })
+// }
 
   
   return (
@@ -198,7 +198,7 @@ useEffect(()=>{
        <div>
            
         <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
-          Booking History 
+          Packages Booking History 
         </h1>
 
         <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
@@ -227,7 +227,7 @@ useEffect(()=>{
                   key={booked._id}
                   booked={booked}
                   deleteFunction={deleteFunction}
-                  updateFunction={updateFunction}
+                  // updateFunction={updateFunction}
                 ></StatisticUserBookingInfo>
               ))}
             </tbody>
