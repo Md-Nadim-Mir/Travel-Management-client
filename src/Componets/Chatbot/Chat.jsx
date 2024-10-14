@@ -1,5 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
+import axios from 'axios';
+
 
 // all available props
 const theme = {
@@ -72,7 +74,24 @@ const theme = {
 
 //  <-------    Handle Payment  ------>
 const handlePayment =()=>{
-    console.log('handlePayment')
+  
+  axios.post("http://localhost:3000/create-paymet",{
+     amount:1000,
+     currency:"USD"
+  })
+  .then((res)=>{
+    console.log(res);
+
+    const redirectUrl = res.data.paymentUrl;
+
+    if(redirectUrl){
+     
+       window.location.replace(redirectUrl);
+
+    }
+
+  })
+
 }
 
 const Chat = () => {

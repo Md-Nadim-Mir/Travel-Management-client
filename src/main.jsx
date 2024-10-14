@@ -38,6 +38,9 @@ import SinglePackageUpdate from "./Componets/Dashboard/Components/PackagesCollec
 import PackagesDetails from "./Componets/Packages/PackagesDetails";
 import UserInfo from "./Componets/UserDashboard/UserInfo";
 import Chat from "./Componets/Chatbot/Chat";
+import Success from "./Componets/PaymentPage/Success";
+import Fail from "./Componets/PaymentPage/Fail";
+import Cancel from "./Componets/PaymentPage/Cancel";
 
 const router = createBrowserRouter([
   {
@@ -114,6 +117,18 @@ const router = createBrowserRouter([
          element:<Chat></Chat>
       },
       {
+         path:'/success',
+         element: <Success></Success>
+      },
+      {
+        path:'/fail',
+        element:<Fail></Fail>
+     },
+     {
+      path:'/cancel',
+      element:<Cancel></Cancel>
+     },
+     {
         path: "/register",
         element: <Register></Register>,
       },
