@@ -69,6 +69,12 @@ const theme = {
   },
 ];
 
+
+//  <-------    Handle Payment  ------>
+const handlePayment =()=>{
+    console.log('handlePayment')
+}
+
 const Chat = () => {
   return (
     <div className="flex justify-center my-14 font-serif text-[16px] mx-2 md:mx-0">
@@ -77,7 +83,7 @@ const Chat = () => {
         <ChatBot steps={steps} />
       </ThemeProvider>
 
-      <button className="btn flex justify-center font-bold">Order Now</button>
+      <button onClick={handlePayment} className="btn flex justify-center font-bold">Order Now</button>
     </div>
   );
 };
