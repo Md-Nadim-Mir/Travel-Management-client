@@ -97,7 +97,7 @@ const PackagesDetails = () => {
      console.log(user.email)
 
 
-     // <-------------------  Post Method : New bookings added to database ------->
+  // <-------------------  Post Method : New Packages bookings added to database ------->
     
      
   axios.post("http://localhost:3000/create-paymet",{

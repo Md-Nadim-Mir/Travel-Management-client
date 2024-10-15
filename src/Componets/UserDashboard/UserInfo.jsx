@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext , useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
 import { useLoaderData } from "react-router-dom";
@@ -7,6 +7,7 @@ import { FaHome } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
 import { Typewriter } from "react-simple-typewriter";
+import SingleHotelBooking from "./SingleHotelBooking";
 
 const UserInfo = () => {
   const { user, logout } = useContext(AuthContext);
@@ -21,6 +22,9 @@ const UserInfo = () => {
       });
   };
 
+
+  //  Booking Packages 
+
   const bookingData = useLoaderData();
 
   const specificEmailBookings = bookingData.filter(
@@ -32,7 +36,24 @@ const UserInfo = () => {
   const [booking, setBooking] = useState(specificEmailBookings);
   console.log(booking);
 
-  // Delete opearation
+
+  //  Booking Hotels
+
+  const [open,setOpen]=useState([]);
+  
+  
+
+      fetch('http://localhost:3000/bookings-hotels/')
+     .then(res=>res.json())
+     .then(data=>setOpen(data.filter((x)=>x?.email===user?.email)))     
+
+
+      console.log(open);
+
+
+   
+  
+  // Delete opearation packages
 
   const deleteFunction = (_id) => {
     fetch(`http://localhost:3000/bookings-packages/${_id}`, {
@@ -49,6 +70,25 @@ const UserInfo = () => {
         }
       });
   };
+
+
+    // Delete opearation Hotels
+
+    const deleteFunctionHotels = (_id) => {
+      fetch(`http://localhost:3000/bookings-hotels/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingPackages = open.filter(
+              (booked) => booked._id !== _id
+            );
+            setOpen(remainingPackages);
+            swal(" ", "Travel Hotel Booking  deleted successfully", "success");
+          }
+        });
+    };
 
   const wish = `Welcome , ${user.email} to Travel.com `;
   const wish2 = "Enjoy Fill & Chill";
@@ -92,9 +132,14 @@ const UserInfo = () => {
           </div>
         </div>
       </div>
-      {/* booking data load */}
+
+
+      
 
       <div className="bg-base-200 py-10">
+
+        {/*packages booking data load */}
+
         <div className="">
           <h1 className="text-center text-3xl font-bold my-10">
              Packages Booking History
@@ -131,6 +176,47 @@ const UserInfo = () => {
             </table>
           </div>
         </div>
+
+
+
+         {/*Hotel booking data load */}
+
+         <div className="">
+          <h1 className="text-center text-3xl font-bold my-10">
+             Hotels Booking History 
+          </h1>
+
+          <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
+                  <th className="border-4 shadow-xl">No</th>
+                  <th className="border-4 shadow-xl">Hotel Image</th>
+                  <th className="border-4 shadow-xl">Hotel Name</th>
+                  <th className="border-4 shadow-xl">Hotel Location</th>
+                  <th className="border-4 shadow-xl">Price</th>
+                  <th className="border-4 shadow-xl">Date</th>
+                  <th className="border-4 shadow-xl">Status</th>
+                  <th className="border-4 shadow-xl">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {open.map((booked, index) => (
+                  <SingleHotelBooking
+                    index={index}
+                    key={booked._id}
+                    booked={booked}
+                    deleteFunctionHotels={deleteFunctionHotels}
+                  ></SingleHotelBooking>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
       </div>
     </div>
   );

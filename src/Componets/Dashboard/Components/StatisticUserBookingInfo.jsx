@@ -1,10 +1,8 @@
-// import { useState } from "react";
-// import { FaCheckCircle } from "react-icons/fa";
 import { MdAutoDelete } from "react-icons/md";
 
-const StatisticUserBookingInfo = ({booked,deleteFunction,updateFunction,index}) => {
+const StatisticUserBookingInfo = ({booked,deleteFunction,index}) => {
 
-    const {placeName,placeImage,price,hotelName,hotelImage,hotelLocation,date,_id,condition,email}=booked;
+    const {placeName,price,hotelName,hotelLocation,date,_id,condition,email}=booked;
 
 
     //  booking Condition change start 

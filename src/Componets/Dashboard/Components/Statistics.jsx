@@ -4,6 +4,7 @@ import PieChartWithCustomizedLabel from "./PieChartWithCustomizedLabel";
 import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 import StatisticUserBookingInfo from "./StatisticUserBookingInfo";
+import StatisticHotelsInfo from "./StatisticHotelsInfo";
 
 const Statistics = () => {
   
@@ -76,6 +77,36 @@ useEffect(()=>{
   // booking length find
   const bookingData = useLoaderData();
   const [booking, setBooking] = useState(bookingData);
+
+
+   //  Booking Hotels
+
+   const [open,setOpen]=useState([]);
+  
+  
+
+   fetch('http://localhost:3000/bookings-hotels/')
+  .then(res=>res.json())
+  .then(data=>setOpen(data))
+
+   // Delete opearation Hotels
+
+   const deleteFunctionHotels = (_id) => {
+    fetch(`http://localhost:3000/bookings-hotels/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          const remainingPackages = open.filter(
+            (booked) => booked._id !== _id
+          );
+          setOpen(remainingPackages);
+          swal(" ", "Travel Hotel Booking  deleted successfully", "success");
+        }
+      });
+  };
+
 
 
   // Delete opearation
@@ -193,7 +224,7 @@ useEffect(()=>{
       </div>
 
 
-      {/*  Booking requsts Table create */}
+      {/* Packages  Booking requsts Table create */}
 
        <div>
            
@@ -235,6 +266,51 @@ useEffect(()=>{
         </div>
 
        </div>
+
+       
+
+        {/* Hotel  Booking requsts Table create */}
+
+        <div>
+           
+           <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
+             Hotel Booking History 
+           </h1>
+   
+           <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
+             <table className="table">
+               {/* head */}
+               <thead>
+                 <tr className="border-4   shadow-2xl text-base font-extrabold text-black">
+                   <th className="border-4  shadow-xl">No</th>
+                   <th className="border-4  shadow-xl">Email</th>
+                   <th className="border-4  shadow-xl">Hotel Image</th>
+                   <th className="border-4  shadow-xl">Hotel Name</th>
+                   <th className="border-4  shadow-xl">Hotel Location</th>
+                   <th className="border-4  shadow-xl">Price</th>
+                   <th className="border-4  shadow-xl">Post Date</th>
+                   <th className="border-4  shadow-xl">Status</th>
+                   <th className="border-4  shadow-xl">Actions</th>
+                 </tr>
+               </thead>
+   
+               <tbody>
+                 {open.map((booked, index) => (
+                   <StatisticHotelsInfo
+                     index={index}
+                     key={booked._id}
+                     booked={booked}
+                     deleteFunctionHotels={deleteFunctionHotels}
+                     // updateFunction={updateFunction}
+                   ></StatisticHotelsInfo>
+                 ))}
+               </tbody>
+             </table>
+           </div>
+   
+          </div>
+
+
 
      
     </div>
