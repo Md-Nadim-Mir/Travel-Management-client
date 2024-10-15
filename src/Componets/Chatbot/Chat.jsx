@@ -105,7 +105,7 @@ const Chat = () => {
         <ChatBot steps={steps} />
       </ThemeProvider>
 
-      <button  className="btn flex justify-center font-bold">Order Now</button>
+      {/* <button  className="btn flex justify-center font-bold">Order Now</button> */}
     </div>
   );
 };

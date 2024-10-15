@@ -80,16 +80,16 @@ const Sidebar = () => {
               </div>
 
               {/* <-------------   Places Nav Link    --------------> */}
-              <div className=" flex pl-2 items-center gap-x-4">
+              {/* <div className=" flex pl-2 items-center gap-x-4">
                 <MdAddLocationAlt className="text-[orange]" />
                 <NavLink to="/dashboard/places-added">Place Added</NavLink>
-              </div>
+              </div> */}
 
               {/* Travel Places Updates*/}
-              <div className=" flex pl-2 items-center gap-x-4">
+              {/* <div className=" flex pl-2 items-center gap-x-4">
                 <FaExchangeAlt className="text-[orange]" />
                 <NavLink to="/dashboard/places-updates">Place Update</NavLink>
-              </div>
+              </div> */}
 
               {/* <----------  Hotels Nav Link    -------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
@@ -196,16 +196,16 @@ const Sidebar = () => {
           {/* <------------------   Places Nav Link    --------------------> */}
 
           {/* Travel Places added */}
-          <div className=" flex pl-2 items-center gap-x-4">
+          {/* <div className=" flex pl-2 items-center gap-x-4">
             <MdAddLocationAlt className="text-[orange]" />
             <NavLink to="/dashboard/places-added">Place Added</NavLink>
-          </div>
+          </div> */}
 
           {/* Travel Places Updates*/}
-          <div className=" flex pl-2 items-center gap-x-4">
+          {/* <div className=" flex pl-2 items-center gap-x-4">
             <FaExchangeAlt className="text-[orange]" />
             <NavLink to="/dashboard/places-updates">Place Update</NavLink>
-          </div>
+          </div> */}
 
           {/* <------------------   Hotels Nav Link    --------------------> */}
 

@@ -17,11 +17,11 @@ const Navbar = ({allUser}) => {
           <a>Home</a>
         </li>
       </NavLink>
-      <NavLink to="/places">
+      {/* <NavLink to="/places">
         <li>
           <a>Places</a>
         </li>
-      </NavLink>
+      </NavLink> */}
       <NavLink to="/hotels">
         <li>
           <a>Hotels</a>
