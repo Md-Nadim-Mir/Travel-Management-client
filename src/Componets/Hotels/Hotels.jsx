@@ -1,7 +1,10 @@
 import { Helmet } from "react-helmet-async";
 import { Form, NavLink, useLoaderData } from "react-router-dom";
-import OneHotel from "./OneHotel";
+
 import { useState } from "react";
+import { MdBed } from "react-icons/md";
+import { FaBath, FaWifi } from "react-icons/fa";
+import { FaVanShuttle } from "react-icons/fa6";
 
 const Hotels = () => {
   // load all places
@@ -20,10 +23,10 @@ const Hotels = () => {
         Popular Hotels
       </h1>
 
-      <Form className="p-5">
+      <Form className="p-2 md:p-5">
         <input
           onChange={(e) => setSearch(e.target.value)}
-          className="my-3 w-full border-4 rounded-md p-2   font-bold"
+          className="my-3 w-full border-4 border-[#326FC5]  rounded-md p-2   font-bold"
           placeholder="Search By Location .  Example : Dhaka , Bangladesh"
         ></input>
       </Form>
@@ -34,22 +37,69 @@ const Hotels = () => {
           .filter((hotel) => {
             return search.toLowerCase() === ""
               ? hotel
-              : hotel.location.toLowerCase().includes(search)}).map((hotel) => (<div key={hotel._id} className="card bg-base-100  shadow-xl">
-                 <figure>
-                    <img src={hotel.image} className="h-[50vh]" alt="Shoes" />
-                  </figure>
+              : hotel.location.toLowerCase().includes(search);
+          })
+          .map((hotel) => (
+            <div key={hotel._id} className="card bg-base-100  shadow-xl">
+              <figure>
+                <img src={hotel.image} className="h-[40vh] w-full" alt="Shoes" />
+              </figure>
               <div className="card-body">
-                <h2 className="card-title">{hotel.name}</h2>
-                <p>{hotel.location}</p>
-                <div className="card-actions mt-4 justify-end">
+                
+                {/* price  */}
+                <div className="flex justify-between items-center  p-2">
+                  <h2 className="font-extrabold text-xl">
+                    $ {hotel.livingCost}
+                  </h2>
+                  <button className="text-sm font-bold border-4 border-[#326FC5] p-2 rounded-full  animate-pulse">
+                    For Rent
+                  </button>
+                </div>
+
+                {/* icon */}
+                <div className="flex gap-4 items-center font-bold mt-4">
+                   
+                     <div className="flex gap-4 items-center shadow-xl border-2 border-[#FFA500] rounded-md p-2 w-full">
+                         <MdBed />
+                         <h1>1 Bed</h1>
+                     </div>
+
+                     <div className="flex gap-4 items-center shadow-xl border-2 border-[#FFA500] rounded-md p-2 w-full">
+                         <FaBath />
+                         <h1>1 Bath</h1>
+                     </div>
+                    
+                   
+                </div>
+
+                <div className="flex gap-4 items-center font-bold mb-4">
+                   
+                   <div className="flex gap-4 items-center shadow-xl border-2 border-[#FFA500] rounded-md p-2 w-full">
+                       <FaWifi />
+                       <h1>Wifi</h1>
+                   </div>
+
+                   <div className="flex gap-4 items-center shadow-xl border-2 border-[#FFA500] rounded-md p-2 w-full">
+                       <FaVanShuttle />
+                       <h1>Shuttle</h1>
+                   </div>
+                  
+                 
+              </div>
+
+                <h2 className="font-extrabold">{hotel.name}</h2>
+                <p className="font-medium">{hotel.location}</p>
+                <div className=" mt-4">
                   <NavLink to={`/hotels/${hotel._id}`}>
-                    <button className="btn bg-[orange] hover:bg-[#326FC5] text-white">
-                      Visit Now
-                    </button>
+                   
+                      <button className="btn w-full  bg-[orange] hover:bg-[#326FC5] text-white text-lg">
+                        Details
+                      </button>
+                   
                   </NavLink>
                 </div>
               </div>
-           </div>
+            </div>
           ))}
       </div>
     </div>

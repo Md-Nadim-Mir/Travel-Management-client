@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Form, NavLink, useLoaderData } from "react-router-dom";
-// import OnePackage from "./OnePackage";
 import { useState } from "react";
 
 const Packages = () => {
@@ -20,10 +19,10 @@ const Packages = () => {
       </h1>
 
 
-      <Form className="p-5">
+      <Form className="p-2 md:p-5">
         <input
           onChange={(e) => setSearch(e.target.value)}
-          className="my-3 w-full border-4 rounded-md p-2   font-bold"
+          className="my-3 w-full border-4 rounded-md p-2   font-bold border-[#326FC5]"
           placeholder="Search By Location .  Example : Dhaka , Bangladesh"
         ></input>
       </Form>
@@ -43,9 +42,9 @@ const Packages = () => {
                   <p>$ {packaged.price}</p>
                   <div className="card-actions mt-4 justify-end">
                     <NavLink to ={`/packages/${packaged._id}`}>
-                      <button className="btn bg-[orange] hover:bg-[#326FC5] text-white"
+                      <button className="btn  bg-[orange] hover:bg-[#326FC5] text-white"
                       >
-                        Visit Now
+                       Check In
                       </button>
                     </NavLink>
                   </div>

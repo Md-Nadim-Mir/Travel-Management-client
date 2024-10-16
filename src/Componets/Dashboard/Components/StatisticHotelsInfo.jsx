@@ -2,7 +2,7 @@ import { MdAutoDelete } from "react-icons/md";
 
 const StatisticHotelsInfo = ({booked, deleteFunctionHotels,index}) => {
 
-    const {price,hotelImage,hotelName,hotelLocation,date,_id,condition,email}=booked;
+    const {livingCost,hotelImage,hotelName,hotelLocation,date,_id,condition,email}=booked;
 
 
 
@@ -37,7 +37,7 @@ const StatisticHotelsInfo = ({booked, deleteFunctionHotels,index}) => {
 
         <td className="border-2 shadow-xl text-sm  font-semibold">{hotelLocation}</td>
 
-        <td className="border-2 shadow-xl text-sm  font-semibold">$ {price}</td>
+        <td className="border-2 shadow-xl text-sm  font-semibold">$ {livingCost}</td>
 
         <td className="border-2 shadow-xl text-sm  font-semibold">{date}</td>
 

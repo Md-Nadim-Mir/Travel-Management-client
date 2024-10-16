@@ -46,7 +46,7 @@ const HotelsUpdates = () => {
             <th className="border-4 shadow-xl">Image</th>
             <th className="border-4 shadow-xl">Name</th>
             <th className="border-4 shadow-xl">Location</th>
-            <th className="border-4 shadow-xl">Post Date</th>
+            <th className="border-4 shadow-xl">Living Cost</th>
             <th className="border-4 shadow-xl">Actions</th>
           </tr>
         </thead>

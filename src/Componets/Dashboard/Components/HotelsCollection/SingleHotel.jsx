@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const SingleHotel = ({hotel , index, deleteFunction}) => {
 
-    const {name,location,image,date,_id}=hotel;
+    const {name,location,image,livingCost,_id}=hotel;
 
     // handleDelete Opearation
 
@@ -33,7 +33,7 @@ const SingleHotel = ({hotel , index, deleteFunction}) => {
 
         <td className="text-sm  font-semibold border-2 shadow-xl">{location}</td>
 
-        <td className="text-sm  font-semibold border-2 shadow-xl">{date}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{livingCost}</td>
 
         <th className="text-sm  font-semibold border-2 shadow-xl">
            <div className="flex items-center gap-2">

@@ -12,7 +12,7 @@ const HotelsAdded = () => {
     const hotelImage = form.hotelImage.files[0];
     const hotelLocation = form.hotelLocation.value;
     const hotelDescription = form.hotelDescription.value;
-    const postedDate = form.postedDate.value;
+    const livingCost = form.livingCost.value;
 
     // upload image
     const imageData = await UploadImage(hotelImage);
@@ -24,7 +24,7 @@ const HotelsAdded = () => {
       image: realImage,
       location: hotelLocation,
       description: hotelDescription,
-      date: postedDate,
+      livingCost: livingCost,
     };
 
     // <-------------------  Post Method : New hotel added to database ------->
@@ -118,19 +118,23 @@ const HotelsAdded = () => {
 
         {/* submit button  */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 m-5">
-          {/* posted date */}
+          {/* living cost */}
           <div className=" ">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Posted Date
+              Living Cost
             </h1>
+
             <input
-              type="date"
-              name="postedDate"
+              type="text"
+              name="livingCost"
               id=""
-              placeholder=""
+              placeholder="Enter travel hotel living cost"
               className="font-bold w-full my-2 p-2 rounded"
               required
             />
+
+
+           
           </div>
 
           <div className=" flex items-end justify-center md:justify-end">

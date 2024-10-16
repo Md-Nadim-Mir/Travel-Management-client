@@ -7,7 +7,7 @@ const SingleHotelUpdate = () => {
 
     const singleHotelsDataLoad = useLoaderData();
 
-  const { name, location, image, description,date, _id } = singleHotelsDataLoad;
+  const { name, location, image, description,livingCost, _id } = singleHotelsDataLoad;
 
   // navigate 
   const navigate = useNavigate();
@@ -22,14 +22,14 @@ const SingleHotelUpdate = () => {
     const hotelImage = form.hotelImage.value;
     const hotelLocation = form.hotelLocation.value;
     const hotelDescription = form.hotelDescription.value;
-    const postedDate = form.postedDate.value;
+    const livingCost = form.livingCost.value;
 
     const newHotel = {
       name: hotelName,
       image: hotelImage,
       location: hotelLocation,
       description: hotelDescription,
-      date : postedDate
+      livingCost : livingCost
     };
 
     console.log(newHotel)
@@ -132,20 +132,24 @@ const SingleHotelUpdate = () => {
 
         {/* submit button  */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 m-5">
-          {/* posted date */}
-          <div className=" ">
+            {/* living cost */}
+            <div className=" ">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Posted Date
+              Living Cost
             </h1>
+
             <input
-              type="date"
-              name="postedDate"
+              type="text"
+              name="livingCost"
+              defaultValue={livingCost}
               id=""
-              defaultValue={date}
-              placeholder=""
+              placeholder="Enter travel hotel living cost"
               className="font-bold w-full my-2 p-2 rounded"
               required
             />
+
+
+           
           </div>
 
           <div className=" flex items-end justify-center md:justify-end">

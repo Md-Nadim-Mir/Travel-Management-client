@@ -1,6 +1,5 @@
 import { Helmet } from "react-helmet-async";
 import { Form, NavLink, useLoaderData } from "react-router-dom";
-import OneBlog from "./OneBlog";
 import { useState } from "react";
 
 const Blogs = () => {
@@ -22,10 +21,10 @@ const Blogs = () => {
         Popular Blogs
       </h1>
 
-      <Form className="p-5">
+      <Form className="p-2 md:p-5">
         <input
           onChange={(e) => setSearch(e.target.value)}
-          className="my-3 w-full border-4 rounded-md p-2   font-bold"
+          className="my-3 w-full border-4 rounded-md p-2   font-bold border-[#326FC5]"
           placeholder="Search By Title .  Example : Iceland"
         ></input>
       </Form>
