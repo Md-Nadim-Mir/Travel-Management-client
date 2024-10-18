@@ -5,7 +5,7 @@ import "./index.css";
 
 import { HelmetProvider } from "react-helmet-async";
 
-import Places from "./Componets/Places/Places";
+
 import Packages from "./Componets/Packages/Packages";
 import Blogs from "./Componets/Blogs/Blogs";
 import Dashboard from "./Componets/Dashboard/Dashboard";
@@ -17,14 +17,10 @@ import AuthProvider from "./Componets/AuthProvider/AuthProvider";
 import ErrorPage from "./Componets/ErrorPage/ErrorPage";
 import PrivateRoutes from "./Componets/PrivateRoutes/PrivateRoutes";
 import Users from "./Componets/Dashboard/Components/UsersCollection/Users";
-import PlacesUpdates from "./Componets/Dashboard/Components/PlacesCollection/PlacesUpdates";
 import PackagesUpdate from "./Componets/Dashboard/Components/PackagesCollection/PackagesUpdate";
 import Statistics from "./Componets/Dashboard/Components/Statistics";
 import HotelsUpdates from "./Componets/Dashboard/Components/HotelsCollection/HotelsUpdates";
 import UpcomingTour from "./Componets/Dashboard/Components/UpcomingTour";
-import PlacesDetails from "./Componets/Places/PlacesDetails";
-import PlacesAdded from "./Componets/Dashboard/Components/PlacesCollection/PlacesAdded";
-import SinglePlaceUpdate from "./Componets/Dashboard/Components/PlacesCollection/SinglePlaceUpdate";
 import Hotels from "./Componets/Hotels/Hotels";
 import HotelsAdded from "./Componets/Dashboard/Components/HotelsCollection/HotelsAdded";
 import SingleHotelUpdate from "./Componets/Dashboard/Components/HotelsCollection/SingleHotelUpdate";
@@ -41,6 +37,11 @@ import Chat from "./Componets/Chatbot/Chat";
 import Success from "./Componets/PaymentPage/Success";
 import Fail from "./Componets/PaymentPage/Fail";
 import Cancel from "./Componets/PaymentPage/Cancel";
+import Guide from "./Componets/Guides/Guide";
+import GuideDetails from "./Componets/Guides/GuideDetails";
+import GuideAdded from "./Componets/Dashboard/Components/GudesCollection/GuideAdded";
+import GuideUpdates from "./Componets/Dashboard/Components/GudesCollection/GuideUpdates";
+import SingleGuideUpdate from "./Componets/Dashboard/Components/GudesCollection/SingleGuideUpdate";
 
 const router = createBrowserRouter([
   {
@@ -59,14 +60,14 @@ const router = createBrowserRouter([
 
 
       {
-        path: "/places",
-        element: <PrivateRoutes><Places></Places></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/places')
+        path: "/guides",
+        element: <PrivateRoutes><Guide></Guide></PrivateRoutes>,
+        loader:()=>fetch('http://localhost:3000/guides')
       },
       {
-        path: "/places/:id",
-        element: <PrivateRoutes><PlacesDetails></PlacesDetails></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
+        path: "/guides/:id",
+        element: <PrivateRoutes><GuideDetails></GuideDetails></PrivateRoutes>,
+        loader:({params})=>fetch(`http://localhost:3000/guides/${params.id}`)
       },
 
 
@@ -114,7 +115,7 @@ const router = createBrowserRouter([
       },
       {
          path:"/chatbot",
-         element:<Chat></Chat>
+         element:<PrivateRoutes><Chat></Chat></PrivateRoutes>
       },
       {
          path:'/success',
@@ -169,19 +170,19 @@ const router = createBrowserRouter([
         //  <-------- places route admin --------->
 
         {
-          path:'/dashboard/places-added',
-          element:<PlacesAdded></PlacesAdded>,
+          path:'/dashboard/guides-added',
+          element:<GuideAdded></GuideAdded>,
          
         },
         {
-          path:'/dashboard/places-updates',
-          element:<PlacesUpdates></PlacesUpdates>,
-          loader:()=>fetch('http://localhost:3000/places')
+          path:'/dashboard/guides-updates',
+          element:<GuideUpdates></GuideUpdates>,
+          loader:()=>fetch('http://localhost:3000/guides')
         },
         {
-          path:'/dashboard/places-updates/:id',
-          element:<SinglePlaceUpdate></SinglePlaceUpdate>,
-          loader:({params})=>fetch(`http://localhost:3000/places/${params.id}`)
+          path:'/dashboard/guides-updates/:id',
+          element:<SingleGuideUpdate></SingleGuideUpdate>,
+          loader:({params})=>fetch(`http://localhost:3000/guides/${params.id}`)
         },
 
 

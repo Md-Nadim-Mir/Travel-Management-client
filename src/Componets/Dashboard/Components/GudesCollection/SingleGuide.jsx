@@ -1,9 +1,11 @@
 import { MdAutoDelete } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
-const SinglePlace = ({place , index, deleteFunction}) => {
+const SingleGuide = ({place , index, deleteFunction}) => {
 
-    const {name,location,image,date,_id}=place;
+    const {name, image, experiences,cost,condition,_id}=place;
+
+     // name image experiences description cost
 
     // handleDelete Opearation
 
@@ -30,14 +32,17 @@ const SinglePlace = ({place , index, deleteFunction}) => {
         </td>
 
         <td className="text-sm  font-semibold border-2 shadow-xl">{name}</td>
+      
 
-        <td className="text-sm  font-semibold border-2 shadow-xl">{location}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">{experiences} years</td>
 
-        <td className="text-sm  font-semibold border-2 shadow-xl">{date}</td>
+        <td className="text-sm  font-semibold border-2 shadow-xl">$ {cost}</td>
+
+        <td className="text-sm  font-semibold border-2 shadow-xl">{condition}</td>
 
         <th className="text-sm  font-semibold border-2 shadow-xl">
            <div className="flex items-center gap-2">
-               <NavLink to={`/dashboard/places-updates/${_id}`}><button className="btn text-[white] bg-[orange] hover:bg-[#326FC5]">Update</button></NavLink>
+               <NavLink to={`/dashboard/guides-updates/${_id}`}><button className="btn text-[white] bg-[orange] hover:bg-[#326FC5]">Update</button></NavLink>
                <button onClick={()=>handelDelete(_id)} className="btn text-[white] bg-[orange] hover:bg-[#326FC5]"><MdAutoDelete></MdAutoDelete></button>
                
             </div> 
@@ -48,7 +53,7 @@ const SinglePlace = ({place , index, deleteFunction}) => {
   );
 };
 
-export default SinglePlace;
+export default SingleGuide;
 
 
 

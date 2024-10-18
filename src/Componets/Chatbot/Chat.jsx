@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 import ChatBot from "react-simple-chatbot";
+import { Helmet } from "react-helmet-async";
 // import axios from 'axios';
 
 
@@ -100,6 +101,10 @@ const theme = {
 const Chat = () => {
   return (
     <div className="flex justify-center my-14 font-serif text-[16px] mx-2 md:mx-0">
+
+     <Helmet>
+        <title>Travel | Chatbot</title>
+      </Helmet>
     
       <ThemeProvider theme={theme}>
         <ChatBot steps={steps} />

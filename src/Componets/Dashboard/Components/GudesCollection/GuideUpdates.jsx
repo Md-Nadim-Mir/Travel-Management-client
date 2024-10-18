@@ -1,9 +1,10 @@
 import swal from "sweetalert";
 import { useLoaderData } from "react-router-dom";
 import { useState } from "react";
-import SinglePlace from "./SinglePlace";
 
-const PlacesUpdates = () => {
+import SingleGuide from "./SingleGuide";
+
+const GuideUpdates = () => {
   // all places data loaded
   const loadedData = useLoaderData();
 
@@ -13,7 +14,7 @@ const PlacesUpdates = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`http://localhost:3000/places/${_id}`, {
+    fetch(`http://localhost:3000/guides/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -30,32 +31,36 @@ const PlacesUpdates = () => {
     <div className="font-serif">
       
       <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
-        All Places Database Overview 
+         Travel Guide Information
       </h1>
 
       {/* table */}
       <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
         <table className="table">
           {/* head */}
+
+           {/* name image experiences description cost */}
+
           <thead>
             <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
               <th className="border-4 shadow-xl">No</th>
               <th className="border-4 shadow-xl">Image</th>
               <th className="border-4 shadow-xl">Name</th>
-              <th className="border-4 shadow-xl">Location</th>
-              <th className="border-4 shadow-xl">Post Date</th>
+              <th className="border-4 shadow-xl">Experiences</th>
+              <th className="border-4 shadow-xl">Hiring Cost</th>
+              <th className="border-4 shadow-xl">Guide Status</th>
               <th className="border-4 shadow-xl">Actions</th>
             </tr>
           </thead>
 
           <tbody>
             {places.map((place, index) => (
-              <SinglePlace
+              <SingleGuide
                 index={index}
                 key={place._id}
                 place={place}
                 deleteFunction={deleteFunction}
-              ></SinglePlace>
+              ></SingleGuide>
             ))}
           </tbody>
         </table>
@@ -64,4 +69,4 @@ const PlacesUpdates = () => {
   );
 };
 
-export default PlacesUpdates;
+export default GuideUpdates;

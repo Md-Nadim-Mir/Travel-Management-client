@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Form, NavLink, useLoaderData } from "react-router-dom";
 import { useState } from "react";
+import { LuSearch } from "react-icons/lu";
 
 const Blogs = () => {
 
@@ -21,12 +22,18 @@ const Blogs = () => {
         Popular Blogs
       </h1>
 
-      <Form className="p-2 md:p-5">
+      <Form className="p-2 md:p-0  md:mr-8 flex justify-end items-center  relative">
+    
+        <LuSearch  className=" absolute mr-10 md:mr-8 text-3xl font-bold" />
         <input
-          onChange={(e) => setSearch(e.target.value)}
-          className="my-3 w-full border-4 rounded-md p-2   font-bold border-[#326FC5]"
-          placeholder="Search By Title .  Example : Iceland"
-        ></input>
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+          className="  my-3 w-full md:w-1/2  lg:w-1/4 border-2   rounded-full p-4   font-bold focus:outline-none"
+          placeholder="Title"
+        > 
+
+        </input>
+
+       
       </Form>
 
       {/* all places card design */}

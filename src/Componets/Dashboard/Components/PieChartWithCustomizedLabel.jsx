@@ -39,7 +39,7 @@ useEffect(()=>{
  const [place, setPlace] = useState([]);
 
  useEffect(()=>{
-  fetch('http://localhost:3000/places')
+  fetch('http://localhost:3000/guides')
    .then((res) => res.json())
   .then((data) => setPlace(data));
 },[])
@@ -90,7 +90,7 @@ useEffect(()=>{
  const [booking, setBooking] = useState([]);
 
  useEffect(()=>{
-  fetch('http://localhost:3000/bookings')
+  fetch('http://localhost:3000/bookings-packages')
    .then((res) => res.json())
    .then((data) => setBooking(data));
 },[])
@@ -104,7 +104,7 @@ useEffect(()=>{
       amt: 200,
     },
     {
-      name: 'Places',
+      name: 'Tour Guide',
       uv: place.length,
       pv: 100,
       amt: 200,

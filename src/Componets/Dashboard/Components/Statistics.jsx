@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 import StatisticUserBookingInfo from "./StatisticUserBookingInfo";
 import StatisticHotelsInfo from "./StatisticHotelsInfo";
+import StatisticGuideBooking from "./StatisticGuideBooking";
 
 const Statistics = () => {
   
@@ -29,7 +30,7 @@ useEffect(()=>{
  const [place, setPlace] = useState([]);
 
  useEffect(()=>{
-  fetch('http://localhost:3000/places')
+  fetch('http://localhost:3000/guides')
    .then((res) => res.json())
   .then((data) => setPlace(data));
 },[])
@@ -89,6 +90,22 @@ useEffect(()=>{
   .then(res=>res.json())
   .then(data=>setOpen(data))
 
+
+  //  Booking Guide
+
+  const [guides,setGuide]=useState([]);
+  
+  
+
+  fetch('http://localhost:3000/bookings-guides/')
+ .then(res=>res.json())
+ .then(data=>setGuide(data))     
+
+
+  console.log(guides);   
+
+
+
    // Delete opearation Hotels
 
    const deleteFunctionHotels = (_id) => {
@@ -109,7 +126,7 @@ useEffect(()=>{
 
 
 
-  // Delete opearation
+  // Delete opearation  packages
 
   const deleteFunction = (_id) => {
     fetch(`http://localhost:3000/bookings-packages/${_id}`, {
@@ -124,6 +141,26 @@ useEffect(()=>{
         }
       });
 
+    };
+
+
+
+     // Delete opearation Guide
+
+     const deleteFunctionGuides = (_id) => {
+      fetch(`http://localhost:3000/bookings-guides/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingPackages = guides.filter(
+              (booked) => booked._id !== _id
+            );
+            setGuide(remainingPackages);
+            swal(" ", "Tour Guide Booking  deleted successfully", "success");
+          }
+        });
     };
 
 
@@ -181,7 +218,7 @@ useEffect(()=>{
 
           {/* places */}
           <div className="border-r-2 border-red-400  my-5 ">
-            <div className="text-md md:text-xl  font-bold">Total Places</div>
+            <div className="text-md md:text-xl  font-bold">Total Total Guide</div>
             <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">
               {place.length}
             </h1>
@@ -215,7 +252,7 @@ useEffect(()=>{
 
           {/* Bookings */}
           <div className="my-5 ">
-            <div className="text-md md:text-xl  font-bold">Total Bookings</div>
+            <div className="text-md md:text-xl  font-bold">Total Package Bookings</div>
             <h1 className="text-[blue] text-3xl font-extrabold mt-2 animate-bounce">
               {booking.length}
             </h1>
@@ -305,6 +342,52 @@ useEffect(()=>{
                    ></StatisticHotelsInfo>
                  ))}
                </tbody>
+             </table>
+           </div>
+   
+          </div>
+
+
+
+
+
+
+
+        {/* Guide  Booking requsts Table create */}
+
+        <div>
+           
+           <h1 className="text-center text-[orange] text-xl md:text-3xl font-bold mt-24 mb-20">
+            Tour Guide Booking History 
+           </h1>
+   
+           <div className="overflow-x-auto border-4 border-[#326FC5] rounded mx-2 my-5">
+             <table className="table">
+               {/* head */}
+               <thead>
+                 <tr className="border-4   shadow-2xl text-base font-extrabold text-black">
+                    <th className="border-4 shadow-xl">No</th>
+                    <th className="border-4 shadow-xl">Email</th>
+                    <th className="border-4 shadow-xl">Image</th>
+                    <th className="border-4 shadow-xl">Name</th>
+                    <th className="border-4 shadow-xl">Experience</th>
+                    <th className="border-4 shadow-xl">Hiring Cost</th>
+                    <th className="border-4 shadow-xl">Date</th>
+                    <th className="border-4 shadow-xl">Status</th>
+                    <th className="border-4 shadow-xl">Actions</th>
+                 </tr>
+               </thead>
+   
+               <tbody>
+                {guides.map((booked, index) => (
+                  <StatisticGuideBooking
+                    index={index}
+                    key={booked._id}
+                    booked={booked}
+                    deleteFunctionGudies={deleteFunctionGuides}
+                  ></StatisticGuideBooking>
+                ))}
+              </tbody>
              </table>
            </div>
    

@@ -4,7 +4,7 @@ import { FaMagnifyingGlassPlus, FaUsersGear } from "react-icons/fa6";
 import { FcStatistics } from "react-icons/fc";
 import { IoAppsOutline} from "react-icons/io5";
 import { TbPackages } from "react-icons/tb";
-import { MdAddCard, MdAddLocationAlt } from "react-icons/md";
+import { MdAddCard} from "react-icons/md";
 import { GrUpdate } from "react-icons/gr";
 import { FaExchangeAlt } from "react-icons/fa";
 import { TfiExchangeVertical } from "react-icons/tfi";
@@ -12,6 +12,7 @@ import { LuPackageSearch } from "react-icons/lu";
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import swal from "sweetalert";
+import { MdOutlineElderlyWoman } from "react-icons/md";
 
 const Sidebar = () => {
   //  logout
@@ -79,17 +80,18 @@ const Sidebar = () => {
                 <NavLink to="/dashboard/users">Users Manage</NavLink>
               </div>
 
-              {/* <-------------   Places Nav Link    --------------> */}
-              {/* <div className=" flex pl-2 items-center gap-x-4">
-                <MdAddLocationAlt className="text-[orange]" />
-                <NavLink to="/dashboard/places-added">Place Added</NavLink>
-              </div> */}
+              
+              {/* Blogs */}
+              <div className=" flex pl-2 items-center gap-x-4">
+                <MdAddCard className="text-[orange]"  /> 
+                <NavLink to="/dashboard/blogs-added">Blog Added</NavLink>
+              </div>
 
-              {/* Travel Places Updates*/}
-              {/* <div className=" flex pl-2 items-center gap-x-4">
-                <FaExchangeAlt className="text-[orange]" />
-                <NavLink to="/dashboard/places-updates">Place Update</NavLink>
-              </div> */}
+              {/* Blogs Updates*/}
+              <div className=" flex pl-2 items-center gap-x-4">
+                <TfiExchangeVertical className="text-[orange]" />
+                <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
+              </div>
 
               {/* <----------  Hotels Nav Link    -------------> */}
               <div className=" flex pl-2 items-center gap-x-4">
@@ -113,7 +115,7 @@ const Sidebar = () => {
               <div className=" flex pl-2 items-center gap-x-4">
                 <LuPackageSearch className="text-[orange]" />
                 <NavLink to="/dashboard/packages-updates">
-                  Packages Update
+                  Package Update
                 </NavLink>
               </div>
 
@@ -127,6 +129,21 @@ const Sidebar = () => {
               <div className=" flex pl-2 items-center gap-x-4">
                 <TfiExchangeVertical className="text-[orange]" />
                 <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
+              </div>
+
+
+              {/* <-------------   Travel guides Nav Link    --------------> */}
+
+              <div className=" flex pl-2 items-center gap-x-4">
+                <MdOutlineElderlyWoman className="text-[orange]" />
+                <NavLink to="/dashboard/guides-added">Guide Added</NavLink>
+              </div> 
+
+              {/* Travel Places Updates*/}
+            
+             <div className=" flex pl-2 items-center gap-x-4">
+                <FaExchangeAlt className="text-[orange]" />
+                <NavLink to="/dashboard/guides-updates">Guide Update</NavLink>
               </div>
 
               {/* <----------   Profile Nav Link    ----------> */}
@@ -193,19 +210,21 @@ const Sidebar = () => {
             <NavLink to="/dashboard/users">Users Manage</NavLink>
           </div>
 
-          {/* <------------------   Places Nav Link    --------------------> */}
+         
+           {/* <------------------  Blogs Nav Link    --------------------> */}
 
-          {/* Travel Places added */}
-          {/* <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddLocationAlt className="text-[orange]" />
-            <NavLink to="/dashboard/places-added">Place Added</NavLink>
-          </div> */}
+          {/* Blogs */}
+          <div className=" flex pl-2 items-center gap-x-4">
+            <MdAddCard className="text-[orange]"/> 
+            <NavLink to="/dashboard/blogs-added">Blog Added </NavLink>
+          </div>
 
-          {/* Travel Places Updates*/}
-          {/* <div className=" flex pl-2 items-center gap-x-4">
-            <FaExchangeAlt className="text-[orange]" />
-            <NavLink to="/dashboard/places-updates">Place Update</NavLink>
-          </div> */}
+          {/* Blogs Updates*/}
+          <div className=" flex pl-2 items-center gap-x-4">
+            <TfiExchangeVertical className="text-[orange]" />
+            <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
+          </div>
+
 
           {/* <------------------   Hotels Nav Link    --------------------> */}
 
@@ -234,18 +253,21 @@ const Sidebar = () => {
             <NavLink to="/dashboard/packages-updates">Packages Update</NavLink>
           </div>
 
-          {/* <------------------  Blogs Nav Link    --------------------> */}
+        
 
-          {/* Blogs */}
+
+           {/* <-------------   Travel guides Nav Link    --------------> */}
+
+          {/* Travel guide added */}
           <div className=" flex pl-2 items-center gap-x-4">
-            <MdAddCard className="text-[orange]"/> 
-            <NavLink to="/dashboard/blogs-added">Blog Added </NavLink>
+            <MdOutlineElderlyWoman className="text-[orange]" />
+            <NavLink to="/dashboard/guides-added">Travel Guide Added</NavLink>
           </div>
 
-          {/* Blogs Updates*/}
+          {/* Travel guide Updates*/}
           <div className=" flex pl-2 items-center gap-x-4">
-            <TfiExchangeVertical className="text-[orange]" />
-            <NavLink to="/dashboard/blogs-updates">Blog Update</NavLink>
+          <FaExchangeAlt className="text-[orange]" />
+          <NavLink to="/dashboard/guides-updates">Travel Guide Update</NavLink>
           </div>
 
           {/* <------------------  Profile Nav Link    --------------------> */}

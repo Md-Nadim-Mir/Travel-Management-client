@@ -1,11 +1,21 @@
 import { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import swal from "sweetalert";
 import axios from "axios";
+import swal from "sweetalert";
+import { MdWork } from "react-icons/md";
 
-const HotelsDetails = () => {
-  const loadHotel = useLoaderData();
+
+
+
+const GuideDetails = () => {
+
+
+
+  const loadPlace = useLoaderData();
+
+  const { name, image, experiences, description, cost , condition} = loadPlace;
+
   const { user } = useContext(AuthContext);
   const [allUser, setUser] = useState(null);
 
@@ -14,12 +24,6 @@ const HotelsDetails = () => {
       .then((res) => res.json())
       .then((data) => setUser(data.find((a) => a?.email === user?.email)));
   }, []);
-
-  const { name, image, location, description, livingCost } = loadHotel;
-
-  const hotelName = name;
-  const hotelImage = image;
-  const hotelLocation = location;
 
   const str = description;
   const parts = str.split("#");
@@ -39,12 +43,13 @@ const HotelsDetails = () => {
     {
       if (date !== "") {
         newBooking = {
-          hotelName: hotelName,
-          hotelImage: hotelImage,
-          hotelLocation: hotelLocation,
-          livingCost: livingCost,
+          name: name,
+          image: image,
+          experiences: experiences,
+          description: description,
+          cost:cost,
           date:date,
-          condition: "pending",
+          transaction : 'pending',
           email: user.email,
         };
       } else {
@@ -58,7 +63,7 @@ const HotelsDetails = () => {
     // <-------------------  Post Method : New Hotel bookings added to database ------->
 
     axios
-      .post("http://localhost:3000/create-payment-hotels", {
+      .post("http://localhost:3000/create-payment-guides", {
         info: newBooking,
       })
       .then((res) => {
@@ -72,26 +77,28 @@ const HotelsDetails = () => {
       });
   };
 
+
   return (
-    <form onSubmit={handleSubmit} className="pb-10 font-serif md:px-4 ">
-      <h1 className=" text-xl md:text-2xl font-bold mt-14 mb-14 text-[#FFA500] px-2 md:px-0">
-        {name}
-      </h1>
-      {/* <h1 className="mx-2 mb-2  font-semibold">{location}</h1> */}
+    <form onSubmit={handleSubmit} className=" font-serif md:px-4 md:my-12">
+      
 
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
 
         <div className="mx-2 md:mx-0">
-             <img src={image} className="w-full h-full rounded-xl " alt="" />
+             <img src={image} className="w-full h-[60vh]  rounded-xl " alt="" />
         </div>
 
         {/* Reason to stay {name} */}
 
-        <div>
+        <div className=" rounded-md border-[blue] flex flex-col justify-center">
 
         <h1 className="mt-12 lg:mt-0 mx-6  text-lg md:text-2xl  font-bold mb-4 text-[#FFA500]">
-        Description :
+        About {name}
+        </h1>
+
+        <h1 className="mt-12 lg:mt-0 mx-6    font-bold mb-4">
+        <MdWork  className="inline mr-2"/>  {experiences} years experience
         </h1>
 
         {parts.map((part, index) => (
@@ -102,7 +109,7 @@ const HotelsDetails = () => {
 
         <div className="grid grid-cols-1  md:grid-cols-3 w-full justify-center gap-5 mt-10 px-6">
           <h1 className="btn bg-[orange] mb-4 text-white font-bold px-2">
-            $ {livingCost}
+            $ {cost}
           </h1>
 
           <input
@@ -111,13 +118,13 @@ const HotelsDetails = () => {
             type="date"
           />
 
-          {allUser?.role === "admin" ? (
+          {allUser?.role === "admin" || condition==='Booked' ? (
             <button
               type="submit"
               disabled
               className="btn cursor-not-allowed bg-[orange] hover:bg-[#326FC5] text-white  mb-4  font-bold px-2"
             >
-              Booking Now
+              Hiring 
             </button>
                ) : (
             <button
@@ -138,4 +145,4 @@ const HotelsDetails = () => {
   );
 };
 
-export default HotelsDetails;
+export default GuideDetails;

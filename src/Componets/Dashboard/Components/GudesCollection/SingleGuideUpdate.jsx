@@ -1,14 +1,24 @@
+import { useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
-const SinglePlaceUpdate = () => {
+const SingleGuideUpdate = () => {
 
   const singlePlacesDataLoad = useLoaderData();
 
-  const { name, location, image, description,date, _id } = singlePlacesDataLoad;
+  const { name , image , experiences , description ,condition, cost , _id } = singlePlacesDataLoad;
 
   // navigate 
   const navigate = useNavigate();
+
+  // Guide Status Update
+
+  const [selectedGuideStatus, setGuideStatus] = useState('');
+
+  const handleChange = (event) => {
+    setGuideStatus(event.target.value);
+  };
+
 
   // <--------------- Places Data Updated ---------------->
   const handlePlaces = async (e) => {
@@ -16,24 +26,29 @@ const SinglePlaceUpdate = () => {
 
     const form = e.target;
 
-    const placeName = form.placeName.value;
-    const placeImage = form.placeImage.value;
-    const placeLocation = form.placeLocation.value;
-    const placeDescription = form.placeDescription.value;
-    const postedDate = form.postedDate.value;
+  
+    const name = form.name.value;
+    const image = form.image.value;
+    const experiences = form.experiences.value;
+    const description = form.description.value;
+    const cost = form.cost.value;
+    const condition = selectedGuideStatus;
+
+    console.log(condition)
 
     const newPlace = {
-      name: placeName,
-      image: placeImage,
-      location: placeLocation,
-      description: placeDescription,
-      date : postedDate
+      name: name,
+      image: image,
+      experiences: experiences,
+      description: description,
+      cost : cost,
+      condition: condition
     };
 
     console.log(newPlace)
 
     // <-------------------  Post Method : New places added to database ------->
-    fetch(`http://localhost:3000/places/${_id}`, {
+    fetch(`http://localhost:3000/guides/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -43,9 +58,9 @@ const SinglePlaceUpdate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          swal(" ", " Update travel place information   successfully !", "success");
+          swal(" ", " Update travel guide information successfully !", "success");
           form.reset();
-          navigate('/dashboard/places-updates')
+          navigate('/dashboard/guides-updates')
         }
       });
   };
@@ -61,14 +76,17 @@ const SinglePlaceUpdate = () => {
         onSubmit={handlePlaces}
         className="border-4 rounded xl:mx-2 bg-slate-300 my-12 flex flex-col justify-center py-5 mx-2"
       >
+       
+       <div className=" text-left grid md:grid-cols-2 gap-2 ">
+
         {/* travel place name  */}
         <div className="m-5 text-left">
           <h1 className="text-lg md:text-xl text-left font-bold py-2">
-            Travel place name{" "}
+          Travel Guide Name
           </h1>
           <input
             type="text"
-            name="placeName"
+            name="name"
             id=""
             defaultValue={name}
             className="font-bold w-full my-2 p-2 rounded"
@@ -76,15 +94,34 @@ const SinglePlaceUpdate = () => {
           />
         </div>
 
+        <div className="m-5 text-left">
+          <h1 className="text-lg md:text-xl text-left font-bold py-2">
+          Travel Guide Booking Status
+          </h1>
+          <select
+                className="font-bold w-full my-2 p-2 rounded"
+                id="options"
+                // value={selectedRole}
+                name="condition"
+                defaultValue={condition}
+                onChange={handleChange}
+              >
+                 <option value="Free">Free</option>
+                 <option value="Booked">Booked</option>
+           </select>
+        </div>
+
+        </div> 
+
         {/* travel place image  */}
         <div className="m-5 text-left grid md:grid-cols-3 gap-2 ">
           <div className="">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place image{" "}
+            Travel Guide Image{" "}
             </h1>
             <input
               type="text"
-              name="placeImage"
+              name="image"
               id=""
               defaultValue={image}
               className="font-bold w-full my-2 p-2 rounded"
@@ -95,13 +132,13 @@ const SinglePlaceUpdate = () => {
           {/* place location  */}
           <div className=" col-span-2">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Travel place location
+            Travel Guide Experiences
             </h1>
             <input
-              type="text"
-              name="placeLocation"
+              type="number"
+              name="experiences"
               id=""
-              defaultValue={location}
+              defaultValue={experiences}
               className="font-bold w-full my-2 p-2 rounded"
               required
             />
@@ -111,12 +148,12 @@ const SinglePlaceUpdate = () => {
         {/* travel place name  */}
         <div className="m-5 text-left">
           <h1 className="text-lg md:text-xl text-left font-bold py-2">
-            Travel place Description{" "}
+          Travel Guide  Description
           </h1>
 
           <textarea
             rows={5}
-            name="placeDescription"
+            name="description"
             id=""
             defaultValue={description}
             className="font-bold w-full my-2 p-2 rounded"
@@ -131,13 +168,13 @@ const SinglePlaceUpdate = () => {
           {/* posted date */}
           <div className=" ">
             <h1 className="text-lg md:text-xl text-left font-bold py-2">
-              Posted Date
+            Hiring Cost
             </h1>
             <input
-              type="date"
-              name="postedDate"
+              type="number"
+              name="cost"
               id=""
-              defaultValue={date}
+              defaultValue={cost}
               placeholder=""
               className="font-bold w-full my-2 p-2 rounded"
               required
@@ -148,7 +185,7 @@ const SinglePlaceUpdate = () => {
 
             <button
             type="submit"
-            className="btn w-1/2 my-2 p-2 rounded font-extrabold text-base  text-[white] bg-[orange] hover:bg-[#326FC5] border-none"
+            className="btn w-full  md:w-1/2 my-2 p-2 rounded font-extrabold text-base  text-[white] bg-[orange] hover:bg-[#326FC5] border-none"
           >
             Update
           </button>
@@ -162,4 +199,4 @@ const SinglePlaceUpdate = () => {
   );
 };
 
-export default SinglePlaceUpdate;
+export default SingleGuideUpdate;

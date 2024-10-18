@@ -17,11 +17,6 @@ const Navbar = ({allUser}) => {
           <a>Home</a>
         </li>
       </NavLink>
-      {/* <NavLink to="/places">
-        <li>
-          <a>Places</a>
-        </li>
-      </NavLink> */}
       <NavLink to="/hotels">
         <li>
           <a>Hotels</a>
@@ -37,11 +32,17 @@ const Navbar = ({allUser}) => {
           <a>Blogs</a>
         </li>
       </NavLink>
-      <NavLink to="/chatbot">
+       <NavLink to="/guides">
+        <li>
+          <a>Hire Tour Guide</a>
+        </li>
+      </NavLink>
+      
+      {/* <NavLink to="/chatbot">
         <li>
           <a>Chatbot</a>
         </li>
-      </NavLink>
+      </NavLink> */}
     </>
   );
 
@@ -149,11 +150,19 @@ const Navbar = ({allUser}) => {
                                </li>
                            </NavLink>
                            : 
-                           <NavLink to="/dashboard/user-statistics">
-                                <li>
+                           <div>
+                                <NavLink to="/chatbot">
+                                 <li>
+                                   <a>Chatbot Support</a>
+                                 </li>
+                                </NavLink>
+
+                                <NavLink to="/dashboard/user-statistics">
+                                 <li>
                                    <a>User Dashboard </a>
                                  </li>
-                           </NavLink>
+                                </NavLink>
+                           </div>
                          }
               </NavLink>
 

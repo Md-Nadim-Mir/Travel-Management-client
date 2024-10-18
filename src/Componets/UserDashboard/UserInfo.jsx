@@ -8,6 +8,7 @@ import { Helmet } from "react-helmet-async";
 
 import { Typewriter } from "react-simple-typewriter";
 import SingleHotelBooking from "./SingleHotelBooking";
+import SingleGuideBooking from "./SingleGuideBooking";
 
 const UserInfo = () => {
   const { user, logout } = useContext(AuthContext);
@@ -51,6 +52,21 @@ const UserInfo = () => {
       console.log(open);
 
 
+    
+    //  Booking Guide
+
+  const [guides,setGuide]=useState([]);
+  
+  
+
+  fetch('http://localhost:3000/bookings-guides/')
+ .then(res=>res.json())
+ .then(data=>setGuide(data.filter((x)=>x?.email===user?.email)))     
+
+
+  console.log(guides);   
+
+
    
   
   // Delete opearation packages
@@ -86,6 +102,26 @@ const UserInfo = () => {
             );
             setOpen(remainingPackages);
             swal(" ", "Travel Hotel Booking  deleted successfully", "success");
+          }
+        });
+    };
+
+    // Delete opearation Guide
+
+   
+
+    const deleteFunctionGuides = (_id) => {
+      fetch(`http://localhost:3000/bookings-guides/${_id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.deletedCount > 0) {
+            const remainingPackages = guides.filter(
+              (booked) => booked._id !== _id
+            );
+            setGuide(remainingPackages);
+            swal(" ", "Tour Guide Booking  deleted successfully", "success");
           }
         });
     };
@@ -210,6 +246,49 @@ const UserInfo = () => {
                     booked={booked}
                     deleteFunctionHotels={deleteFunctionHotels}
                   ></SingleHotelBooking>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        {/*Guide booking data load */}
+
+          <div className="">
+          <h1 className="text-center text-3xl font-bold my-10">
+             Tour Guide Booking History 
+          </h1>
+
+          <div className="overflow-x-auto border-4 rounded mx-2 my-5">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr className="border-4 shadow-2xl text-base font-extrabold text-black">
+                  <th className="border-4 shadow-xl">No</th>
+                  <th className="border-4 shadow-xl">Image</th>
+                  <th className="border-4 shadow-xl">Name</th>
+                  <th className="border-4 shadow-xl">Experience</th>
+                  <th className="border-4 shadow-xl">Hiring Cost</th>
+                  <th className="border-4 shadow-xl">Date</th>
+                  <th className="border-4 shadow-xl">Status</th>
+                  <th className="border-4 shadow-xl">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {guides.map((booked, index) => (
+                  <SingleGuideBooking
+                    index={index}
+                    key={booked._id}
+                    booked={booked}
+                    deleteFunctionGuides={deleteFunctionGuides}
+                  ></SingleGuideBooking>
                 ))}
               </tbody>
             </table>
