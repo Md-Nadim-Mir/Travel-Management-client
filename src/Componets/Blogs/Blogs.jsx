@@ -24,10 +24,10 @@ const Blogs = () => {
 
       <Form className="p-2 md:p-0  md:mr-8 flex justify-end items-center  relative">
     
-        <LuSearch  className=" absolute mr-10 md:mr-8 text-3xl font-bold" />
+        <LuSearch  className=" absolute mr-10 md:mr-8 text-xl font-bold" />
         <input
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          className="  my-3 w-full md:w-1/2  lg:w-1/4 border-2   rounded-full p-4   font-bold focus:outline-none"
+          className="  my-3 w-full md:w-1/2  lg:w-1/4 border-2   rounded-full px-4 py-2   font-bold focus:outline-none"
           placeholder="Title"
         > 
 

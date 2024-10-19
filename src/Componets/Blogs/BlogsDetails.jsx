@@ -23,12 +23,13 @@ const BlogsDetails = () => {
         <h1 className="mx-2 mt-12 mb-4 text-lg md:text-2xl  font-bold text-[#FFA500]">History of {name}</h1>
   
   
+  
        {
-          parts.map((part,index)=><li key={index} className="mx-2 mb-4  font-medium px-5">{part}</li>)
+          parts.map((part,index)=><p key={index} className="mx-2 mb-4  font-medium ">{part}</p>)
        }
 
        
-       <h1 className="mx-2 mt-10 mb-2  text-xl  font-extrabold text-[#FFA500]">Author:</h1>
+       <h1 className="mx-2 mt-10 mb-2  text-xl  font-extrabold text-[#FFA500]">Author</h1>
        <h1 className="mx-2 mb-2  font-medium">{writer}</h1>
        <h1 className="mx-2 mb-4  font-normal">Date : {date}</h1>
   

@@ -1,10 +1,8 @@
-
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 
 import { HelmetProvider } from "react-helmet-async";
-
 
 import Packages from "./Componets/Packages/Packages";
 import Blogs from "./Componets/Blogs/Blogs";
@@ -46,9 +44,10 @@ import SingleGuideUpdate from "./Componets/Dashboard/Components/GudesCollection/
 const router = createBrowserRouter([
   {
     path: "/",
-    errorElement:<ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Loop></Loop>,
-    loader:()=>fetch('http://localhost:3000/users'),
+    loader: () =>
+      fetch("https://server-lyart-ten.vercel.app/users"),
     children: [
       {
         path: "/",
@@ -57,79 +56,132 @@ const router = createBrowserRouter([
 
       //  <-------  UI places route -------------->
 
-
-
       {
         path: "/guides",
-        element: <PrivateRoutes><Guide></Guide></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/guides')
+        element: (
+          <PrivateRoutes>
+            <Guide></Guide>
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/guides"
+          ),
       },
       {
         path: "/guides/:id",
-        element: <PrivateRoutes><GuideDetails></GuideDetails></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/guides/${params.id}`)
+        element: (
+          <PrivateRoutes>
+            <GuideDetails></GuideDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/guides/${params.id}`
+          ),
       },
 
-
-
-
-       //  <-------  UI hotels route -------------->
+      //  <-------  UI hotels route -------------->
 
       {
-        path:'/hotels',
-        element:<PrivateRoutes><Hotels></Hotels></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/hotels')
+        path: "/hotels",
+        element: (
+          <PrivateRoutes>
+            <Hotels></Hotels>
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/hotels"
+          ),
       },
       {
         path: "/hotels/:id",
-        element: <PrivateRoutes><HotelsDetails></HotelsDetails></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/hotels/${params.id}`)
+        element: (
+          <PrivateRoutes>
+            <HotelsDetails></HotelsDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/hotels/${params.id}`
+          ),
       },
-
 
       //  <-------  UI packages route -------------->
 
-
       {
         path: "/packages",
-        element: <PrivateRoutes><Packages></Packages></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/packages')
+        element: (
+          <PrivateRoutes>
+            <Packages></Packages>
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/packages"
+          ),
       },
       {
         path: "/packages/:id",
-        element: <PrivateRoutes><PackagesDetails></PackagesDetails></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`)
+        element: (
+          <PrivateRoutes>
+            <PackagesDetails></PackagesDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/packages/${params.id}`
+          ),
       },
 
       //  <------- Blogs -------------->
 
       {
         path: "/blogs",
-        element: <PrivateRoutes><Blogs></Blogs></PrivateRoutes>,
-        loader:()=>fetch('http://localhost:3000/blogs')
+        element: (
+          <PrivateRoutes>
+            <Blogs></Blogs>
+          </PrivateRoutes>
+        ),
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/blogs"
+          ),
       },
       {
         path: "/blogs/:id",
-        element: <PrivateRoutes><BlogsDetails></BlogsDetails></PrivateRoutes>,
-        loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
+        element: (
+          <PrivateRoutes>
+            <BlogsDetails></BlogsDetails>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/blogs/${params.id}`
+          ),
       },
       {
-         path:"/chatbot",
-         element:<PrivateRoutes><Chat></Chat></PrivateRoutes>
+        path: "/chatbot",
+        element: (
+          <PrivateRoutes>
+            <Chat></Chat>
+          </PrivateRoutes>
+        ),
       },
       {
-         path:'/success',
-         element: <Success></Success>
+        path: "/success",
+        element: <Success></Success>,
       },
       {
-        path:'/fail',
-        element:<Fail></Fail>
-     },
-     {
-      path:'/cancel',
-      element:<Cancel></Cancel>
-     },
-     {
+        path: "/fail",
+        element: <Fail></Fail>,
+      },
+      {
+        path: "/cancel",
+        element: <Cancel></Cancel>,
+      },
+      {
         path: "/register",
         element: <Register></Register>,
       },
@@ -143,119 +195,147 @@ const router = createBrowserRouter([
   // <<< --------------  User Dashboard Route ----------->>>
 
   {
-      path:"/dashboard/user-statistics",
-      element:<PrivateRoutes><UserInfo></UserInfo></PrivateRoutes>,
-      loader:()=>fetch('http://localhost:3000/bookings-packages/')
+    path: "/dashboard/user-statistics",
+    element: (
+      <PrivateRoutes>
+        <UserInfo></UserInfo>
+      </PrivateRoutes>
+    ),
+    loader: () =>
+      fetch(
+        "https://server-lyart-ten.vercel.app/bookings-packages/"
+      ),
   },
-
- 
 
   // <<----------  Admin Panel Route ------------->>
   {
-    
-      path: "/dashboard/",
-      element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
-      children:[
-        {
-          path:'/dashboard/statistics',
-          element:<Statistics></Statistics>,
-          loader:()=>fetch('http://localhost:3000/bookings-packages')
-        },
-        {
-          path:'/dashboard/users',
-          element:<Users></Users>,
-          loader:()=>fetch('http://localhost:3000/users')
-        },
+    path: "/dashboard/",
+    element: (
+      <PrivateRoutes>
+        <Dashboard></Dashboard>
+      </PrivateRoutes>
+    ),
+    children: [
+      {
+        path: "/dashboard/statistics",
+        element: <Statistics></Statistics>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/bookings-packages"
+          ),
+      },
+      {
+        path: "/dashboard/users",
+        element: <Users></Users>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/users"
+          ),
+      },
 
-        //  <-------- places route admin --------->
+      //  <-------- places route admin --------->
 
-        {
-          path:'/dashboard/guides-added',
-          element:<GuideAdded></GuideAdded>,
-         
-        },
-        {
-          path:'/dashboard/guides-updates',
-          element:<GuideUpdates></GuideUpdates>,
-          loader:()=>fetch('http://localhost:3000/guides')
-        },
-        {
-          path:'/dashboard/guides-updates/:id',
-          element:<SingleGuideUpdate></SingleGuideUpdate>,
-          loader:({params})=>fetch(`http://localhost:3000/guides/${params.id}`)
-        },
+      {
+        path: "/dashboard/guides-added",
+        element: <GuideAdded></GuideAdded>,
+      },
+      {
+        path: "/dashboard/guides-updates",
+        element: <GuideUpdates></GuideUpdates>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/guides"
+          ),
+      },
+      {
+        path: "/dashboard/guides-updates/:id",
+        element: <SingleGuideUpdate></SingleGuideUpdate>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/guides/${params.id}`
+          ),
+      },
 
+      // <--------  hotels admin   --------->
+      {
+        path: "/dashboard/hotels-added",
+        element: <HotelsAdded></HotelsAdded>,
+      },
+      {
+        path: "/dashboard/hotels-updates",
+        element: <HotelsUpdates></HotelsUpdates>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/hotels"
+          ),
+      },
+      {
+        path: "/dashboard/hotels-updates/:id",
+        element: <SingleHotelUpdate></SingleHotelUpdate>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/hotels/${params.id}`
+          ),
+      },
 
-        // <--------  hotels admin   ---------> 
-        {
-          path:'/dashboard/hotels-added',
-          element:<HotelsAdded></HotelsAdded>,
-         
-        },
-        {
-          path:'/dashboard/hotels-updates',
-          element:<HotelsUpdates></HotelsUpdates>,
-          loader:()=>fetch('http://localhost:3000/hotels')
-        },
-        {
-          path:'/dashboard/hotels-updates/:id',
-          element:<SingleHotelUpdate></SingleHotelUpdate>,
-          loader:({params})=>fetch(`http://localhost:3000/hotels/${params.id}`)
-        },
+      //  <-------- packages admin -------->
 
+      {
+        path: "/dashboard/packages-added",
+        element: <PackagesAdded></PackagesAdded>,
+      },
+      {
+        path: "/dashboard/packages-updates",
+        element: <PackagesUpdate></PackagesUpdate>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/packages"
+          ),
+      },
+      {
+        path: "/dashboard/packages-updates/:id",
+        element: <SinglePackageUpdate></SinglePackageUpdate>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/packages/${params.id}`
+          ),
+      },
 
-        //  <-------- packages admin -------->
+      // <-----------  blogs admin -------------- >
+      {
+        path: "/dashboard/blogs-added",
+        element: <BlogsAdded></BlogsAdded>,
+      },
+      {
+        path: "/dashboard/blogs-updates",
+        element: <BlogsUpdates></BlogsUpdates>,
+        loader: () =>
+          fetch(
+            "https://server-lyart-ten.vercel.app/blogs"
+          ),
+      },
+      {
+        path: "/dashboard/blogs-updates/:id",
+        element: <SingleBlogUpdate></SingleBlogUpdate>,
+        loader: ({ params }) =>
+          fetch(
+            `https://server-lyart-ten.vercel.app/blogs/${params.id}`
+          ),
+      },
 
-      
-        {
-          path:'/dashboard/packages-added',
-          element:<PackagesAdded></PackagesAdded>,
-         
-        },
-        {
-          path:'/dashboard/packages-updates',
-          element:<PackagesUpdate></PackagesUpdate>,
-          loader:()=>fetch('http://localhost:3000/packages')
-        },
-        {
-          path:'/dashboard/packages-updates/:id',
-          element:<SinglePackageUpdate></SinglePackageUpdate>,
-          loader:({params})=>fetch(`http://localhost:3000/packages/${params.id}`)
-        },
-
-
-        // <-----------  blogs admin -------------- >
-        {
-          path:'/dashboard/blogs-added',
-          element:<BlogsAdded></BlogsAdded>,
-         
-        },
-        {
-          path:'/dashboard/blogs-updates',
-          element:<BlogsUpdates></BlogsUpdates>,
-          loader:()=>fetch('http://localhost:3000/blogs')
-        },
-        {
-          path:'/dashboard/blogs-updates/:id',
-          element:<SingleBlogUpdate></SingleBlogUpdate>,
-          loader:({params})=>fetch(`http://localhost:3000/blogs/${params.id}`)
-        },
-
-        //  <----------  upcoming tour admin ------------>
-        {
-          path:'/dashboard/sta',
-          element:<UpcomingTour></UpcomingTour>
-        },
-      ]
-  }
+      //  <----------  upcoming tour admin ------------>
+      {
+        path: "/dashboard/sta",
+        element: <UpcomingTour></UpcomingTour>,
+      },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  
-    <HelmetProvider>
-      <AuthProvider>
-        <RouterProvider router={router}></RouterProvider>
-      </AuthProvider>
-    </HelmetProvider>
-  
+  <HelmetProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
+  </HelmetProvider>
 );

@@ -11,6 +11,8 @@ import { useEffect } from "react";
 //   AOS.init({duration:2000});
 // },[])
 
+// data-aos="fill-up" data-aos-earsing="ease-out-cubic"
+
 const Guide = () => {
 
 useEffect(()=>{

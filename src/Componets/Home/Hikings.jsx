@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 
+
 const Hikings = () => {
   return (
     <div className="my-16 mx-2 md:mx-8 xl:mx-0 px-2 md:px-4 font-serif">

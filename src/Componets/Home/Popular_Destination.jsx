@@ -3,7 +3,13 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 
+
+
 const Popular_Destination = () => {
+
+  
+
+
   const settings = {
     dots: true,
     infinite: true,
@@ -44,7 +50,7 @@ const Popular_Destination = () => {
   }, []);
 
   return (
-    <div className="w-full px-5 md:mx-5 lg:mx-0 xl:px-0 my-14 font-serif">
+    <div data-aos="fill-up" data-aos-earsing="ease-out-cubic" className="w-full px-5 md:mx-5 lg:mx-0 xl:px-0 my-14 font-serif">
       <h1 className="text-xl md:text-2xl font-bold mt-14  text-[#FFA500]">
         Popular Destinations
       </h1>

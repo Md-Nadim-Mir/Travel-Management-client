@@ -7,7 +7,13 @@ import { FaBath, FaWifi } from "react-icons/fa";
 import { FaVanShuttle } from "react-icons/fa6";
 import { LuSearch } from "react-icons/lu";
 
+
+
+
 const Hotels = () => {
+
+
+
   // load all places
   const hotels = useLoaderData([]);
   console.log(hotels);
@@ -16,7 +22,7 @@ const Hotels = () => {
   console.log(search);
 
   return (
-    <div className="font-serif">
+    <div className="font-serif" >
       <Helmet>
         <title>Travel | Hotels</title>
       </Helmet>
@@ -25,16 +31,16 @@ const Hotels = () => {
            
       </div>
       
-      <h1 className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500] px-2 md:px-4">
+      <h1  className="text-xl md:text-2xl font-bold mt-14 mb-8 text-[#FFA500] px-2 md:px-4">
         Popular Hotels
       </h1>
 
-      <Form className="p-2 md:p-0  md:mr-8 flex justify-end items-center  relative">
+      <Form  className="p-2 md:p-0  md:mr-8 flex justify-end items-center  relative">
     
-        <LuSearch  className=" absolute mr-10 md:mr-8 text-3xl font-bold" />
+        <LuSearch  className=" absolute mr-10 md:mr-8 text-xl font-bold" />
         <input
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          className="  my-3 w-full md:w-1/2  lg:w-1/4 border-2   rounded-full p-4   font-bold focus:outline-none"
+          className="  my-3 w-full md:w-1/2  lg:w-1/4 border-2   rounded-full px-4 py-2  font-bold focus:outline-none"
           placeholder="Location"
         > 
 
@@ -44,7 +50,7 @@ const Hotels = () => {
       </Form>
 
       {/* all places card design */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12  px-2 md:px-4">
+      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6  my-12  px-2 md:px-4"  >
         {hotels
           .filter((hotel) => {
             return search === ""
@@ -52,7 +58,7 @@ const Hotels = () => {
               : hotel.location.toLowerCase().includes(search);
           })
           .map((hotel) => (
-            <div key={hotel._id} className="card bg-base-100  shadow-xl">
+            <div key={hotel._id}  className=" card bg-base-100  shadow-xl">
               <figure>
                 <img src={hotel.image} className="h-[40vh] w-full" alt="Shoes" />
               </figure>
