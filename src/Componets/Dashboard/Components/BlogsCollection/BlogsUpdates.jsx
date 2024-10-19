@@ -16,7 +16,7 @@ const BlogsUpdates = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`http://localhost:3000/blogs/${_id}`, {
+    fetch(`https://server-lyart-ten.vercel.app/blogs/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

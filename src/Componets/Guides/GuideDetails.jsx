@@ -20,7 +20,7 @@ const GuideDetails = () => {
   const [allUser, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/users`)
+    fetch(`https://server-lyart-ten.vercel.app/users`)
       .then((res) => res.json())
       .then((data) => setUser(data.find((a) => a?.email === user?.email)));
   }, []);
@@ -63,7 +63,7 @@ const GuideDetails = () => {
     // <-------------------  Post Method : New Hotel bookings added to database ------->
 
     axios
-      .post("http://localhost:3000/create-payment-guides", {
+      .post("https://server-lyart-ten.vercel.app/create-payment-guides", {
         info: newBooking,
       })
       .then((res) => {

@@ -111,7 +111,7 @@ const UserInfo = () => {
    
 
     const deleteFunctionGuides = (_id) => {
-      fetch(`http://localhost:3000/bookings-guides/${_id}`, {
+      fetch(`https://server-lyart-ten.vercel.app/bookings-guides/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

@@ -36,7 +36,7 @@ const SingleBlogUpdate = () => {
     console.log(newBlog)
 
     // <-------------------  Post Method : New blog added to database ------->
-    fetch(`http://localhost:3000/blogs/${_id}`, {
+    fetch(`https://server-lyart-ten.vercel.app/blogs/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

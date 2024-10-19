@@ -35,7 +35,7 @@ const SingleHotelUpdate = () => {
     console.log(newHotel)
 
     // <-------------------  Post Method : New places added to database ------->
-    fetch(`http://localhost:3000/hotels/${_id}`, {
+    fetch(`https://server-lyart-ten.vercel.app/hotels/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

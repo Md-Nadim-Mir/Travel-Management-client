@@ -13,7 +13,7 @@ const Users = () => {
   // <------------ delete function ------------->
   const deleteFunction = (_id) => {
     console.log(_id);
-    fetch(`http://localhost:3000/users/${_id}`, {
+    fetch(`https://server-lyart-ten.vercel.app/users/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -33,7 +33,7 @@ const Users = () => {
   const updateFunction = (_id,updateInfo)=>{
       console.log(_id,updateInfo);
 
-      fetch(`http://localhost:3000/users/${_id}`,{
+      fetch(`https://server-lyart-ten.vercel.app/users/${_id}`,{
           method:'PUT',
           headers:{
             'content-type':'application/json'

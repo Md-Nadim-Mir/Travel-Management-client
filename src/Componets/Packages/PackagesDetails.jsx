@@ -1,6 +1,6 @@
 
 import { useContext, useEffect, useState } from "react";
-import { FaArrowsTurnRight } from "react-icons/fa6";
+// import { FaArrowsTurnRight } from "react-icons/fa6";
 import { Form, useLoaderData } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../AuthProvider/AuthProvider";
@@ -17,7 +17,7 @@ const PackagesDetails = () => {
 
   useEffect(()=>{
     
-     fetch(`http://localhost:3000/users`)
+     fetch(`https://server-lyart-ten.vercel.app/users`)
      .then(res=>res.json())
      .then(data=>setUser(data.find((a)=>a?.email ===user?.email)))
 
@@ -38,7 +38,7 @@ const PackagesDetails = () => {
     hotelLocation,
     hotelDescription,
     price,
-    postedDate,
+    // postedDate,
   } = loadPackage;
 
   // placeDescription convert
@@ -100,7 +100,7 @@ const PackagesDetails = () => {
   // <-------------------  Post Method : New Packages bookings added to database ------->
     
      
-  axios.post("http://localhost:3000/create-paymet",{
+  axios.post("https://server-lyart-ten.vercel.app/create-paymet",{
   info:newBooking,
    })
   .then((res)=>{
@@ -121,7 +121,7 @@ const PackagesDetails = () => {
     
     
     
-  //  fetch("http://localhost:3000/bookings/", {
+  //  fetch("https://server-lyart-ten.vercel.app/bookings/", {
   //   method: "POST",
   //   headers: {
   //     "content-type": "application/json",

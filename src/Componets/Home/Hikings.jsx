@@ -46,7 +46,7 @@ const Hikings = () => {
           <div className=" px-2 flex justify-center ">
             <img
               className="rounded-full w-[150px] h-[150px]"
-              src="https://i.ibb.co.com/Bs21zb4/download-3.jpg"
+              src="https://img.freepik.com/free-photo/3d-cartoon-portrait-person-practicing-law-profession_23-2151419562.jpg?uid=R166210735&ga=GA1.1.253006195.1727805757&semt=ais_hybrid"
               alt=""
             />
           </div>

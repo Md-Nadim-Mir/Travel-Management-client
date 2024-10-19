@@ -7,10 +7,10 @@ const Footer = () => {
       <footer className="footer bg-base-200 rounded-t-2xl mb-1 text-base-content p-10">
         <nav className="font-semibold">
           <h6 className="footer-title">Services</h6>
-          <a href="http://localhost:5173/blogs" className="link link-hover">Travel Blogs</a>
-          <a  href="http://localhost:5173/places" className="link link-hover">Visiting Places</a>
-          <a href="http://localhost:5173/hotels"  className="link link-hover">Popular Hotels</a>
-          <a  href="http://localhost:5173/packages" className="link link-hover">Attractive Packages</a>
+          <a href="https://travel--management-system.web.app/blogs" className="link link-hover">Travel Blogs</a>
+          <a  href="https://travel--management-system.web.app/places" className="link link-hover">Visiting Places</a>
+          <a href="https://travel--management-system.web.app/hotels"  className="link link-hover">Popular Hotels</a>
+          <a  href="https://travel--management-system.web.app/packages" className="link link-hover">Attractive Packages</a>
         </nav>
         <nav className="font-semibold">
           <h6 className="footer-title">Company</h6>
@@ -51,7 +51,7 @@ const Footer = () => {
         </aside>
         <nav className="md:place-self-center md:justify-self-end">
           <div className="grid grid-cols-1 gap-4">
-            <h1 className="textl-lg font-bold text-[#FFA500]">Developed By</h1>
+            <h1 className="textl-lg font-bold text-[#FFA500]">Developer Profile</h1>
             <div className="grid grid-flow-col">
             
               <a href="https://www.linkedin.com/in/md-nadim-mir-6665252a4/"  className="animate-bounce hover:animate-none">
