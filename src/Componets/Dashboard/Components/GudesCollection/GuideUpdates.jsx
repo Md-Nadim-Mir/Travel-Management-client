@@ -14,7 +14,7 @@ const GuideUpdates = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/guides/${_id}`, {
+    fetch(`http://localhost:3000/guides/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

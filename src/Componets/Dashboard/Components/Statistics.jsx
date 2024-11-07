@@ -16,7 +16,7 @@ const Statistics = () => {
 const [user, setUser] = useState([]);
 
 useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/users')
+  fetch('http://localhost:3000/users')
   .then((res) => res.json())
   .then((data) => setUser(data));
 },[])
@@ -30,7 +30,7 @@ useEffect(()=>{
  const [place, setPlace] = useState([]);
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/guides')
+  fetch('http://localhost:3000/guides')
    .then((res) => res.json())
   .then((data) => setPlace(data));
 },[])
@@ -44,7 +44,7 @@ useEffect(()=>{
 
  
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/hotels')
+  fetch('http://localhost:3000/hotels')
    .then((res) => res.json())
   .then((data) => setHotel(data));
 },[])
@@ -56,7 +56,7 @@ useEffect(()=>{
 
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/packages')
+  fetch('http://localhost:3000/packages')
    .then((res) => res.json())
    .then((data) => setPackage(data));
 },[])
@@ -68,7 +68,7 @@ useEffect(()=>{
  const [blog, setBlog] = useState([]);
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/blogs')
+  fetch('http://localhost:3000/blogs')
    .then((res) => res.json())
    .then((data) => setBlog(data));
 },[])
@@ -86,7 +86,7 @@ useEffect(()=>{
   
   
 
-   fetch('https://server-lyart-ten.vercel.app/bookings-hotels/')
+   fetch('http://localhost:3000/bookings-hotels/')
   .then(res=>res.json())
   .then(data=>setOpen(data))
 
@@ -97,7 +97,7 @@ useEffect(()=>{
   
   
 
-  fetch('https://server-lyart-ten.vercel.app/bookings-guides/')
+  fetch('http://localhost:3000/bookings-guides/')
  .then(res=>res.json())
  .then(data=>setGuide(data))     
 
@@ -109,7 +109,7 @@ useEffect(()=>{
    // Delete opearation Hotels
 
    const deleteFunctionHotels = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/bookings-hotels/${_id}`, {
+    fetch(`http://localhost:3000/bookings-hotels/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -129,7 +129,7 @@ useEffect(()=>{
   // Delete opearation  packages
 
   const deleteFunction = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/bookings-packages/${_id}`, {
+    fetch(`http://localhost:3000/bookings-packages/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -148,7 +148,7 @@ useEffect(()=>{
      // Delete opearation Guide
 
      const deleteFunctionGuides = (_id) => {
-      fetch(`https://server-lyart-ten.vercel.app/bookings-guides/${_id}`, {
+      fetch(`http://localhost:3000/bookings-guides/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -169,7 +169,7 @@ useEffect(()=>{
 //   const updateFunction = (_id,updateInfo)=>{
 //     console.log(_id,updateInfo);
 
-//     fetch(`https://server-lyart-ten.vercel.app/bookings/${_id}`,{
+//     fetch(`http://localhost:3000/bookings/${_id}`,{
 //         method:'PUT',
 //         headers:{
 //           'content-type':'application/json'

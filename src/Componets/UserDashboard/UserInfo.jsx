@@ -44,7 +44,7 @@ const UserInfo = () => {
   
   
 
-      fetch('https://server-lyart-ten.vercel.app/bookings-hotels/')
+      fetch('http://localhost:3000/bookings-hotels/')
      .then(res=>res.json())
      .then(data=>setOpen(data.filter((x)=>x?.email===user?.email)))     
 
@@ -59,7 +59,7 @@ const UserInfo = () => {
   
   
 
-  fetch('https://server-lyart-ten.vercel.app/bookings-guides/')
+  fetch('http://localhost:3000/bookings-guides/')
  .then(res=>res.json())
  .then(data=>setGuide(data.filter((x)=>x?.email===user?.email)))     
 
@@ -72,7 +72,7 @@ const UserInfo = () => {
   // Delete opearation packages
 
   const deleteFunction = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/bookings-packages/${_id}`, {
+    fetch(`http://localhost:3000/bookings-packages/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -91,7 +91,7 @@ const UserInfo = () => {
     // Delete opearation Hotels
 
     const deleteFunctionHotels = (_id) => {
-      fetch(`https://server-lyart-ten.vercel.app/bookings-hotels/${_id}`, {
+      fetch(`http://localhost:3000/bookings-hotels/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -111,7 +111,7 @@ const UserInfo = () => {
    
 
     const deleteFunctionGuides = (_id) => {
-      fetch(`https://server-lyart-ten.vercel.app/bookings-guides/${_id}`, {
+      fetch(`http://localhost:3000/bookings-guides/${_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

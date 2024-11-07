@@ -14,7 +14,7 @@ const PackagesUpdate = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/packages/${_id}`, {
+    fetch(`http://localhost:3000/packages/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

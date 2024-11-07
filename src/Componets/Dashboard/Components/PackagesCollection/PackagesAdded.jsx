@@ -43,7 +43,7 @@ const PackagesAdded = () => {
     };
 
    // <------------------- POST Method : New packages added to database ------->
-    fetch("https://server-lyart-ten.vercel.app/packages", {
+    fetch("http://localhost:3000/packages", {
       method: "POST",
       headers: {
         "content-type": "application/json",

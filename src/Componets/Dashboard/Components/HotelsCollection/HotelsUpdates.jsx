@@ -15,7 +15,7 @@ const HotelsUpdates = () => {
   // Delete opearation
 
   const deleteFunction = (_id) => {
-    fetch(`https://server-lyart-ten.vercel.app/hotels/${_id}`, {
+    fetch(`http://localhost:3000/hotels/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

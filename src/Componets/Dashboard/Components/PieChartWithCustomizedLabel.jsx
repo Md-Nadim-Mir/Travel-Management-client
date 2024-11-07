@@ -25,7 +25,7 @@ const PieChartWithCustomizedLabel = () => {
 const [user, setUser] = useState([]);
 
 useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/users')
+  fetch('http://localhost:3000/users')
   .then((res) => res.json())
   .then((data) => setUser(data));
 },[])
@@ -39,7 +39,7 @@ useEffect(()=>{
  const [place, setPlace] = useState([]);
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/guides')
+  fetch('http://localhost:3000/guides')
    .then((res) => res.json())
   .then((data) => setPlace(data));
 },[])
@@ -53,7 +53,7 @@ useEffect(()=>{
 
  
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/hotels')
+  fetch('http://localhost:3000/hotels')
    .then((res) => res.json())
   .then((data) => setHotel(data));
 },[])
@@ -65,7 +65,7 @@ useEffect(()=>{
 
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/packages')
+  fetch('http://localhost:3000/packages')
    .then((res) => res.json())
    .then((data) => setPackage(data));
 },[])
@@ -77,7 +77,7 @@ useEffect(()=>{
  const [blog, setBlog] = useState([]);
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/blogs')
+  fetch('http://localhost:3000/blogs')
    .then((res) => res.json())
    .then((data) => setBlog(data));
 },[])
@@ -90,7 +90,7 @@ useEffect(()=>{
  const [booking, setBooking] = useState([]);
 
  useEffect(()=>{
-  fetch('https://server-lyart-ten.vercel.app/bookings-packages')
+  fetch('http://localhost:3000/bookings-packages')
    .then((res) => res.json())
    .then((data) => setBooking(data));
 },[])

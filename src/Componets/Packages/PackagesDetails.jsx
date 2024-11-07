@@ -17,7 +17,7 @@ const PackagesDetails = () => {
 
   useEffect(()=>{
     
-     fetch(`https://server-lyart-ten.vercel.app/users`)
+     fetch(`http://localhost:3000/users`)
      .then(res=>res.json())
      .then(data=>setUser(data.find((a)=>a?.email ===user?.email)))
 
@@ -100,7 +100,7 @@ const PackagesDetails = () => {
   // <-------------------  Post Method : New Packages bookings added to database ------->
     
      
-  axios.post("https://server-lyart-ten.vercel.app/create-paymet",{
+  axios.post("http://localhost:3000/create-paymet",{
   info:newBooking,
    })
   .then((res)=>{
@@ -121,7 +121,7 @@ const PackagesDetails = () => {
     
     
     
-  //  fetch("https://server-lyart-ten.vercel.app/bookings/", {
+  //  fetch("http://localhost:3000/bookings/", {
   //   method: "POST",
   //   headers: {
   //     "content-type": "application/json",

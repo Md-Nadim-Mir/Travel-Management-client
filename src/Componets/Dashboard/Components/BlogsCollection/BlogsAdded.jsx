@@ -29,7 +29,7 @@ const BlogsAdded = () => {
     };
 
     // <-------------------  Post Method : New blogs added to database ------->
-    fetch("https://server-lyart-ten.vercel.app/blogs", {
+    fetch("http://localhost:3000/blogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

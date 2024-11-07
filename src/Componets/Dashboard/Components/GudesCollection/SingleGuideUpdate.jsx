@@ -48,7 +48,7 @@ const SingleGuideUpdate = () => {
     console.log(newPlace)
 
     // <-------------------  Post Method : New places added to database ------->
-    fetch(`https://server-lyart-ten.vercel.app/guides/${_id}`, {
+    fetch(`http://localhost:3000/guides/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

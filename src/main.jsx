@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage></ErrorPage>,
     element: <Loop></Loop>,
     loader: () =>
-      fetch("https://server-lyart-ten.vercel.app/users"),
+      fetch("http://localhost:3000/users"),
     children: [
       {
         path: "/",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/guides"
+            "http://localhost:3000/guides"
           ),
       },
       {
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/guides/${params.id}`
+            `http://localhost:3000/guides/${params.id}`
           ),
       },
 
@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/hotels"
+            "http://localhost:3000/hotels"
           ),
       },
       {
@@ -104,7 +104,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/hotels/${params.id}`
+            `http://localhost:3000/hotels/${params.id}`
           ),
       },
 
@@ -119,7 +119,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/packages"
+            "http://localhost:3000/packages"
           ),
       },
       {
@@ -131,7 +131,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/packages/${params.id}`
+            `http://localhost:3000/packages/${params.id}`
           ),
       },
 
@@ -146,7 +146,7 @@ const router = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/blogs"
+            "http://localhost:3000/blogs"
           ),
       },
       {
@@ -158,7 +158,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/blogs/${params.id}`
+            `http://localhost:3000/blogs/${params.id}`
           ),
       },
       {
@@ -203,7 +203,7 @@ const router = createBrowserRouter([
     ),
     loader: () =>
       fetch(
-        "https://server-lyart-ten.vercel.app/bookings-packages/"
+        "http://localhost:3000/bookings-packages/"
       ),
   },
 
@@ -221,7 +221,7 @@ const router = createBrowserRouter([
         element: <Statistics></Statistics>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/bookings-packages"
+            "http://localhost:3000/bookings-packages"
           ),
       },
       {
@@ -229,7 +229,7 @@ const router = createBrowserRouter([
         element: <Users></Users>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/users"
+            "http://localhost:3000/users"
           ),
       },
 
@@ -244,7 +244,7 @@ const router = createBrowserRouter([
         element: <GuideUpdates></GuideUpdates>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/guides"
+            "http://localhost:3000/guides"
           ),
       },
       {
@@ -252,7 +252,7 @@ const router = createBrowserRouter([
         element: <SingleGuideUpdate></SingleGuideUpdate>,
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/guides/${params.id}`
+            `http://localhost:3000/guides/${params.id}`
           ),
       },
 
@@ -266,7 +266,7 @@ const router = createBrowserRouter([
         element: <HotelsUpdates></HotelsUpdates>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/hotels"
+            "http://localhost:3000/hotels"
           ),
       },
       {
@@ -274,7 +274,7 @@ const router = createBrowserRouter([
         element: <SingleHotelUpdate></SingleHotelUpdate>,
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/hotels/${params.id}`
+            `http://localhost:3000/hotels/${params.id}`
           ),
       },
 
@@ -289,7 +289,7 @@ const router = createBrowserRouter([
         element: <PackagesUpdate></PackagesUpdate>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/packages"
+            "http://localhost:3000/packages"
           ),
       },
       {
@@ -297,7 +297,7 @@ const router = createBrowserRouter([
         element: <SinglePackageUpdate></SinglePackageUpdate>,
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/packages/${params.id}`
+            `http://localhost:3000/packages/${params.id}`
           ),
       },
 
@@ -311,7 +311,7 @@ const router = createBrowserRouter([
         element: <BlogsUpdates></BlogsUpdates>,
         loader: () =>
           fetch(
-            "https://server-lyart-ten.vercel.app/blogs"
+            "http://localhost:3000/blogs"
           ),
       },
       {
@@ -319,7 +319,7 @@ const router = createBrowserRouter([
         element: <SingleBlogUpdate></SingleBlogUpdate>,
         loader: ({ params }) =>
           fetch(
-            `https://server-lyart-ten.vercel.app/blogs/${params.id}`
+            `http://localhost:3000/blogs/${params.id}`
           ),
       },
 

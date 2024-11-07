@@ -28,7 +28,7 @@ const HotelsAdded = () => {
     };
 
     // <-------------------  Post Method : New hotel added to database ------->
-    fetch("https://server-lyart-ten.vercel.app/hotels", {
+    fetch("http://localhost:3000/hotels", {
       method: "POST",
       headers: {
         "content-type": "application/json",

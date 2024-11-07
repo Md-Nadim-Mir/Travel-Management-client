@@ -76,7 +76,7 @@ const theme = {
 //  <-------    Handle Payment  ------>
 //const handlePayment =()=>{
   
-  // axios.post("https://server-lyart-ten.vercel.app/create-paymet",{
+  // axios.post("http://localhost:3000/create-paymet",{
   //    amount:1000,
   //    currency:"USD"
   // })

@@ -35,7 +35,7 @@ const GuideAdded = () => {
     };
 
     // <-------------------  Post Method : New places added to database ------->
-    fetch("https://server-lyart-ten.vercel.app/guides", {
+    fetch("http://localhost:3000/guides", {
       method: "POST",
       headers: {
         "content-type": "application/json",

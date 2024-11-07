@@ -41,7 +41,7 @@ const SinglePackageUpdate = () => {
       };
   
      // <------------------- POST Method : New packages added to database ------->
-      fetch(`https://server-lyart-ten.vercel.app/packages/${_id}`, {
+      fetch(`http://localhost:3000/packages/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

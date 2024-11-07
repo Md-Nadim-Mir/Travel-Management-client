@@ -53,7 +53,7 @@ const Register = () => {
         console.log(result.user);
 
         // user data post backend
-        fetch('https://server-lyart-ten.vercel.app/users',{
+        fetch('http://localhost:3000/users',{
           method:'POST',
           headers:{
             'content-type':'application/json'
@@ -97,7 +97,7 @@ const Register = () => {
         // backend end
 
         // user data post backend
-        fetch('https://server-lyart-ten.vercel.app/users',{
+        fetch('http://localhost:3000/users',{
           method:'POST',
           headers:{
             'content-type':'application/json'

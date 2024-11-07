@@ -7,11 +7,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
-// useEffect(()=>{
-//   AOS.init({duration:2000});
-// },[])
-
-// data-aos="fill-up" data-aos-earsing="ease-out-cubic"
 
 const Guide = () => {
 
